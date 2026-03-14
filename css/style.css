@@ -163,12 +163,12 @@ footer {
     }
 
     .logo {
-        height: 65px; /* Logo dikecilkan sedikit agar tidak memakan tempat vertikal */
+        height: 55px; /* Logo dikecilkan sedikit agar tidak memakan tempat vertikal */
         flex-shrink: 0; /* Mencegah logo dipaksa gepeng oleh browser */
     }
 
     nav {
-        height: 50px; /* Tinggi navbar disamakan dengan logo */
+        height: 55px; /* Tinggi navbar disamakan dengan logo */
         padding: 0 15px; /* DIKECILKAN: padding kiri-kanan dikurangi supaya tidak lebar */
         border-radius: 12px;
         gap: 10px;
