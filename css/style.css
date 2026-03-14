@@ -163,23 +163,23 @@ footer {
     }
 
     .logo {
-        height: 40px; /* Logo dikecilkan sedikit agar tidak memakan tempat vertikal */
+        height: 50px; /* Logo dikecilkan sedikit agar tidak memakan tempat vertikal */
         flex-shrink: 0; /* Mencegah logo dipaksa gepeng oleh browser */
     }
 
     nav {
-        height: 40px; /* Tinggi navbar disamakan dengan logo */
+        height: 50px; /* Tinggi navbar disamakan dengan logo */
         padding: 0 15px; /* DIKECILKAN: padding kiri-kanan dikurangi supaya tidak lebar */
         border-radius: 12px;
         gap: 10px;
     }
 
     nav ul {
-        gap: 10px; /* Jarak antar teks menu dipersempit */
+        gap: 12px; /* Jarak antar teks menu dipersempit */
     }
 
     nav ul li a {
-        font-size: 0.75rem; /* Ukuran teks diperkecil sedikit */
+        font-size: 0.8rem; /* Ukuran teks diperkecil sedikit */
         padding: 0 5px;
     }
 
