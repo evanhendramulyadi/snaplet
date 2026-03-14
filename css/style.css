@@ -351,7 +351,7 @@ footer {
 /* --- Responsif Mobile (Anti Kebesaran) --- */
 @media (max-width: 768px) {
     .selection-title {
-        font-size: 1.6rem !important;
+        font-size: 1.7rem !important;
         margin-bottom: 30px !important;
         margin-top: 20px !important;
     }
