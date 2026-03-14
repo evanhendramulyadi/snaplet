@@ -159,26 +159,28 @@ footer {
 /* --- Responsive HP --- */
 @media (max-width: 600px) {
     body {
-        /* Fix background agar tetap cover di mobile */
         background-attachment: scroll; 
     }
 
     .logo {
-        height: 40px;
+        height: 40px; /* Logo dikecilkan sedikit agar tidak memakan tempat vertikal */
+        flex-shrink: 0; /* Mencegah logo dipaksa gepeng oleh browser */
     }
 
     nav {
-        height: 40px;
-        padding: 0 35px; /* Navbar HP dipanjangin sedikit */
-        border-radius: 15px;
+        height: 40px; /* Tinggi navbar disamakan dengan logo */
+        padding: 0 15px; /* DIKECILKAN: padding kiri-kanan dikurangi supaya tidak lebar */
+        border-radius: 12px;
+        gap: 10px;
     }
 
     nav ul {
-        gap: 15px;
+        gap: 10px; /* Jarak antar teks menu dipersempit */
     }
 
     nav ul li a {
-        font-size: 0.85rem;
+        font-size: 0.75rem; /* Ukuran teks diperkecil sedikit */
+        padding: 0 5px;
     }
 
     .btn-start {
