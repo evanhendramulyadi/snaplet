@@ -314,7 +314,7 @@ footer {
 
 .frame-item img {
     /* Pastikan gambar memenuhi lebar kotak frame-item */
-    width: 88%; 
+    width: 100%; 
     height: auto;
     border-radius: 4px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
