@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Frame - Snaplet</title>
+    <link rel="icon" type="image/png" href="img/logo-snaplet.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="selection-body">
+
+    <div class="main-wrapper">
+        <main class="hero">
+            <div class="selection-container">
+                <h1 class="selection-title">Choose the frame you want for your photobooth!</h1>
+                
+                <div class="frame-grid">
+                    <div class="frame-item" onclick="saveFrame('frame-overlay-1')">
+                        <img src="img/frame-preview-1.png" alt="Yellow Frame Preview">
+                    </div>
+                    <div class="frame-item" onclick="saveFrame('frame-overlay-2')">
+                        <img src="img/frame-preview-2.png" alt="Black Frame Preview">
+                    </div>
+                    <div class="frame-item" onclick="saveFrame('frame-overlay-3')">
+                        <img src="img/frame-preview-3.png" alt="Green Frame Preview">
+                    </div>
+                    <div class="frame-item" onclick="saveFrame('frame-overlay-4')">
+                        <img src="img/frame-preview-4.png" alt="Blue Frame Preview">
+                    </div>
+                </div>
+
+                <div class="action-area">
+                    <a href="index.html" class="btn-cancel-return">Cancel and Return to Home</a>
+                </div>
+            </div>
+        </main>
+
+        <footer class="selection-footer">
+            <div class="footer-line"></div>
+            <p class="copyright">&copy; 2026–Present Clario. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function saveFrame(frameName) {
+            localStorage.setItem('selectedFrame', frameName);
+            window.location.href = 'photobooth.html';
+        }
+    </script>
+</body>
+</html>

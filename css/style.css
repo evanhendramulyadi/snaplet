@@ -284,3 +284,80 @@ footer {
         padding: 0 15px; /* Sesuaikan dengan padding mobile di home */
     }
 }
+
+/* --- Style Khusus Choose Frame (Tanpa Nav) --- */
+.selection-container {
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selection-title {
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: 500;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.frame-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Agar tidak kepotong di HP */
+    margin-bottom: 40px;
+}
+
+.frame-item {
+    width: 180px; /* Ukuran PC sesuai desain */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.frame-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.frame-item:hover {
+    transform: scale(1.05);
+}
+
+/* Tombol Cancel krem sesuai desain */
+.btn-cancel-return {
+    display: inline-block;
+    background-color: #e6e2c3; 
+    color: #333;
+    padding: 12px 60px; /* Lebih lebar sesuai desain */
+    text-decoration: none;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.btn-cancel-return:hover {
+    background-color: #d1cdad;
+}
+
+/* Footer Line Khusus Choose Frame */
+.selection-footer {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
+    .frame-item {
+        width: 42%; /* Tampil 2 kolom di HP */
+    }
+    .selection-title {
+        margin-bottom: 30px;
+    }
+}
