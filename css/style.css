@@ -164,11 +164,11 @@ footer {
     }
 
     .logo {
-        height: 50px;
+        height: 40px;
     }
 
     nav {
-        height: 50px;
+        height: 40px;
         padding: 0 35px; /* Navbar HP dipanjangin sedikit */
         border-radius: 15px;
     }
