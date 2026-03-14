@@ -1,0 +1,137 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* MENGGANTI FONT MENJADI POPPINS */
+    font-family: 'Poppins', sans-serif; 
+}
+
+body {
+    background-image: url('../img/background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container {
+  background-color: rgba(255, 255, 255, 0); /* transparan */
+  /* atau kalau mau agak tembus tapi tetap terlihat, bisa ganti alpha */
+  /* background-color: rgba(255, 255, 255, 0.3); */
+  padding: 20px; /* optional */
+  border-radius: 10px; /* optional */
+}
+
+/* --- Bagian di bawah ini tetap sama seperti sebelumnya --- */
+
+/* Header & Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-left img, .logo-right img {
+    height: 60px;
+    width: auto;
+}
+
+nav {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 10px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+/* Hero Section */
+.hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 700; /* Lebih tebal untuk Poppins */
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 50px;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.btn-start {
+    background-color: #FFF3D0;
+    border: 1px solid #D1D1D1;
+    padding: 15px 60px;
+    font-size: 1.2rem;
+    font-weight: 600; /* Lebih tegas untuk Poppins */
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-start:hover {
+    background-color: #ffe8a3;
+}
+
+.help-text {
+    font-size: 0.9rem !important;
+}
+
+.help-text a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+footer hr {
+    width: 80%;
+    margin: 10px auto;
+    border: 0;
+    border-top: 1px solid #333;
+}
+
+footer p {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
