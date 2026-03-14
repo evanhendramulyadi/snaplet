@@ -297,22 +297,27 @@ footer {
 }
 
 /* --- Halaman Choose Frame --- */
+/* --- Halaman Choose Frame --- */
 .selection-title {
-    /* Mengecilkan sedikit size-nya */
-    font-size: clamp(1.2rem, 3.5vw, 2rem); 
+    /* Mengecilkan lagi sizenya agar lebih subtle */
+    font-size: clamp(1rem, 2.5vw, 1.5rem); 
     
-    /* Mengurangi ketebalan (Jangan terlalu tebal) */
-    font-weight: 500; /* Standar Poppins */
+    /* Tetap di 500 agar terlihat bersih dan tidak berat */
+    font-weight: 500; 
     
-    margin-bottom: clamp(20px, 4vw, 35px); /* Menyesuaikan spasi bawah */
+    /* Menambah jarak bawah (margin) agar ada "ruang napas" dengan frame-grid */
+    margin-bottom: 60px; /* Jarak yang lebih signifikan */
+    
     color: #000;
+    text-align: center;
 }
+
 .frame-grid {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap; /* Agar tidak kepotong di HP */
-    margin-bottom: 40px;
+    gap: 30px; /* Jarak antar frame */
+    flex-wrap: wrap;
+    margin-bottom: 60px; /* Jarak antara frame dengan tombol Return */
 }
 
 .frame-item {
@@ -356,8 +361,8 @@ footer {
 
 /* Efek Hover (sedikit pudar seperti tombol start) */
 .btn-cancel-return:hover {
-    background-color: #f1ebd8; /* Krem sedikit lebih gelap saat hover */
-    border-color: #b0b0b0;
+    background-color: #ffe8a3;
+    transform: scale(1.02);
 }
 
 /* Footer Line Khusus Choose Frame */
