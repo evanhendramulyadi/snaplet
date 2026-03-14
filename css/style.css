@@ -7,11 +7,12 @@
 }
 
 body {
+    /* Background Fix */
     background-image: url('../img/background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Background tidak gerak saat scroll */
+    background-attachment: fixed; /* Kunci background */
     min-height: 100vh;
     color: #000;
 }
@@ -23,30 +24,34 @@ body {
     padding: 20px;
 }
 
-/* --- Header & Navbar Section --- */
+/* --- Header Section --- */
 header {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-top: 10px;
+    padding-top: 15px;
 }
 
 .navbar-container {
     display: flex;
-    align-items: center;
-    gap: 15px; /* Jarak mepet antara logo dan kotak navbar */
+    align-items: center; /* Menjaga logo & nav sejajar vertikal */
+    gap: 10px;
 }
 
+/* Logo diset tingginya agar sinkron dengan navbar */
 .logo {
-    height: 55px;
+    height: 60px; /* Tinggi setara navbar desktop */
     width: auto;
     flex-shrink: 0;
 }
 
 nav {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
-    padding: 8px 35px;
+    height: 60px; /* Tinggi navbar disamakan dengan logo */
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
     border-radius: 50px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
@@ -54,20 +59,20 @@ nav {
 nav ul {
     display: flex;
     list-style: none;
-    gap: 25px;
+    gap: 30px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
-    font-size: 0.9rem;
+    color: #000;
+    font-size: 1rem;
     font-weight: 500;
     white-space: nowrap;
 }
 
 /* --- Hero Section --- */
 .hero {
-    flex: 1; /* Mendorong footer ke bawah */
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -77,93 +82,75 @@ nav ul li a {
 }
 
 .hero h1 {
-    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .hero .subtitle {
-    font-size: clamp(1rem, 2vw, 1.4rem);
-    margin-bottom: 50px;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    margin-bottom: 40px;
 }
 
+/* --- Button Simetris --- */
 .btn-start {
     background-color: #FFF3D0;
     border: 1px solid #DCDCDC;
-    padding: 15px 50px;
-    font-size: 1.1rem;
+    padding: 18px 50px;
+    font-size: 1.2rem;
     font-weight: 600;
-    border-radius: 12px;
+    border-radius: 15px;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
 }
-
-.btn-start:hover {
-    background-color: #ffe8a3;
-    transform: translateY(-2px);
-}
-
-/* Update pada css/style.css */
 
 .help-text {
     margin-top: 20px;
-    font-size: 0.9rem;
-    color: #000; /* Warna teks instruksi hitam */
+    font-size: 1rem;
 }
 
 .help-text a {
-    color: #000; /* Warna link jadi hitam */
-    text-decoration: none; /* Menghapus underline */
-    font-weight: 600; /* Dibuat sedikit tebal agar tetap terlihat seperti link */
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
 }
 
-.help-text a:hover {
-    opacity: 0.7; /* Efek sedikit pudar saat di-hover agar user tahu itu bisa diklik */
-}
-
-
-
-/* --- Footer Section --- */
+/* --- Footer --- */
 footer {
     width: 100%;
     text-align: center;
-    padding: 20px 0;
+    padding-bottom: 10px;
 }
 
 .footer-line {
-    width: 80%;
+    width: 90%;
     max-width: 800px;
     height: 1px;
-    background-color: #333;
-    margin: 10px auto;
+    background-color: #000;
+    margin: 15px auto;
 }
 
-.made-by {
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.copyright {
-    font-size: 0.8rem;
-}
-
-/* --- Responsive Mobile (HP) --- */
+/* --- RESPONSIVE HP (Mobile) --- */
 @media (max-width: 600px) {
-    .main-wrapper {
-        padding: 15px;
+    /* Mencegah background bergerak di beberapa browser mobile */
+    body {
+        background-attachment: scroll; 
+        background-image: url('../img/background.png');
+        background-position: center center;
     }
 
     .navbar-container {
-        gap: 8px; /* Lebih rapat di layar kecil */
+        gap: 6px; /* Jarak logo & nav lebih rapat di HP */
     }
 
+    /* Logo dan Nav dibuat sama tinggi (45px) agar tidak kekecilan */
     .logo {
-        height: 35px; /* Logo mengecil agar muat sebaris */
+        height: 45px; 
     }
 
     nav {
-        padding: 6px 15px; /* Kotak navbar mengecil */
+        height: 45px; /* Sama dengan tinggi logo */
+        padding: 0 20px;
     }
 
     nav ul {
@@ -171,10 +158,10 @@ footer {
     }
 
     nav ul li a {
-        font-size: 0.7rem;
+        font-size: 0.85rem; /* Teks nav lebih terbaca */
     }
 
     .hero h1 {
-        margin-top: 30px;
+        margin-top: 20px;
     }
 }
