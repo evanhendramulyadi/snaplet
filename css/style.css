@@ -373,12 +373,49 @@ footer {
     text-align: center;
 }
 
-/* Responsif Mobile */
+/* Responsif Mobile & Tablet */
 @media (max-width: 768px) {
-    .frame-item {
-        width: 42%; /* Tampil 2 kolom di HP */
-    }
+    /* Judul mengecil secara signifikan di HP */
     .selection-title {
-        margin-bottom: 30px;
+        font-size: 1.5rem !important; /* Ukuran lebih masuk akal buat HP */
+        margin-top: 30px !important;
+        margin-bottom: 40px !important;
+        padding: 0 15px; /* Biar teks gak mentok pinggir layar */
+    }
+
+    /* Frame jadi 2 kolom */
+    .frame-item {
+        width: 42%; 
+    }
+
+    /* Tombol Return menyesuaikan layar HP */
+    .btn-cancel-return {
+        padding: 15px 30px; /* Padding lebih kecil */
+        font-size: 1rem;
+        width: 80%; /* Tombol jadi panjang (hampir selebar layar) */
+        border-radius: 10px;
+    }
+
+    /* Grid frame jaraknya diraspatkan sedikit */
+    .frame-grid {
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+
+    /* Kurangi padding footer agar tidak terlalu banyak makan tempat */
+    .selection-footer {
+        padding: 30px 15px;
+    }
+}
+
+/* Khusus HP sangat kecil (seperti iPhone SE) */
+@media (max-width: 400px) {
+    .selection-title {
+        font-size: 1.3rem !important;
+    }
+    
+    .btn-cancel-return {
+        width: 90%;
+        padding: 12px 20px;
     }
 }
