@@ -1,4 +1,4 @@
-/* 1. Global Reset & Fix Scroll */
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,47 +6,39 @@
     font-family: 'Poppins', sans-serif;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    overflow: hidden; /* Mengunci layar agar tidak bisa di-scroll dan menghilangkan area putih */
-}
-
 body {
     background-image: url('../img/background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed; /* Kunci background agar tidak gerak */
+    min-height: 100vh;
     color: #000;
 }
 
-/* 2. Main Wrapper (Full Viewport) */
 .main-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Memaksa wrapper tepat seukuran layar HP/Desktop */
-    width: 100%;
-    padding: 15px 20px;
-    justify-content: space-between; /* Menjaga jarak Header, Hero, dan Footer agar tidak menumpuk */
+    min-height: 100vh;
+    padding: 20px;
 }
 
-/* 3. Header & Navbar (Simetris & Panjang) */
+/* --- Header & Navbar --- */
 header {
     width: 100%;
     display: flex;
     justify-content: center;
+    padding-top: 15px;
 }
 
 .navbar-container {
     display: flex;
     align-items: center;
     gap: 15px;
-    width: 100%;
-    justify-content: center;
 }
 
 .logo {
-    height: 60px; /* Ukuran seimbang dengan nav */
+    height: 65px;
     width: auto;
     flex-shrink: 0;
 }
@@ -54,11 +46,11 @@ header {
 nav {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
-    height: 60px;
+    height: 65px;
     display: flex;
     align-items: center;
-    padding: 0 80px; /* Navbar lebih panjang di desktop */
-    border-radius: 20px; /* Radius kotak tumpul sesuai permintaan */
+    padding: 0 80px; /* Navbar Panjang */
+    border-radius: 20px; /* Radius 20px sesuai permintaan */
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
@@ -70,20 +62,28 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #555;
+    color: #555; /* Warna teks default agak pudar */
     font-size: 1.1rem;
-    transition: 0.2s;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: 0.3s;
+    padding: 8px 15px;
+    border-radius: 10px;
 }
 
-/* Indikator Aktif: Hanya Bold */
+/* --- Indikator Page Aktif (Bercahaya & Berwarna) --- */
+/* --- Indikator Page Aktif (Hanya Bold) --- */
 nav ul li a.active {
+    color: #000; /* Hitam pekat */
+    font-weight: 700; /* Hanya Bold */
+}
+nav ul li a:hover {
     color: #000;
-    font-weight: 700;
 }
 
-/* 4. Hero Section (Pusat Konten) */
+/* --- Hero Section --- */
 .hero {
-    flex: 1; /* Mengambil ruang kosong di tengah */
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -92,30 +92,35 @@ nav ul li a.active {
 }
 
 .hero h1 {
-    font-size: clamp(2rem, 8vw, 4.5rem);
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .hero .subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.4rem);
-    margin-bottom: 35px;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    margin-bottom: 40px;
 }
 
-/* 5. Tombol Start: Simetris Sempurna */
+.cta-instruction {
+    margin-bottom: 20px;
+}
+
+/* --- Tombol Start Simetris Sempurna --- */
 .btn-start {
     background-color: #FFF3D0;
     border: 1px solid #DCDCDC;
-    padding: 20px 60px; 
+    padding: 20px 60px; /* Padding atas-bawah & kiri-kanan seimbang */
     font-size: 1.2rem;
     font-weight: 600;
     border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
-    display: inline-flex; /* Kunci simetris teks */
+    
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    line-height: 1; /* Mencegah teks miring/ke bawah */
+    line-height: 1; /* Reset line-height agar teks tidak miring */
 }
 
 .btn-start:hover {
@@ -123,8 +128,9 @@ nav ul li a.active {
     transform: scale(1.02);
 }
 
+/* --- Link Click Here --- */
 .help-text {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .help-text a {
@@ -133,38 +139,36 @@ nav ul li a.active {
     font-weight: 700;
 }
 
-/* 6. Footer (Rapi di Bawah) */
+/* --- Footer --- */
 footer {
     width: 100%;
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 .footer-line {
-    width: 80%;
-    max-width: 800px;
+    width: 90%;
+    max-width: 850px;
     height: 1px;
     background-color: #000;
-    margin: 10px auto;
+    margin: 15px auto;
 }
 
-.made-by, .copyright {
-    font-size: 0.8rem;
-}
-
-/* 7. Final Fix for Mobile (HP) */
+/* --- Responsive HP --- */
 @media (max-width: 600px) {
-    .main-wrapper {
-        padding: 10px;
+    body {
+        /* Fix background agar tetap cover di mobile */
+        background-attachment: scroll; 
     }
 
     .logo {
-        height: 45px; /* Kecilkan agar muat satu baris */
+        height: 50px;
     }
 
     nav {
-        height: 45px;
-        padding: 0 25px; /* Navbar HP tetap proporsional */
+        height: 50px;
+        padding: 0 35px; /* Navbar HP dipanjangin sedikit */
+        border-radius: 15px;
     }
 
     nav ul {
@@ -172,15 +176,11 @@ footer {
     }
 
     nav ul li a {
-        font-size: 0.8rem;
-    }
-
-    .hero h1 {
-        margin-top: -10px;
+        font-size: 0.85rem;
     }
 
     .btn-start {
-        padding: 16px 45px;
+        padding: 15px 45px;
         font-size: 1.1rem;
     }
 }
