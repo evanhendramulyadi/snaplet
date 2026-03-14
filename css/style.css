@@ -188,3 +188,44 @@ footer {
         font-size: 1.1rem;
     }
 }
+
+/* --- Khusus Halaman Content (How to Use) --- */
+.content-page {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.how-to-container {
+    max-width: 800px;
+    text-align: left; /* Teks langkah-langkah rata kiri */
+}
+
+.how-to-container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.instructions-list {
+    list-style-position: outside;
+    margin-left: 20px;
+}
+
+.instructions-list li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Penyesuaian Mobile untuk Content */
+@media (max-width: 600px) {
+    .how-to-container h2 {
+        font-size: 1.8rem;
+    }
+    .instructions-list li {
+        font-size: 0.95rem;
+    }
+}
