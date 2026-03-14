@@ -131,12 +131,12 @@ nav ul li a:hover {
 /* --- Link Click Here --- */
 .help-text {
     margin-top: 25px;
+    /* Jangan taruh underline di sini */
 }
 
 .help-text a {
     color: #000;
-    text-decoration: underline; /* INI YANG DITAMBAHKAN */
-    text-decoration: none;
+    text-decoration: underline; /* TARUH DI SINI */
     font-weight: 700;
 }
 
