@@ -351,8 +351,9 @@ footer {
 /* --- Responsif Mobile (Anti Kebesaran) --- */
 @media (max-width: 768px) {
     .selection-title {
-        font-size: 1.4rem !important;
+        font-size: 1.6rem !important;
         margin-bottom: 30px !important;
+        margin-top: 20px !important;
     }
 
     /* Di HP, kita buat frame lebih kecil (mirip look di laptop) */
