@@ -135,6 +135,7 @@ nav ul li a:hover {
 
 .help-text a {
     color: #000;
+    text-decoration: underline; /* INI YANG DITAMBAHKAN */
     text-decoration: none;
     font-weight: 700;
 }
