@@ -296,13 +296,17 @@ footer {
     align-items: center;
 }
 
+/* --- Halaman Choose Frame --- */
 .selection-title {
-    font-size: clamp(1.4rem, 4vw, 2.2rem);
-    font-weight: 300;
-    margin-bottom: 80px;
+    /* Mengecilkan sedikit size-nya */
+    font-size: clamp(1.2rem, 3.5vw, 2rem); 
+    
+    /* Mengurangi ketebalan (Jangan terlalu tebal) */
+    font-weight: 500; /* Standar Poppins */
+    
+    margin-bottom: clamp(20px, 4vw, 35px); /* Menyesuaikan spasi bawah */
     color: #000;
 }
-
 .frame-grid {
     display: flex;
     justify-content: center;
@@ -328,11 +332,12 @@ footer {
     transform: scale(1.05);
 }
 
-/* Tombol Cancel krem sesuai desain */
+/* --- Style Tombol Cancel/Return --- */
 .btn-cancel-return {
-    background-color: #FFF3D0;
+    /* Gunakan properti persis dari tombol Start kamu */
+    background-color: #FFF3D0; /* Warna krem sesuai spesifikasi */
     border: 1px solid #DCDCDC;
-    padding: 20px 60px; /* Padding atas-bawah & kiri-kanan seimbang */
+    padding: 20px 60px; /* Padding seimbang */
     font-size: 1.2rem;
     font-weight: 600;
     border-radius: 12px;
@@ -342,11 +347,17 @@ footer {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    line-height: 1; /* Reset line-height agar teks tidak miring */
+    line-height: 1;
+
+    /* Tambahan agar tag <a> terlihat seperti tombol */
+    text-decoration: none; /* Hapus garis bawah link */
+    color: #000; /* Warna teks hitam */
 }
 
+/* Efek Hover (sedikit pudar seperti tombol start) */
 .btn-cancel-return:hover {
-    background-color: #d1cdad;
+    background-color: #f1ebd8; /* Krem sedikit lebih gelap saat hover */
+    border-color: #b0b0b0;
 }
 
 /* Footer Line Khusus Choose Frame */
