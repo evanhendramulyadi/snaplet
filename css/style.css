@@ -298,8 +298,8 @@ footer {
 
 .selection-title {
     font-size: clamp(1.4rem, 4vw, 2.2rem);
-    font-weight: 500;
-    margin-bottom: 40px;
+    font-weight: 300;
+    margin-bottom: 80px;
     color: #000;
 }
 
@@ -330,15 +330,19 @@ footer {
 
 /* Tombol Cancel krem sesuai desain */
 .btn-cancel-return {
-    display: inline-block;
-    background-color: #e6e2c3; 
-    color: #333;
-    padding: 12px 60px; /* Lebih lebar sesuai desain */
-    text-decoration: none;
+    background-color: #FFF3D0;
+    border: 1px solid #DCDCDC;
+    padding: 20px 60px; /* Padding atas-bawah & kiri-kanan seimbang */
+    font-size: 1.2rem;
+    font-weight: 600;
     border-radius: 12px;
-    border: 1px solid #ccc;
-    font-size: 1.1rem;
+    cursor: pointer;
     transition: 0.3s;
+    
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1; /* Reset line-height agar teks tidak miring */
 }
 
 .btn-cancel-return:hover {
