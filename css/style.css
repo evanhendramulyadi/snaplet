@@ -285,50 +285,36 @@ footer {
     }
 }
 
-/* --- Style Khusus Choose Frame (Tanpa Nav) --- */
+/* --- Style Khusus Choose Frame --- */
 .selection-title {
-    /* Ukuran dinaikkan sedikit agar lebih terbaca */
     font-size: 2rem !important; 
-    
-    /* Dibuat Bold (Tebal) */
     font-weight: 700 !important;
-    
-    /* Jarak atas tetap, jarak bawah (margin-bottom) dibuat sangat lega */
-    margin-top: 20px !important;
-    margin-bottom: 50px !important; 
-    
+    margin-top: 0 !important; /* Tambah sedikit biar gak nempel atas browser */
+    margin-bottom: 20px !important; 
     color: #000;
     text-align: center;
     width: 100%;
-    /* Tambahan agar antar baris teks tidak terlalu rapat */
-    line-height: 1.3; 
-}
-/* Pastikan container tidak memaksa semua ke tengah secara vertikal */
-.selection-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Konten mulai dari atas, bukan tengah */
-    padding-top: 20px;
 }
 
 .frame-grid {
     display: flex;
     justify-content: center;
-    gap: 30px; /* Jarak antar frame */
+    /* Mengecilkan jarak antar frame (sebelumnya 30px) */
+    gap: 15px; 
     flex-wrap: wrap;
-    /* Tambahan agar tidak menempel ke tombol bawah */
-    margin-bottom: 60px; 
+    margin-bottom: 30px; 
 }
 
 .frame-item {
-    width: 180px; /* Ukuran PC sesuai desain */
+    /* Lebar kotak frame di laptop */
+    width: 140px; 
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
 .frame-item img {
-    width: 50%;
+    /* Pastikan gambar memenuhi lebar kotak frame-item */
+    width: 88%; 
     height: auto;
     border-radius: 4px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -340,82 +326,55 @@ footer {
 
 /* --- Style Tombol Cancel/Return --- */
 .btn-cancel-return {
-    /* Gunakan properti persis dari tombol Start kamu */
-    background-color: #FFF3D0; /* Warna krem sesuai spesifikasi */
+    background-color: #FFF3D0;
     border: 1px solid #DCDCDC;
-    padding: 20px 60px; /* Padding seimbang */
-    font-size: 1.2rem;
+    padding: 18px 50px; 
+    font-size: 1.1rem;
     font-weight: 600;
     border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
-    
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    line-height: 1;
-
-    /* Tambahan agar tag <a> terlihat seperti tombol */
-    text-decoration: none; /* Hapus garis bawah link */
-    color: #000; /* Warna teks hitam */
+    text-decoration: none;
+    color: #000;
 }
 
-/* Efek Hover (sedikit pudar seperti tombol start) */
-.btn-cancel-return:hover {
-    background-color: #ffe8a3;
-    transform: scale(1.02);
-}
-
-/* Footer Line Khusus Choose Frame */
 .selection-footer {
     width: 100%;
-    padding: 20px;
+    margin-top: 5px; /* Jarak dari tombol cancel ke footer */
+    padding: 20px 0;
     text-align: center;
 }
 
-/* Responsif Mobile & Tablet */
+/* --- Responsif Mobile (Anti Kebesaran) --- */
 @media (max-width: 768px) {
-    /* Judul mengecil secara signifikan di HP */
     .selection-title {
-        font-size: 1.5rem !important; /* Ukuran lebih masuk akal buat HP */
-        margin-top: 30px !important;
-        margin-bottom: 40px !important;
-        padding: 0 15px; /* Biar teks gak mentok pinggir layar */
+        font-size: 1.4rem !important;
+        margin-bottom: 30px !important;
     }
 
-    /* Frame jadi 2 kolom */
+    /* Di HP, kita buat frame lebih kecil (mirip look di laptop) */
     .frame-item {
-        width: 42%; 
+        width: 130px; /* Ukuran lebih kecil agar tidak menuhin layar */
     }
 
-    /* Tombol Return menyesuaikan layar HP */
-    .btn-cancel-return {
-        padding: 15px 30px; /* Padding lebih kecil */
-        font-size: 1rem;
-        width: 80%; /* Tombol jadi panjang (hampir selebar layar) */
-        border-radius: 10px;
-    }
-
-    /* Grid frame jaraknya diraspatkan sedikit */
     .frame-grid {
-        gap: 15px;
-        margin-bottom: 40px;
+        gap: 10px; /* Jarak antar frame lebih rapat di HP */
     }
 
-    /* Kurangi padding footer agar tidak terlalu banyak makan tempat */
-    .selection-footer {
-        padding: 30px 15px;
+    .btn-cancel-return {
+        padding: 15px 40px;
+        font-size: 1rem;
+        width: auto; /* Jangan paksa full width agar mirip laptop */
+        min-width: 200px;
     }
 }
 
-/* Khusus HP sangat kecil (seperti iPhone SE) */
 @media (max-width: 400px) {
-    .selection-title {
-        font-size: 1.3rem !important;
-    }
-    
-    .btn-cancel-return {
-        width: 90%;
-        padding: 12px 20px;
+    /* Untuk HP kecil, kita pastikan tetap muat 2 kolom */
+    .frame-item {
+        width: 110px;
     }
 }
