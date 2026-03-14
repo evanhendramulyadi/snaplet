@@ -287,19 +287,22 @@ footer {
 
 /* --- Style Khusus Choose Frame (Tanpa Nav) --- */
 .selection-title {
-    /* Mengecilkan teks secara signifikan */
-    font-size: 1.5rem !important; 
-    font-weight: 500 !important;
+    /* Ukuran dinaikkan sedikit agar lebih terbaca */
+    font-size: 1.8rem !important; 
     
-    /* Memberi jarak atas dan bawah yang lega */
+    /* Dibuat Bold (Tebal) */
+    font-weight: 700 !important;
+    
+    /* Jarak atas tetap, jarak bawah (margin-bottom) dibuat sangat lega */
     margin-top: 50px !important;
-    margin-bottom: 80px !important; 
+    margin-bottom: 100px !important; 
     
     color: #000;
     text-align: center;
     width: 100%;
+    /* Tambahan agar antar baris teks tidak terlalu rapat */
+    line-height: 1.3; 
 }
-
 /* Pastikan container tidak memaksa semua ke tengah secara vertikal */
 .selection-container {
     display: flex;
@@ -366,7 +369,7 @@ footer {
 /* Footer Line Khusus Choose Frame */
 .selection-footer {
     width: 100%;
-    padding: 20px;
+    padding: 30px;
     text-align: center;
 }
 
