@@ -287,36 +287,35 @@ footer {
 
 /* --- Style Khusus Choose Frame (Tanpa Nav) --- */
 .selection-title {
-    /* Perkecil ukurannya secara signifikan */
-    font-size: 1.5rem; 
+    /* Mengecilkan teks secara signifikan */
+    font-size: 1.5rem !important; 
+    font-weight: 500 !important;
     
-    /* Tipiskan font-nya agar elegan */
-    font-weight: 500;
-    
-    /* KUNCI: Kasih jarak atas dan bawah yang besar */
-    margin-top: 60px;    /* Jarak dari atas layar */
-    margin-bottom: 80px; /* Jarak ke gambar frame di bawahnya */
+    /* Memberi jarak atas dan bawah yang lega */
+    margin-top: 50px !important;
+    margin-bottom: 80px !important; 
     
     color: #000;
     text-align: center;
-    line-height: 1.2;
+    width: 100%;
 }
 
-/* Pastikan container-nya tidak narik teks ke atas */
+/* Pastikan container tidak memaksa semua ke tengah secara vertikal */
 .selection-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Mulai dari atas tapi dengan margin tadi */
-    min-height: 80vh;
+    justify-content: flex-start; /* Konten mulai dari atas, bukan tengah */
+    padding-top: 20px;
 }
 
 .frame-grid {
     display: flex;
     justify-content: center;
-    gap: 30px; /* Jarak antar frame */
+    gap: 30px;
     flex-wrap: wrap;
-    margin-bottom: 30px; /* Jarak antara frame dengan tombol Return */
+    /* Tambahan agar tidak menempel ke tombol bawah */
+    margin-bottom: 60px; 
 }
 
 .frame-item {
