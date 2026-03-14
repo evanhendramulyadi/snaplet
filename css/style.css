@@ -154,67 +154,75 @@ footer {
     margin: 15px auto;
 }
 
-/* --- Responsive HP: Anti-Potong & Anti-Scroll --- */
+/* --- Responsive HP: Logo Aman & Full Screen --- */
 @media (max-width: 600px) {
+    /* Menjaga background tetap penuh tanpa area putih di bawah */
     html, body {
-        overflow: hidden; /* Mencegah munculnya area putih di bawah */
         height: 100%;
-    }
-
-    body {
-        background-attachment: scroll; 
+        margin: 0;
     }
 
     .main-wrapper {
-        height: 100vh; /* Mengunci wrapper tepat satu layar HP */
-        padding: 10px;
+        min-height: 100vh;
+        padding: 10px 15px; /* Padding lebih rapat agar ruang lebih lega */
         justify-content: space-between;
     }
 
+    /* Memastikan container logo dan nav tidak saling tumpang tindih */
     .navbar-container {
-        gap: 8px; /* Mempersempit jarak agar muat satu baris */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px; /* Jarak antar elemen dipersempit */
     }
 
     .logo {
-        height: 40px; /* Ukuran yang aman untuk layar HP */
-        flex-shrink: 0; /* WAJIB: Mencegah logo terpotong/gepeng */
+        height: 42px; /* Ukuran pas agar logo bulat tidak terpotong atas-bawah */
+        width: auto;
+        flex-shrink: 0; /* WAJIB: Melarang browser memotong/mengecilkan logo */
     }
 
     nav {
-        height: 40px;
-        padding: 0 15px; /* Sesuaikan panjang nav agar tidak menabrak logo */
-        border-radius: 15px;
+        height: 42px; /* Tinggi nav disamakan dengan logo agar sejajar rapi */
+        padding: 0 15px; /* Panjang nav disesuaikan supaya muat di tengah */
+        border-radius: 12px;
+        flex-grow: 1; /* Biarkan nav mengisi ruang di antara dua logo */
+        max-width: 200px; /* Batasi agar tidak terlalu lebar dan menabrak logo */
     }
 
     nav ul {
-        gap: 12px;
+        gap: 10px; /* Jarak antar teks menu dipersempit */
+        justify-content: center;
     }
 
     nav ul li a {
-        font-size: 0.75rem;
-        padding: 5px 8px;
+        font-size: 0.75rem; /* Ukuran teks yang tetap mudah dibaca di HP */
+        padding: 0;
     }
 
+    /* Hero Section tetap besar dan memenuhi layar */
     .hero h1 {
-        font-size: 2rem;
-        margin-top: -20px; /* Angkat sedikit agar tidak mendorong footer keluar */
+        font-size: 2.2rem;
+        margin-bottom: 5px;
     }
 
     .hero .subtitle {
-        font-size: 0.95rem;
-        margin-bottom: 25px;
+        font-size: 1rem;
+        margin-bottom: 30px;
     }
 
     .btn-start {
-        padding: 15px 40px;
-        font-size: 1rem;
+        padding: 18px 50px; /* Ukuran tombol tetap mantap */
+        font-size: 1.1rem;
     }
 
+    /* Footer tetap di bawah dengan jarak rapat */
     footer {
         padding-bottom: 10px;
     }
 
     .footer-line {
-        margin: 8px auto;
+        margin: 10px auto;
     }
 }
