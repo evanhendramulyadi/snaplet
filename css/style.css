@@ -163,7 +163,7 @@ footer {
     }
 
     .logo {
-        height: 50px; /* Logo dikecilkan sedikit agar tidak memakan tempat vertikal */
+        height: 65px; /* Logo dikecilkan sedikit agar tidak memakan tempat vertikal */
         flex-shrink: 0; /* Mencegah logo dipaksa gepeng oleh browser */
     }
 
@@ -179,7 +179,7 @@ footer {
     }
 
     nav ul li a {
-        font-size: 0.8rem; /* Ukuran teks diperkecil sedikit */
+        font-size: 0.95rem; /* Ukuran teks diperkecil sedikit */
         padding: 0 5px;
     }
 
