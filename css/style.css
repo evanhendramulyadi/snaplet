@@ -11,7 +11,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Kunci background agar tidak gerak */
+    background-attachment: fixed;
     min-height: 100vh;
     color: #000;
 }
@@ -46,11 +46,11 @@ header {
 nav {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
-    height: 65px; /* Disamakan dengan tinggi logo */
+    height: 65px;
     display: flex;
     align-items: center;
-    padding: 0 80px; /* Navbar lebih panjang */
-    border-radius: 20px; /* Radius kotak tidak terlalu bulat */
+    padding: 0 80px; /* Navbar Panjang */
+    border-radius: 20px; /* Radius 20px sesuai permintaan */
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
@@ -62,10 +62,25 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #000;
+    color: #555; /* Warna teks default agak pudar */
     font-size: 1.1rem;
     font-weight: 500;
     white-space: nowrap;
+    transition: 0.3s;
+    padding: 8px 15px;
+    border-radius: 10px;
+}
+
+/* --- Indikator Page Aktif (Bercahaya & Berwarna) --- */
+nav ul li a.active {
+    color: #000; /* Teks jadi hitam pekat */
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.5); /* Background tipis */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Efek bercahaya */
+}
+
+nav ul li a:hover {
+    color: #000;
 }
 
 /* --- Hero Section --- */
@@ -84,40 +99,25 @@ nav ul li a {
     margin-bottom: 10px;
 }
 
-.hero .subtitle {
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    margin-bottom: 40px;
-}
-
-.cta-instruction {
-    margin-bottom: 20px;
-}
-
-/* --- Tombol Start Simetris Sempurna --- */
+/* --- Tombol Start: Simetris Sempurna --- */
 .btn-start {
     background-color: #FFF3D0;
     border: 1px solid #DCDCDC;
-    padding: 20px 60px; /* Padding atas-bawah & kiri-kanan seimbang */
+    padding: 20px 60px; 
     font-size: 1.2rem;
     font-weight: 600;
     border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
-    
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    line-height: 1; /* Reset line-height agar teks tidak miring */
+    line-height: 1; 
 }
 
 .btn-start:hover {
     background-color: #ffe8a3;
     transform: scale(1.02);
-}
-
-/* --- Link Click Here --- */
-.help-text {
-    margin-top: 25px;
 }
 
 .help-text a {
@@ -143,31 +143,14 @@ footer {
 
 /* --- Responsive HP --- */
 @media (max-width: 600px) {
-    body {
-        /* Fix background agar tetap cover di mobile */
-        background-attachment: scroll; 
-    }
-
-    .logo {
-        height: 50px;
-    }
-
+    body { background-attachment: scroll; }
+    .logo { height: 50px; }
     nav {
         height: 50px;
-        padding: 0 35px; /* Navbar HP dipanjangin sedikit */
+        padding: 0 35px;
         border-radius: 15px;
     }
-
-    nav ul {
-        gap: 15px;
-    }
-
-    nav ul li a {
-        font-size: 0.85rem;
-    }
-
-    .btn-start {
-        padding: 15px 45px;
-        font-size: 1.1rem;
-    }
+    nav ul { gap: 15px; }
+    nav ul li a { font-size: 0.85rem; padding: 5px 8px; }
+    .btn-start { padding: 15px 45px; font-size: 1.1rem; }
 }
