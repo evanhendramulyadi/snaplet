@@ -75,8 +75,6 @@ nav ul li a {
 nav ul li a.active {
     color: #000; /* Teks jadi hitam pekat */
     font-weight: 700;
-    background: rgba(255, 255, 255, 0.5); /* Background tipis */
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Efek bercahaya */
 }
 
 nav ul li a:hover {
