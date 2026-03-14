@@ -288,14 +288,14 @@ footer {
 /* --- Style Khusus Choose Frame (Tanpa Nav) --- */
 .selection-title {
     /* Ukuran dinaikkan sedikit agar lebih terbaca */
-    font-size: 1.8rem !important; 
+    font-size: 3rem !important; 
     
     /* Dibuat Bold (Tebal) */
     font-weight: 700 !important;
     
     /* Jarak atas tetap, jarak bawah (margin-bottom) dibuat sangat lega */
     margin-top: 50px !important;
-    margin-bottom: 100px !important; 
+    margin-bottom: 50px !important; 
     
     color: #000;
     text-align: center;
