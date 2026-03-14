@@ -154,33 +154,67 @@ footer {
     margin: 15px auto;
 }
 
-/* --- Responsive HP --- */
+/* --- Responsive HP: Anti-Potong & Anti-Scroll --- */
 @media (max-width: 600px) {
+    html, body {
+        overflow: hidden; /* Mencegah munculnya area putih di bawah */
+        height: 100%;
+    }
+
     body {
-        /* Fix background agar tetap cover di mobile */
         background-attachment: scroll; 
     }
 
+    .main-wrapper {
+        height: 100vh; /* Mengunci wrapper tepat satu layar HP */
+        padding: 10px;
+        justify-content: space-between;
+    }
+
+    .navbar-container {
+        gap: 8px; /* Mempersempit jarak agar muat satu baris */
+    }
+
     .logo {
-        height: 50px;
+        height: 40px; /* Ukuran yang aman untuk layar HP */
+        flex-shrink: 0; /* WAJIB: Mencegah logo terpotong/gepeng */
     }
 
     nav {
-        height: 50px;
-        padding: 0 35px; /* Navbar HP dipanjangin sedikit */
+        height: 40px;
+        padding: 0 15px; /* Sesuaikan panjang nav agar tidak menabrak logo */
         border-radius: 15px;
     }
 
     nav ul {
-        gap: 15px;
+        gap: 12px;
     }
 
     nav ul li a {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+        padding: 5px 8px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        margin-top: -20px; /* Angkat sedikit agar tidak mendorong footer keluar */
+    }
+
+    .hero .subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 25px;
     }
 
     .btn-start {
-        padding: 15px 45px;
-        font-size: 1.1rem;
+        padding: 15px 40px;
+        font-size: 1rem;
+    }
+
+    footer {
+        padding-bottom: 10px;
+    }
+
+    .footer-line {
+        margin: 8px auto;
     }
 }
