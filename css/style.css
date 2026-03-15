@@ -535,53 +535,51 @@ footer {
     }
 }
 
-/* --- Responsif Mobile --- */
+/* --- Responsif Mobile (Tetap Landscape) --- */
 @media (max-width: 768px) {
     .camera-container {
-        width: 95%;
-        /* Tetap 4/3 sesuai request untuk kebutuhan cropping */
-        aspect-ratio: 4 / 3; 
-        /* PENTING: Jangan pakai overflow: hidden di sini agar tombol 
-           yang nempel di bawah box tidak terpotong */
-        overflow: visible; 
+        width: 100%; /* Manfaatkan seluruh lebar layar HP */
+        aspect-ratio: 4 / 3; /* PAKSA LANDSCAPE */
+        margin: 0 auto;
+        overflow: visible; /* Supaya tombol tips yang nempel di bawah tidak hilang */
+        border-radius: 0; /* Opsional: kotak penuh ke pinggir layar HP agar video lebih besar */
     }
 
     #video {
-        /* Border radius dipindah ke video karena container-nya tidak bisa overflow:hidden */
-        border-radius: 20px;
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
-    .tips-box { 
-        width: 85%;
-        padding: 15px 20px 25px 20px; /* Padding lebih ramping di HP */
+    /* Penyesuaian Box Tips agar muat di area landscape yang sempit */
+    .tips-box {
+        width: 80%;
+        padding: 15px 20px 25px 20px;
         border-radius: 20px;
     }
 
     .tips-content h3 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         margin-bottom: 5px;
     }
 
     .tips-content p {
-        font-size: 0.9rem;
-        line-height: 1.3;
+        font-size: 0.85rem;
+        line-height: 1.2;
     }
 
+    /* Tombol tetap nempel setengah keluar */
     .tips-actions {
-        flex-direction: column; /* Tombol tumpuk ke bawah */
-        gap: 8px;
-        /* Sesuaikan posisi tombol yang keluar box agar pas di layar kecil */
-        bottom: -35px; 
-        width: 90%;
+        bottom: -30px; 
+        flex-direction: row; /* Di landscape, tombol kiri-kanan lebih hemat tempat daripada tumpuk */
+        gap: 10px;
+        width: 95%;
     }
 
     .btn-ready, .btn-cancel-tips {
-        width: 100%;
-        padding: 10px;
-        font-size: 0.8rem;
-        border-radius: 30px; /* Tetap lonjong tapi lebih kecil */
+        flex: 1; /* Bagi rata lebar tombol */
+        padding: 10px 5px;
+        font-size: 0.75rem;
+        white-space: nowrap;
     }
 }
