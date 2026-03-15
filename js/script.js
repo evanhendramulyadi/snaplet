@@ -25,14 +25,14 @@ const readyBtn = document.getElementById("readyBtn");
 
 // Fungsi untuk menyalakan kamera
 async function setupCamera() {
-    if (!video) return; // Berhenti jika bukan di halaman photobooth
+    if (!video) return;
 
     try {
         const constraints = {
             video: {
                 facingMode: "user",
-                width: { ideal: 1280 },
-                height: { ideal: 720 }
+                width: { ideal: 1024 }, 
+                height: { ideal: 768 }
             },
             audio: false,
         };
@@ -43,14 +43,10 @@ async function setupCamera() {
         video.onloadedmetadata = () => {
             video.play();
         };
-
-        console.log("Kamera berhasil terhubung!");
     } catch (err) {
-        console.error("Gagal akses kamera: ", err);
-        alert("Kamera tidak ditemukan atau izin ditolak.");
+        // Gagal diam saja tanpa notif
     }
 }
-
 // Logika menutup modal Tips
 if (readyBtn && tipsModal) {
     readyBtn.addEventListener("click", () => {

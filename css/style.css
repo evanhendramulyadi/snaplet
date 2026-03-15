@@ -473,7 +473,7 @@ footer {
     border-radius: 30px;
     text-align: left;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    border: 1px solid #ffffff;
+    border: 2px solid #ffffff;
 
     /* Penting agar kita bisa atur posisi tombol relatif terhadap box ini */
     position: relative;
@@ -640,7 +640,7 @@ footer {
 
     /* Tombol tetap nempel setengah keluar */
     .tips-actions {
-        bottom: -30px;
+        bottom: -18px;
         flex-direction: row;
         /* Di landscape, tombol kiri-kanan lebih hemat tempat daripada tumpuk */
         gap: 10px;
