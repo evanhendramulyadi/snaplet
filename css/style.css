@@ -623,7 +623,7 @@ footer {
     .tips-box {
         width: 85%;
         padding: 20px 20px 35px 20px;
-        margin-bottom: 5px; 
+        margin-bottom: 8px; 
         /* Biar box tidak terlalu tinggi kalau layar HP sangat pendek */
         max-height: 80vh; 
         overflow-y: visible; 
