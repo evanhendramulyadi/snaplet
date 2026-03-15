@@ -26,35 +26,33 @@ const readyBtn = document.getElementById("readyBtn");
 // Fungsi untuk menyalakan kamera
 async function setupCamera() {
     if (!video) return;
-
     try {
-        const constraints = {
-            video: {
-                facingMode: "user",
-                width: { ideal: 1024 }, 
-                height: { ideal: 768 }
-            },
-            audio: false,
-        };
-
-        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        const stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: "user", width: { ideal: 1024 }, height: { ideal: 768 } },
+            audio: false
+        });
+        cameraStream = stream; // Simpan stream di sini
         video.srcObject = stream;
-
-        video.onloadedmetadata = () => {
-            video.play();
-        };
+        video.onloadedmetadata = () => video.play();
     } catch (err) {
-        // Gagal diam saja tanpa notif
+        cameraStream = null; // Gagal, stream tetap null
     }
 }
+
 // Logika menutup modal Tips
 if (readyBtn) {
     readyBtn.addEventListener('click', () => {
+        // DIAM SAJA JIKA KAMERA BELUM SIAP
+        if (!cameraStream || !cameraStream.active) {
+            return; // Keluar dari fungsi tanpa melakukan apa-apa
+        }
+
+        // Jalankan hanya jika kamera sudah OK
         if (tipsModal) tipsModal.style.display = 'none';
-        console.log("Photobooth dimulai...");
         startPhotoboothCycle(); 
     });
 }
+
 // Inisialisasi kamera jika elemen video ada
 if (video) {
     setupCamera();
@@ -64,6 +62,7 @@ if (video) {
 const instrTextElem = document.getElementById('captureInstructionText'); 
 const countdownEl = document.getElementById("countdown");
 
+let cameraStream = null; // Tambahkan ini di deretan variabel global paling atas
 let photoCount = 0;
 const maxPhotos = 4;
 const capturedPhotos = [];
