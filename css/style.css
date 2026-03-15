@@ -539,15 +539,49 @@ footer {
 @media (max-width: 768px) {
     .camera-container {
         width: 95%;
-        aspect-ratio: 4 / 3; /* Di HP kamera lebih tegak/potrait */
+        /* Tetap 4/3 sesuai request untuk kebutuhan cropping */
+        aspect-ratio: 4 / 3; 
+        /* PENTING: Jangan pakai overflow: hidden di sini agar tombol 
+           yang nempel di bawah box tidak terpotong */
+        overflow: visible; 
     }
 
-    .tips-box {
-        width: 90%;
-        padding: 20px;
+    #video {
+        /* Border radius dipindah ke video karena container-nya tidak bisa overflow:hidden */
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .tips-box { 
+        width: 85%;
+        padding: 15px 20px 25px 20px; /* Padding lebih ramping di HP */
+        border-radius: 20px;
+    }
+
+    .tips-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+
+    .tips-content p {
+        font-size: 0.9rem;
+        line-height: 1.3;
     }
 
     .tips-actions {
-        flex-direction: column; /* Tombol tumpuk di HP */
+        flex-direction: column; /* Tombol tumpuk ke bawah */
+        gap: 8px;
+        /* Sesuaikan posisi tombol yang keluar box agar pas di layar kecil */
+        bottom: -35px; 
+        width: 90%;
+    }
+
+    .btn-ready, .btn-cancel-tips {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.8rem;
+        border-radius: 30px; /* Tetap lonjong tapi lebih kecil */
     }
 }
