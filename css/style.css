@@ -793,7 +793,7 @@ footer {
     margin-bottom: -10px; /* Jarak ke box kamera di bawahnya */
     text-align: center;
     z-index: 5;
-    text-transform: none; 
+    text-transform: none !important; /* Tambahkan ini agar mengikuti teks asli di JS */
 }
 
 /* --- RESPONSIF MOBILE --- */
