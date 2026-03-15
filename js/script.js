@@ -25,29 +25,25 @@ const readyBtn = document.getElementById("readyBtn");
 
 // Fungsi untuk menyalakan kamera
 async function setupCamera() {
-    if (!video) return; // Berhenti jika bukan di halaman photobooth
+    const constraints = {
+        video: {
+            // Minta rasio 4:3 ke browser
+            aspectRatio: { ideal: 1.3333333333 }, 
+            width: { ideal: 1280 },
+            height: { ideal: 960 }
+        },
+        audio: false
+    };
 
     try {
-        const constraints = {
-            video: {
-                facingMode: "user",
-                width: { ideal: 1280 },
-                height: { ideal: 720 }
-            },
-            audio: false,
-        };
-
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
         video.srcObject = stream;
-
+        
         video.onloadedmetadata = () => {
             video.play();
         };
-
-        console.log("Kamera berhasil terhubung!");
     } catch (err) {
         console.error("Gagal akses kamera: ", err);
-        alert("Kamera tidak ditemukan atau izin ditolak.");
     }
 }
 

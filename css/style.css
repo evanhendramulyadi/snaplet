@@ -11,7 +11,8 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Kunci background agar tidak gerak */
+    background-attachment: fixed;
+    /* Kunci background agar tidak gerak */
     min-height: 100vh;
     color: #000;
 }
@@ -49,9 +50,11 @@ nav {
     height: 65px;
     display: flex;
     align-items: center;
-    padding: 0 80px; /* Navbar Panjang */
-    border-radius: 20px; /* Radius 20px sesuai permintaan */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    padding: 0 80px;
+    /* Navbar Panjang */
+    border-radius: 20px;
+    /* Radius 20px sesuai permintaan */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 nav ul {
@@ -62,7 +65,8 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #555; /* Warna teks default agak pudar */
+    color: #555;
+    /* Warna teks default agak pudar */
     font-size: 1.1rem;
     font-weight: 500;
     white-space: nowrap;
@@ -73,7 +77,8 @@ nav ul li a {
 
 /* --- Indikator Page Aktif (Bercahaya & Berwarna) --- */
 nav ul li a.active {
-    color: #000; /* Teks jadi hitam pekat */
+    color: #000;
+    /* Teks jadi hitam pekat */
     font-weight: 700;
 }
 
@@ -110,17 +115,19 @@ nav ul li a:hover {
 .btn-start {
     background-color: #FFF3D0;
     border: 1px solid #DCDCDC;
-    padding: 20px 60px; /* Padding atas-bawah & kiri-kanan seimbang */
+    padding: 20px 60px;
+    /* Padding atas-bawah & kiri-kanan seimbang */
     font-size: 1.2rem;
     font-weight: 600;
     border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
-    
+
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    line-height: 1; /* Reset line-height agar teks tidak miring */
+    line-height: 1;
+    /* Reset line-height agar teks tidak miring */
 }
 
 .btn-start:hover {
@@ -136,7 +143,8 @@ nav ul li a:hover {
 
 .help-text a {
     color: #000;
-    text-decoration: underline; /* TARUH DI SINI */
+    text-decoration: underline;
+    /* TARUH DI SINI */
     font-weight: 700;
 }
 
@@ -158,27 +166,33 @@ footer {
 /* --- Responsive HP --- */
 @media (max-width: 600px) {
     body {
-        background-attachment: scroll; 
+        background-attachment: scroll;
     }
 
     .logo {
-        height: 55px; /* Logo dikecilkan sedikit agar tidak memakan tempat vertikal */
-        flex-shrink: 0; /* Mencegah logo dipaksa gepeng oleh browser */
+        height: 55px;
+        /* Logo dikecilkan sedikit agar tidak memakan tempat vertikal */
+        flex-shrink: 0;
+        /* Mencegah logo dipaksa gepeng oleh browser */
     }
 
     nav {
-        height: 55px; /* Tinggi navbar disamakan dengan logo */
-        padding: 0 15px; /* DIKECILKAN: padding kiri-kanan dikurangi supaya tidak lebar */
+        height: 55px;
+        /* Tinggi navbar disamakan dengan logo */
+        padding: 0 15px;
+        /* DIKECILKAN: padding kiri-kanan dikurangi supaya tidak lebar */
         border-radius: 12px;
         gap: 10px;
     }
 
     nav ul {
-        gap: 12px; /* Jarak antar teks menu dipersempit */
+        gap: 12px;
+        /* Jarak antar teks menu dipersempit */
     }
 
     nav ul li a {
-        font-size: 0.95rem; /* Ukuran teks diperkecil sedikit */
+        font-size: 0.95rem;
+        /* Ukuran teks diperkecil sedikit */
         padding: 0 5px;
     }
 
@@ -199,7 +213,8 @@ footer {
 
 .how-to-container {
     max-width: 800px;
-    text-align: left; /* Teks langkah-langkah rata kiri */
+    text-align: left;
+    /* Teks langkah-langkah rata kiri */
 }
 
 .how-to-container h2 {
@@ -224,6 +239,7 @@ footer {
     .how-to-container h2 {
         font-size: 1.8rem;
     }
+
     .instructions-list li {
         font-size: 0.95rem;
     }
@@ -235,8 +251,10 @@ footer {
     max-width: 900px;
     width: 100%;
     text-align: left;
-    padding: 0 20px; /* Jaga padding tetap sama dengan hero di home */
-    margin: 0 auto;  /* Menjaga konten tetap di tengah */
+    padding: 0 20px;
+    /* Jaga padding tetap sama dengan hero di home */
+    margin: 0 auto;
+    /* Menjaga konten tetap di tengah */
 }
 
 .about-container h2 {
@@ -276,21 +294,25 @@ footer {
 
 /* Penyesuaian Mobile */
 @media (max-width: 600px) {
-    .about-text p, .team-list li {
+
+    .about-text p,
+    .team-list li {
         font-size: 0.95rem;
     }
-    
+
     .about-container {
-        padding: 0 15px; /* Sesuaikan dengan padding mobile di home */
+        padding: 0 15px;
+        /* Sesuaikan dengan padding mobile di home */
     }
 }
 
 /* --- Style Khusus Choose Frame --- */
 .selection-title {
-    font-size: 2rem !important; 
+    font-size: 2rem !important;
     font-weight: 700 !important;
-    margin-top: 10px !important; /* Tambah sedikit biar gak nempel atas browser */
-    margin-bottom: 20px !important; 
+    margin-top: 10px !important;
+    /* Tambah sedikit biar gak nempel atas browser */
+    margin-bottom: 20px !important;
     color: #000;
     text-align: center;
     width: 100%;
@@ -300,24 +322,24 @@ footer {
     display: flex;
     justify-content: center;
     /* Mengecilkan jarak antar frame (sebelumnya 30px) */
-    gap: 20px; 
+    gap: 20px;
     flex-wrap: wrap;
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
 }
 
 .frame-item {
     /* Lebar kotak frame di laptop */
-    width: 140px; 
+    width: 140px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
 .frame-item img {
     /* Pastikan gambar memenuhi lebar kotak frame-item */
-    width: 100%; 
+    width: 100%;
     height: auto;
     border-radius: 4px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .frame-item:hover {
@@ -328,7 +350,7 @@ footer {
 .btn-cancel-return {
     background-color: #FFF3D0;
     border: 1px solid #DCDCDC;
-    padding: 18px 50px; 
+    padding: 18px 50px;
     font-size: 1.1rem;
     font-weight: 600;
     border-radius: 12px;
@@ -349,7 +371,8 @@ footer {
 
 .selection-footer {
     width: 100%;
-    margin-top: 5px; /* Jarak dari tombol cancel ke footer */
+    margin-top: 5px;
+    /* Jarak dari tombol cancel ke footer */
     padding: 20px 0;
     text-align: center;
 }
@@ -364,22 +387,26 @@ footer {
 
     /* Di HP, kita buat frame lebih kecil (mirip look di laptop) */
     .frame-item {
-        width: 130px; /* Ukuran lebih kecil agar tidak menuhin layar */
+        width: 130px;
+        /* Ukuran lebih kecil agar tidak menuhin layar */
     }
 
     .frame-grid {
-        gap: 20px; /* Jarak antar frame lebih rapat di HP */
+        gap: 20px;
+        /* Jarak antar frame lebih rapat di HP */
     }
 
     .btn-cancel-return {
         padding: 15px 40px;
         font-size: 1rem;
-        width: auto; /* Jangan paksa full width agar mirip laptop */
+        width: auto;
+        /* Jangan paksa full width agar mirip laptop */
         min-width: 200px;
     }
 }
 
 @media (max-width: 400px) {
+
     /* Untuk HP kecil, kita pastikan tetap muat 2 kolom */
     .frame-item {
         width: 110px;
@@ -390,12 +417,15 @@ footer {
 .camera-container {
     position: relative;
     width: 90%;
-    max-width: 800px; /* Tidak full layar, kotak di tengah */
-    aspect-ratio: 16 / 10; /* Proporsi container kamera sesuai screenshot */
-    background: #333; /* Background gelap di belakang video */
+    max-width: 800px;
+    /* Tidak full layar, kotak di tengah */
+    aspect-ratio: 16 / 10;
+    /* Proporsi container kamera sesuai screenshot */
+    background: #333;
+    /* Background gelap di belakang video */
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     margin: 20px auto;
 }
 
@@ -411,8 +441,10 @@ footer {
 #video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Biar video memenuhi kotak tanpa distorsi */
-    transform: scaleX(-1); /* Efek mirror kamera */
+    object-fit: cover;
+    /* Biar video memenuhi kotak tanpa distorsi */
+    transform: scaleX(-1);
+    /* Efek mirror kamera */
 }
 
 /* --- Tips Modal / Notification --- */
@@ -422,38 +454,47 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Overlay sedikit lebih terang agar fokus ke box */
+    background: rgba(0, 0, 0, 0.4);
+    /* Overlay sedikit lebih terang agar fokus ke box */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 100;
-    backdrop-filter: blur(2px); /* Memberikan efek blur halus di belakang modal */
+    backdrop-filter: blur(2px);
+    /* Memberikan efek blur halus di belakang modal */
 }
 
 .tips-box {
-    background-color: #FDF1D3; 
+    background-color: #FDF1D3;
     width: 85%;
     max-width: 550px;
-    padding: 30px 30px 40px 30px; /* Padding bawah agak besar buat ruang tombol */
-    border-radius: 30px; 
-    text-align: left; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    padding: 30px 30px 40px 30px;
+    /* Padding bawah agak besar buat ruang tombol */
+    border-radius: 30px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     border: 1px solid #ffffff;
-    
+
     /* Penting agar kita bisa atur posisi tombol relatif terhadap box ini */
-    position: relative; 
-    margin-bottom: 30px; /* Memberi ruang di bawah agar tombol tidak tertutup */
+    position: relative;
+    margin-bottom: 30px;
+    /* Memberi ruang di bawah agar tombol tidak tertutup */
 }
 
 .tips-actions {
-    position: absolute; /* Kita cabut tombol dari alur teks biasa */
-    bottom: -25px;      /* Geser ke bawah sejauh setengah tinggi tombol */
-    left: 50%;          /* Geser ke tengah */
-    transform: translateX(-50%); /* Geser balik ke kiri agar benar-benar center */
-    
+    position: absolute;
+    /* Kita cabut tombol dari alur teks biasa */
+    bottom: -25px;
+    /* Geser ke bawah sejauh setengah tinggi tombol */
+    left: 50%;
+    /* Geser ke tengah */
+    transform: translateX(-50%);
+    /* Geser balik ke kiri agar benar-benar center */
+
     display: flex;
     gap: 15px;
-    width: 100%;        /* Pastikan container tombol cukup lebar */
+    width: 100%;
+    /* Pastikan container tombol cukup lebar */
     justify-content: center;
 }
 
@@ -474,9 +515,11 @@ footer {
 
 
 /* Base Style untuk kedua tombol */
-.btn-ready, .btn-cancel-tips {
+.btn-ready,
+.btn-cancel-tips {
     padding: 15px 30px;
-    border-radius: 50px; /* Tombol lonjong sesuai desain */
+    border-radius: 50px;
+    /* Tombol lonjong sesuai desain */
     font-weight: 600;
     cursor: pointer;
     font-size: 0.95rem;
@@ -486,9 +529,11 @@ footer {
     align-items: center;
     justify-content: center;
     border: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    white-space: nowrap; /* Mencegah teks tombol turun ke bawah */
-    text-transform: uppercase; /* Membuat teks jadi kapital */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    /* Mencegah teks tombol turun ke bawah */
+    text-transform: uppercase;
+    /* Membuat teks jadi kapital */
     letter-spacing: 0.5px;
 }
 
@@ -496,25 +541,32 @@ footer {
 .btn-ready {
     background-color: #FDF1D3;
     color: #000;
-    outline: 1px solid #ffffff; /* Garis putih tipis untuk efek kontras */
+    outline: 1px solid #ffffff;
+    /* Garis putih tipis untuk efek kontras */
 }
 
 /* Tombol Cancel (Krem Kecokelatan) */
 .btn-cancel-tips {
     background-color: #FDF1D3;
     color: #333;
-    outline: 1px solid #ffffff; /* Garis putih tipis untuk efek kontras */
+    outline: 1px solid #ffffff;
+    /* Garis putih tipis untuk efek kontras */
 }
 
 /* --- Efek Hover (Sesuai Permintaan) --- */
-.btn-ready:hover, .btn-cancel-tips:hover {
-    background-color: #ffe8a3; /* Warna kuning muda saat hover */
-    transform: scale(1.05); /* Sedikit membesar */
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+.btn-ready:hover,
+.btn-cancel-tips:hover {
+    background-color: #ffe8a3;
+    /* Warna kuning muda saat hover */
+    transform: scale(1.05);
+    /* Sedikit membesar */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.btn-ready:active, .btn-cancel-tips:active {
-    transform: scale(0.98); /* Efek membal saat diklik */
+.btn-ready:active,
+.btn-cancel-tips:active {
+    transform: scale(0.98);
+    /* Efek membal saat diklik */
 }
 
 /* Responsif Mobile */
@@ -523,13 +575,15 @@ footer {
         padding: 25px;
         border-radius: 20px;
     }
-    
+
     .tips-actions {
-        flex-direction: column; /* Tombol tumpuk di HP agar muat */
+        flex-direction: column;
+        /* Tombol tumpuk di HP agar muat */
         gap: 12px;
     }
-    
-    .btn-ready, .btn-cancel-tips {
+
+    .btn-ready,
+    .btn-cancel-tips {
         width: 100%;
         padding: 12px;
     }
@@ -538,17 +592,31 @@ footer {
 /* --- Responsif Mobile (Tetap Landscape) --- */
 @media (max-width: 768px) {
     .camera-container {
-        width: 100%; /* Manfaatkan seluruh lebar layar HP */
-        aspect-ratio: 4 / 3; /* PAKSA LANDSCAPE */
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        /* Sesuaikan lebar yang kamu mau */
         margin: 0 auto;
-        overflow: visible; /* Supaya tombol tips yang nempel di bawah tidak hilang */
-        border-radius: 0; /* Opsional: kotak penuh ke pinggir layar HP agar video lebih besar */
+
+        /* PAKSA RASIO 4:3 */
+        aspect-ratio: 4 / 3 !important;
+
+        background: #000;
+        border-radius: 20px;
+        overflow: visible;
+        /* Biar tombol notif tidak terpotong */
     }
 
     #video {
         width: 100%;
         height: 100%;
+
+        /* PENTING: Biar video mengisi kotak 4:3 tanpa merusak rasio container */
         object-fit: cover;
+
+        border-radius: 20px;
+        transform: scaleX(-1);
+        /* Efek mirror */
     }
 
     /* Penyesuaian Box Tips agar muat di area landscape yang sempit */
@@ -570,14 +638,17 @@ footer {
 
     /* Tombol tetap nempel setengah keluar */
     .tips-actions {
-        bottom: -30px; 
-        flex-direction: row; /* Di landscape, tombol kiri-kanan lebih hemat tempat daripada tumpuk */
+        bottom: -30px;
+        flex-direction: row;
+        /* Di landscape, tombol kiri-kanan lebih hemat tempat daripada tumpuk */
         gap: 10px;
         width: 95%;
     }
 
-    .btn-ready, .btn-cancel-tips {
-        flex: 1; /* Bagi rata lebar tombol */
+    .btn-ready,
+    .btn-cancel-tips {
+        flex: 1;
+        /* Bagi rata lebar tombol */
         padding: 10px 5px;
         font-size: 0.75rem;
         white-space: nowrap;
