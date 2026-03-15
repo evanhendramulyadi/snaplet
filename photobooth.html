@@ -32,6 +32,27 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="loadingModal" class="modal-overlay" style="display: none;">
+                    <div class="processing-box" style="text-align: center;">
+                        <div class="spinner"></div>
+                        <p>Your photobooth result is being processed. Please wait.</p>
+                    </div>
+                </div>
+
+                <div id="resultModal" class="modal-overlay" style="display: none;">
+                    <div class="result-box">
+                        <p class="ready-text">Your photo is ready and available for download.</p>
+                        
+                        <div id="framePreview" class="frame-container"></div>
+
+                        <div class="result-actions">
+                            <button id="downloadBtn" class="btn-ready">DOWNLOAD</button>
+                            <button onclick="location.reload()" class="btn-cancel-tips">CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </main>
 
