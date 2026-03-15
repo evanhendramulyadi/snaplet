@@ -591,66 +591,79 @@ footer {
 
 /* --- Responsif Mobile (Tetap Landscape) --- */
 @media (max-width: 768px) {
+
+    /* Container Utama Kamera */
     .camera-container {
         position: relative;
-        width: 100%;
+        width: 95%; /* Agak lebar sedikit di HP */
         max-width: 600px;
-        /* Sesuaikan lebar yang kamu mau */
-        margin: 0 auto;
+        margin: 20px auto;
 
-        /* PAKSA RASIO 4:3 */
+        /* PAKSA LANDSCAPE 4:3 */
         aspect-ratio: 4 / 3 !important;
 
+        /* PENTING: Rounded corner harus di sini */
+        border-radius: 30px;
+        
+        /* UBAH INI: Jangan pakai overflow hidden di sini jika modal di dalamnya */
+        overflow: visible; 
+
         background: #000;
-        border-radius: 20px;
-        overflow: visible;
-        /* Biar tombol notif tidak terpotong */
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     }
 
+    /* Elemen Video: Rounded dipasang langsung di sini agar rapi */
     #video {
         width: 100%;
         height: 100%;
-
-        /* PENTING: Biar video mengisi kotak 4:3 tanpa merusak rasio container */
         object-fit: cover;
-
-        border-radius: 20px;
+        border-radius: 30px; /* Samakan dengan container */
         transform: scaleX(-1);
-        /* Efek mirror */
+        display: block; /* Menghilangkan gap kecil di bawah video */
     }
 
-    /* Penyesuaian Box Tips agar muat di area landscape yang sempit */
+    .modal-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+        /* Biar overlay ikut melengkung sesuai video */
+        border-radius: 30px; 
+    }
+
     .tips-box {
-        width: 80%;
-        padding: 15px 20px 25px 20px;
+        position: relative; /* Agar tips-actions bisa absolute terhadap box ini */
+        width: 85%;
+        padding: 15px 15px 25px 15px; /* Kecilkan padding agar tidak penuh */
         border-radius: 20px;
+        background-color: #FDF1D3;
+        border: 1px solid #ffffff;
     }
 
-    .tips-content h3 {
-        font-size: 1.1rem;
-        margin-bottom: 5px;
-    }
-
-    .tips-content p {
-        font-size: 0.85rem;
-        line-height: 1.2;
-    }
-
-    /* Tombol tetap nempel setengah keluar */
     .tips-actions {
-        bottom: -30px;
-        flex-direction: row;
-        /* Di landscape, tombol kiri-kanan lebih hemat tempat daripada tumpuk */
-        gap: 10px;
-        width: 95%;
+        position: absolute;
+        bottom: -25px; /* Efek keluar setengah */
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: row; 
+        gap: 8px;
+        width: 90%;
+        justify-content: center;
     }
 
-    .btn-ready,
-    .btn-cancel-tips {
+    .btn-ready, .btn-cancel-tips {
         flex: 1;
-        /* Bagi rata lebar tombol */
-        padding: 10px 5px;
-        font-size: 0.75rem;
+        padding: 8px 5px;
+        font-size: 0.7rem;
+        border-radius: 50px;
         white-space: nowrap;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 }
