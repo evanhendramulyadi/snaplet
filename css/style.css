@@ -422,61 +422,111 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Overlay gelap transparan */
+    background: rgba(0, 0, 0, 0.4); /* Overlay sedikit lebih terang agar fokus ke box */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10;
+    z-index: 100;
+    backdrop-filter: blur(2px); /* Memberikan efek blur halus di belakang modal */
 }
 
 .tips-box {
-    background-color: #FFF3D0; /* Warna krem sesuai desain */
-    width: 80%;
-    max-width: 500px;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    background-color: #FDF1D3; /* Warna krem yang lebih lembut sesuai foto */
+    width: 85%;
+    max-width: 550px;
+    padding: 40px 30px;
+    border-radius: 30px; /* Lebih bulat sesuai desain */
+    text-align: left; /* Teks rata kiri sesuai desain foto */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 .tips-content h3 {
     margin-top: 0;
+    font-size: 1.5rem;
     font-weight: 700;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.tips-content p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 0;
 }
 
 .tips-actions {
-    margin-top: 25px;
+    margin-top: 35px;
     display: flex;
-    gap: 15px;
+    gap: 20px;
     justify-content: center;
 }
 
+/* Base Style untuk kedua tombol */
 .btn-ready, .btn-cancel-tips {
-    padding: 10px 20px;
-    border-radius: 12px;
+    padding: 15px 30px;
+    border-radius: 50px; /* Tombol lonjong sesuai desain */
     font-weight: 600;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: 0.3s;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
     text-decoration: none;
-    border: 1px solid #DCDCDC;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-transform: uppercase; /* Membuat teks jadi kapital */
+    letter-spacing: 0.5px;
 }
 
+/* Tombol Ready (Putih) */
 .btn-ready {
-    background-color: #fff;
+    background-color: #FDF1D3;
     color: #000;
 }
 
+/* Tombol Cancel (Krem Kecokelatan) */
 .btn-cancel-tips {
-    background-color: #f5f5f5;
+    background-color: #FDF1D3;
     color: #333;
+}
+
+/* --- Efek Hover (Sesuai Permintaan) --- */
+.btn-ready:hover, .btn-cancel-tips:hover {
+    background-color: #ffe8a3; /* Warna kuning muda saat hover */
+    transform: scale(1.05); /* Sedikit membesar */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.btn-ready:active, .btn-cancel-tips:active {
+    transform: scale(0.98); /* Efek membal saat diklik */
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
+    .tips-box {
+        padding: 25px;
+        border-radius: 20px;
+    }
+    
+    .tips-actions {
+        flex-direction: column; /* Tombol tumpuk di HP agar muat */
+        gap: 12px;
+    }
+    
+    .btn-ready, .btn-cancel-tips {
+        width: 100%;
+        padding: 12px;
+    }
 }
 
 /* --- Responsif Mobile --- */
 @media (max-width: 768px) {
     .camera-container {
         width: 95%;
-        aspect-ratio: 3 / 4; /* Di HP kamera lebih tegak/potrait */
+        aspect-ratio: 16 / 9; /* Di HP kamera lebih tegak/potrait */
     }
 
     .tips-box {
