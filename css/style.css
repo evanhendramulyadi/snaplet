@@ -431,14 +431,20 @@ footer {
 }
 
 .tips-box {
-    background-color: #FDF1D3; /* Warna krem yang lebih lembut sesuai foto */
+    background-color: #FDF1D3; 
     width: 85%;
     max-width: 550px;
-    padding: 40px 30px;
-    border-radius: 30px; /* Lebih bulat sesuai desain */
-    text-align: left; /* Teks rata kiri sesuai desain foto */
+    padding: 30px 30px;
+    border-radius: 30px; 
+    text-align: left; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border: 1px solid rgba(0,0,0,0.05);
+
+    /* --- Garis Outline Putih 1px --- */
+    /* Gunakan solid white atau rgba dengan opasitas tinggi agar terlihat */
+    border: 1px solid #ffffff; 
+    
+    /* Tambahan opsional: agar outline terlihat lebih 'soft' */
+    /* border: 1px solid rgba(255, 255, 255, 0.8); */
 }
 
 .tips-content h3 {
@@ -485,12 +491,14 @@ footer {
 .btn-ready {
     background-color: #FDF1D3;
     color: #000;
+    outline: 1px solid #ffffff; /* Garis putih tipis untuk efek kontras */
 }
 
 /* Tombol Cancel (Krem Kecokelatan) */
 .btn-cancel-tips {
     background-color: #FDF1D3;
     color: #333;
+    outline: 1px solid #ffffff; /* Garis putih tipis untuk efek kontras */
 }
 
 /* --- Efek Hover (Sesuai Permintaan) --- */
@@ -526,7 +534,7 @@ footer {
 @media (max-width: 768px) {
     .camera-container {
         width: 95%;
-        aspect-ratio: 16 / 9; /* Di HP kamera lebih tegak/potrait */
+        aspect-ratio: 5 / 3; /* Di HP kamera lebih tegak/potrait */
     }
 
     .tips-box {
