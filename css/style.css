@@ -539,7 +539,7 @@ footer {
 @media (max-width: 768px) {
     .camera-container {
         width: 95%;
-        aspect-ratio: 5 / 3; /* Di HP kamera lebih tegak/potrait */
+        aspect-ratio: 4 / 3; /* Di HP kamera lebih tegak/potrait */
     }
 
     .tips-box {
