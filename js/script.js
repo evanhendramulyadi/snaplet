@@ -42,17 +42,11 @@ async function setupCamera() {
 // Logika menutup modal Tips
 if (readyBtn) {
     readyBtn.addEventListener('click', () => {
-        // DIAM SAJA JIKA KAMERA BELUM SIAP
-        if (!cameraStream || !cameraStream.active) {
-            return; // Keluar dari fungsi tanpa melakukan apa-apa
-        }
-
-        // Jalankan hanya jika kamera sudah OK
         if (tipsModal) tipsModal.style.display = 'none';
+        console.log("Photobooth dimulai...");
         startPhotoboothCycle(); 
     });
 }
-
 // Inisialisasi kamera jika elemen video ada
 if (video) {
     setupCamera();
