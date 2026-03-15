@@ -692,32 +692,46 @@ footer {
     to { opacity: 0; }
 }
 
-/* Pastikan overlay menutupi seluruh layar dengan warna solid */
-#loadingModal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+.hero {
+    position: relative; /* Penting agar modal nempel di sini */
+    min-height: 80vh;   /* Sesuaikan dengan layoutmu */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
 }
 
-/* Animasi Spinner Murni */
+#loadingModal.modal-overlay {
+    position: absolute; /* Bukan fixed, agar tidak menutupi footer */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: transparent; /* Biarkan background utama kelihatan */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.loading-content-clean {
+    text-align: center;
+}
+
+.loading-content-clean p {
+    margin-top: 20px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Spinner tetap sama */
 .spinner {
-    width: 60px;
-    height: 60px;
-    border: 6px solid rgba(0, 0, 0, 0.1);
-    border-top: 6px solid #333; /* Warna spinner */
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0,0,0,0.1);
+    border-top: 5px solid #333;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    display: inline-block;
+    margin: 0 auto;
 }
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
