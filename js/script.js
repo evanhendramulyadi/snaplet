@@ -76,8 +76,25 @@ readyBtn.addEventListener("click", () => {
     startPhotoboothCycle();
 });
 
+const captureTexts = [
+    "Cheese!",              // Untuk foto ke-1
+    "Smile!",               // Untuk foto ke-2
+    "Look at the Camera!",  // Untuk foto ke-3
+    "Pose!"                 // Untuk foto ke-4
+];
+
 function startPhotoboothCycle() {
+    const instrTextElem = document.getElementById('captureInstructionText');
+    const countdownEl = document.getElementById('countdown'); // Pastikan ID sesuai
+
     if (photoCount < maxPhotos) {
+        // 1. UPDATE TEKS INSTRUKSI DULU
+        if (instrTextElem) {
+            instrTextElem.innerText = captureTexts[photoCount];
+            instrTextElem.style.display = 'block';
+        }
+
+        // 2. LOGIKA COUNTDOWN
         let timer = 3;
         countdownEl.innerText = timer;
         countdownEl.style.display = "flex";
@@ -89,18 +106,13 @@ function startPhotoboothCycle() {
             } else {
                 clearInterval(countdownInterval);
                 countdownEl.style.display = "none";
+                
+                // 3. AMBIL FOTO
                 takePhoto();
             }
         }, 1000);
     }
 }
-
-const captureTexts = [
-    "Cheese!", // Teks untuk Foto 1
-    "Smile!", // Teks untuk Foto 2
-    "Look at the Camera!",    // Teks untuk Foto 3
-    "Pose!"         // Teks untuk Foto 4
-];
 
 function takePhoto() {
     // 1. Efek Flash
