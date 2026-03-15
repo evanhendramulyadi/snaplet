@@ -690,35 +690,3 @@ footer {
     from { opacity: 1; }
     to { opacity: 0; }
 }
-
-/* Update gaya modal agar menutupi seluruh layar secara solid */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #f4f4f4; /* Warna solid untuk menghilangkan 'box' di belakang */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /* Pastikan berada paling depan */
-}
-
-/* Khusus untuk tips awal, biarkan transparan agar kamera terlihat */
-#tipsModal {
-    background-color: rgba(0, 0, 0, 0.6); 
-}
-
-/* Hilangkan box hitam atau shadow berlebih pada container hasil */
-.result-box {
-    background-color: transparent; /* Biarkan menyatu dengan background overlay */
-    box-shadow: none; 
-    width: 100%;
-    max-width: none;
-}
-
-#framePreview img {
-    max-height: 70vh; /* Agar strip foto terlihat panjang dan elegan */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Shadow hanya di foto saja */
-}
