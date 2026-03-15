@@ -700,48 +700,82 @@ footer {
     align-items: center;
 }
 
-#loadingModal.modal-overlay {
-    position: absolute; /* Bukan fixed, agar tidak menutupi footer */
+/* Container Utama Loading */
+.modal-overlay-loading {
+    display: none; /* Diatur jadi 'flex' lewat JavaScript */
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    background: transparent; /* Biarkan background utama kelihatan */
-    display: none;
+    background: transparent;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 10;
+    z-index: 100;
 }
 
+/* Konten di dalamnya */
 .loading-content-clean {
     text-align: center;
+    padding: 20px;
 }
 
-.loading-content-clean p {
-    margin-top: 20px;
-    font-weight: 500;
+/* Teks Loading - Gede dan Bold */
+.loading-text {
+    margin-top: 30px;
+    font-family: 'Poppins', sans-serif;
     color: #333;
+    font-weight: 800;
+    font-size: 10rem; /* Ukuran besar yang proporsional */
+    line-height: 1.2;
+    max-width: 800px; /* Agar teks tidak terlalu lebar ke samping */
 }
 
-/* Spinner tetap sama */
+/* Spinner Animasi */
 .spinner {
-    width: 100px;
-    height: 100px;
-    border: 5px solid rgba(0,0,0,0.1);
-    border-top: 5px solid #333;
+    width: 80px;
+    height: 80px;
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-top: 8px solid #333;
     border-radius: 50%;
+    display: inline-block;
     animation: spin 1s linear infinite;
-    margin: 0 auto;
 }
 
-/* Instruksi animasi rotasi */
+/* Gerakan Muter */
 @keyframes spin {
-    0% { 
-        transform: rotate(0deg); 
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+    /* Atur teks agar tidak terlalu besar di layar kecil */
+    .loading-text {
+        font-size: 2rem; /* Ukuran lebih pas untuk HP */
+        margin-top: 20px;
+        padding: 0 15px; /* Tambah ruang di samping agar teks tidak nempel layar */
+        max-width: 100%;
     }
-    100% { 
-        transform: rotate(360deg); 
+
+    /* Kecilkan spinner sedikit agar proporsional */
+    .spinner {
+        width: 60px;
+        height: 60px;
+        border-width: 6px;
+    }
+
+    /* Pastikan container hero punya tinggi yang cukup di mobile */
+    .hero {
+        min-height: 60vh;
+    }
+}
+
+/* --- OPTIONAL: HP SANGAT KECIL (iPhone SE dll) --- */
+@media (max-width: 480px) {
+    .loading-text {
+        font-size: 1.1rem;
     }
 }
