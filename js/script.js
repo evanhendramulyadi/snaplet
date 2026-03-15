@@ -60,17 +60,19 @@ if (video) {
     setupCamera();
 }
 
+
+const instrTextElem = document.getElementById('captureInstructionText'); 
 const countdownEl = document.getElementById("countdown");
+
 let photoCount = 0;
 const maxPhotos = 4;
-const capturedPhotos = []; // Array untuk menampung hasil foto
-
+const capturedPhotos = [];
 
 const captureTexts = [
-    "Cheese!",              // Untuk foto ke-1
-    "Smile!",               // Untuk foto ke-2
-    "Look At The Camera!",  // Untuk foto ke-3
-    "Pose!"                 // Untuk foto ke-4
+    "Cheese!",
+    "Smile!",
+    "Look At The Camera!",
+    "Pose!"
 ];
 
 function startPhotoboothCycle() {
