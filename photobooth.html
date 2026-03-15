@@ -38,35 +38,3 @@
             <p class="copyright">&copy; 2026–Present Clario. All Rights Reserved.</p>
         </footer>
     </div>
-
-    <script>
-        const video = document.getElementById('video');
-        const tipsModal = document.getElementById('tipsModal');
-        const readyBtn = document.getElementById('readyBtn');
-
-        // Minta izin kamera saat halaman dimuat
-        async function setupCamera() {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ 
-                    video: { 
-                        facingMode: "user",
-                        aspectRatio: 3/4 // Sesuai bentuk frame photostrip
-                    }, 
-                    audio: false 
-                });
-                video.srcObject = stream;
-            } catch (err) {
-                console.error("Error akses kamera: ", err);
-                alert("Please allow camera access to use the photobooth.");
-            }
-        }
-
-        readyBtn.addEventListener('click', () => {
-            tipsModal.style.display = 'none';
-            // Logic countdown mulai di sini nanti
-        });
-
-        setupCamera();
-    </script>
-</body>
-</html>
