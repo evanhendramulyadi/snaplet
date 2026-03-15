@@ -458,13 +458,11 @@ footer {
     /* Overlay sedikit lebih terang agar fokus ke box */
     display: flex;
     justify-content: center;
+    align-items: center;
     z-index: 100;
     backdrop-filter: blur(2px);
     /* Memberikan efek blur halus di belakang modal */
-    align-items: flex-start; /* Kotak akan nempel ke atas */
-    padding-top: 18vh; /* Memberi jarak 10% dari tinggi layar agar tidak terlalu mepet */
 }
-
 
 .tips-box {
     background-color: #FDF1D3;
