@@ -69,7 +69,7 @@ const capturedPhotos = []; // Array untuk menampung hasil foto
 const captureTexts = [
     "Cheese!",              // Untuk foto ke-1
     "Smile!",               // Untuk foto ke-2
-    "Look at the Camera!",  // Untuk foto ke-3
+    "Look At The Camera!",  // Untuk foto ke-3
     "Pose!"                 // Untuk foto ke-4
 ];
 
@@ -138,6 +138,11 @@ function takePhoto() {
             video.srcObject.getTracks().forEach(track => track.stop());
         }
 
+        // 2. SEMBUNYIKAN TEKS INSTRUKSI (Tambahkan Baris Ini)
+        if (instrTextElem) {
+            instrTextElem.style.display = 'none';
+        }
+        
         // 2. HILANGKAN BOX FOTO & ISINYA
         const cameraContainer = document.querySelector('.camera-container');
         if (cameraContainer) {
