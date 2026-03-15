@@ -41,10 +41,14 @@ async function setupCamera() {
 }
 
 // Logika menutup modal Tips
+// 3. Logika Tombol Ready
 if (readyBtn) {
     readyBtn.addEventListener('click', () => {
-        if (tipsModal) tipsModal.style.display = 'none';
-        console.log("Photobooth dimulai...");
+        // Cek mentah: kalau stream tidak ada, langsung keluar (diam)
+        if (!cameraStream) return;
+
+        // Baris di bawah ini tidak akan pernah jalan kalau kamera belum izin
+        tipsModal.style.display = 'none';
         startPhotoboothCycle(); 
     });
 }
