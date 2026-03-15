@@ -133,21 +133,22 @@ function takePhoto() {
     } else {
         // === SEMUA FOTO SELESAI ===
 
-        // 1. Matikan aliran kamera
-        if (video.srcObject) {
-            video.srcObject.getTracks().forEach(track => track.stop());
-        }
+// 1. Matikan aliran kamera
+if (video.srcObject) {
+    video.srcObject.getTracks().forEach(track => track.stop());
+}
 
-        // 2. SEMBUNYIKAN TEKS INSTRUKSI (Tambahkan Baris Ini)
-        if (instrTextElem) {
-            instrTextElem.style.display = 'none';
-        }
-        
-        // 2. HILANGKAN BOX FOTO & ISINYA
-        const cameraContainer = document.querySelector('.camera-container');
-        if (cameraContainer) {
-            cameraContainer.style.display = 'none';
-        }
+// 2. SEMBUNYIKAN TEKS TAPI TETAP JAGA RUANGNYA (Penting!)
+if (instrTextElem) {
+    instrTextElem.style.visibility = 'hidden'; 
+    // Pakai visibility agar layout tidak "loncat" naik
+}
+
+// 3. HILANGKAN BOX FOTO & ISINYA
+const cameraContainer = document.querySelector('.camera-container');
+if (cameraContainer) {
+    cameraContainer.style.display = 'none';
+}
 
        // Munculkan Loading Murni (Tanpa Box)
         const loadingModal = document.getElementById('loadingModal');
