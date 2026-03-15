@@ -22,7 +22,8 @@ function saveFrame(frameName) {
 const video = document.getElementById("video");
 const tipsModal = document.getElementById("tipsModal");
 const readyBtn = document.getElementById("readyBtn");
-
+let cameraStream = null; // Tambahkan ini di deretan variabel global paling atas
+let photoCount = 0;
 // Fungsi untuk menyalakan kamera
 async function setupCamera() {
     if (!video) return;
@@ -56,8 +57,7 @@ if (video) {
 const instrTextElem = document.getElementById('captureInstructionText'); 
 const countdownEl = document.getElementById("countdown");
 
-let cameraStream = null; // Tambahkan ini di deretan variabel global paling atas
-let photoCount = 0;
+
 const maxPhotos = 4;
 const capturedPhotos = [];
 
