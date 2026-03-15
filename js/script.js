@@ -136,19 +136,10 @@ function takePhoto() {
             cameraContainer.style.display = 'none';
         }
 
-        // 3. TAMPILKAN LAYAR LOADING (TAMBAHAN)
-        // Pastikan di HTML sudah ada id="loadingModal"
+       // Munculkan Loading Murni (Tanpa Box)
         const loadingModal = document.getElementById('loadingModal');
-        if (loadingModal) {
-            loadingModal.style.display = 'flex';
-        }
+        if (loadingModal) loadingModal.style.display = 'flex';
 
-        console.log("4 Foto selesai, memproses hasil...");
-
-        // 4. JALANKAN PROSES JAHIT FRAME (TAMBAHAN)
-        // Kita beri jeda sedikit agar user bisa melihat layar loading sebentar
-        setTimeout(() => {
-            processFinalImage(); 
-        }, 2000);
+        console.log("Loading aktif: Hanya spinner dan teks.");
     }
 }

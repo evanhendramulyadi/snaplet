@@ -691,3 +691,33 @@ footer {
     from { opacity: 1; }
     to { opacity: 0; }
 }
+
+/* Pastikan overlay menutupi seluruh layar dengan warna solid */
+#loadingModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Animasi Spinner Murni */
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(0, 0, 0, 0.1);
+    border-top: 6px solid #333; /* Warna spinner */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
