@@ -44,12 +44,14 @@ async function setupCamera() {
 // 3. Logika Tombol Ready
 if (readyBtn) {
     readyBtn.addEventListener('click', () => {
-        // Cek mentah: kalau stream tidak ada, langsung keluar (diam)
-        if (!cameraStream) return;
-
-        // Baris di bawah ini tidak akan pernah jalan kalau kamera belum izin
-        tipsModal.style.display = 'none';
-        startPhotoboothCycle(); 
+        // Cek apakah kamera sudah ada izin/stream
+        if (cameraStream) {
+            // Kalau ada izin, baru jalankan prosesnya
+            tipsModal.style.display = 'none';
+            startPhotoboothCycle(); 
+        } 
+        // Kalau TIDAK ada izin (cameraStream == null), 
+        // kodenya akan diam saja di sini tanpa melakukan apa-apa.
     });
 }
 // Inisialisasi kamera jika elemen video ada
