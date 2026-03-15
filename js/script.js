@@ -44,14 +44,18 @@ async function setupCamera() {
 // 3. Logika Tombol Ready
 if (readyBtn) {
     readyBtn.addEventListener('click', () => {
-        // Cek apakah kamera sudah ada izin/stream
-        if (cameraStream) {
-            // Kalau ada izin, baru jalankan prosesnya
+        // 1. Modal LANGSUNG HILANG saat diklik (walau kamera mati/nyala)
+        if (tipsModal) {
             tipsModal.style.display = 'none';
+        }
+
+        // 2. CEK KAMERA: Hanya mulai proses foto kalau kamera aktif
+        if (cameraStream && cameraStream.active) {
             startPhotoboothCycle(); 
         } 
-        // Kalau TIDAK ada izin (cameraStream == null), 
-        // kodenya akan diam saja di sini tanpa melakukan apa-apa.
+        
+        // Jika kamera mati, kode berhenti di sini. 
+        // Hasilnya: Modal hilang, tapi layar cuma diam (ngestak).
     });
 }
 // Inisialisasi kamera jika elemen video ada
