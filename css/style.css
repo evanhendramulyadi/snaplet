@@ -434,17 +434,27 @@ footer {
     background-color: #FDF1D3; 
     width: 85%;
     max-width: 550px;
-    padding: 30px 30px;
+    padding: 30px 30px 40px 30px; /* Padding bawah agak besar buat ruang tombol */
     border-radius: 30px; 
     text-align: left; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-
-    /* --- Garis Outline Putih 1px --- */
-    /* Gunakan solid white atau rgba dengan opasitas tinggi agar terlihat */
-    border: 1px solid #ffffff; 
+    border: 1px solid #ffffff;
     
-    /* Tambahan opsional: agar outline terlihat lebih 'soft' */
-    /* border: 1px solid rgba(255, 255, 255, 0.8); */
+    /* Penting agar kita bisa atur posisi tombol relatif terhadap box ini */
+    position: relative; 
+    margin-bottom: 30px; /* Memberi ruang di bawah agar tombol tidak tertutup */
+}
+
+.tips-actions {
+    position: absolute; /* Kita cabut tombol dari alur teks biasa */
+    bottom: -25px;      /* Geser ke bawah sejauh setengah tinggi tombol */
+    left: 50%;          /* Geser ke tengah */
+    transform: translateX(-50%); /* Geser balik ke kiri agar benar-benar center */
+    
+    display: flex;
+    gap: 15px;
+    width: 100%;        /* Pastikan container tombol cukup lebar */
+    justify-content: center;
 }
 
 .tips-content h3 {
@@ -462,12 +472,6 @@ footer {
     margin-bottom: 0;
 }
 
-.tips-actions {
-    margin-top: 35px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
 
 /* Base Style untuk kedua tombol */
 .btn-ready, .btn-cancel-tips {
@@ -482,7 +486,8 @@ footer {
     align-items: center;
     justify-content: center;
     border: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    white-space: nowrap; /* Mencegah teks tombol turun ke bawah */
     text-transform: uppercase; /* Membuat teks jadi kapital */
     letter-spacing: 0.5px;
 }
