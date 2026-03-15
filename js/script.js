@@ -95,36 +95,60 @@ function startPhotoboothCycle() {
     }
 }
 
+
 function takePhoto() {
-    // Efek Flash Putih
+    // 1. Efek Flash
     const flash = document.createElement("div");
     flash.className = "flash-effect";
     document.body.appendChild(flash);
     setTimeout(() => flash.remove(), 100);
-
-    // Proses ambil gambar dari video ke canvas
+    
+    // 2. Ambil gambar dari video
     const canvas = document.createElement("canvas");
-    // Paksa rasio 4:3 untuk hasil fotonya
     canvas.width = 1024;
     canvas.height = 768;
     const ctx = canvas.getContext("2d");
     
-    // Gambar video ke canvas (Mirror mode di-handle di sini)
     ctx.translate(canvas.width, 0);
     ctx.scale(-1, 1);
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-    // Simpan hasil ke array
+    // 3. Simpan ke array
     const dataUrl = canvas.toDataURL("image/png");
     capturedPhotos.push(dataUrl);
-    
     photoCount++;
-    
-    // Jeda 2 detik untuk ganti gaya sebelum mulai countdown berikutnya
+
+    // 4. Logika Selesai
     if (photoCount < maxPhotos) {
+        // Lanjut ke foto berikutnya
         setTimeout(startPhotoboothCycle, 2000);
     } else {
-        // Berhenti di sini (sudah dapet 4 foto)
-        console.log("4 Foto sudah tersimpan di array capturedPhotos");
+        // === SEMUA FOTO SELESAI ===
+
+        // 1. Matikan aliran kamera
+        if (video.srcObject) {
+            video.srcObject.getTracks().forEach(track => track.stop());
+        }
+
+        // 2. HILANGKAN BOX FOTO & ISINYA
+        const cameraContainer = document.querySelector('.camera-container');
+        if (cameraContainer) {
+            cameraContainer.style.display = 'none';
+        }
+
+        // 3. TAMPILKAN LAYAR LOADING (TAMBAHAN)
+        // Pastikan di HTML sudah ada id="loadingModal"
+        const loadingModal = document.getElementById('loadingModal');
+        if (loadingModal) {
+            loadingModal.style.display = 'flex';
+        }
+
+        console.log("4 Foto selesai, memproses hasil...");
+
+        // 4. JALANKAN PROSES JAHIT FRAME (TAMBAHAN)
+        // Kita beri jeda sedikit agar user bisa melihat layar loading sebentar
+        setTimeout(() => {
+            processFinalImage(); 
+        }, 2000);
     }
 }
