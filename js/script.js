@@ -1,52 +1,66 @@
-document.getElementById("startBtn").addEventListener("click", function () {
-  // Pindah ke halaman choose_frame
-  window.location.href = "choose_frame.html";
-});
+/**
+ * FUNGSI GLOBAL & NAVIGASI
+ */
 
+// Pindah dari Landing Page ke Pilih Frame
+const startBtn = document.getElementById("startBtn");
+if (startBtn) {
+    startBtn.addEventListener("click", () => {
+        window.location.href = "choose_frame.html";
+    });
+}
+
+// Fungsi untuk memilih frame (dipanggil dari onclick di HTML)
+function saveFrame(frameName) {
+    localStorage.setItem("selectedFrame", frameName);
+    window.location.href = "photobooth.html";
+}
+
+/**
+ * LOGIKA PHOTOBOOTH (Hanya jalan di photobooth.html)
+ */
 const video = document.getElementById("video");
 const tipsModal = document.getElementById("tipsModal");
 const readyBtn = document.getElementById("readyBtn");
 
-// Fungsi utama untuk menyalakan kamera
+// Fungsi untuk menyalakan kamera
 async function setupCamera() {
-  // Kita gunakan konfigurasi paling simpel agar support semua perangkat
-  const constraints = {
-    video: true, // Ambil kamera default yang tersedia
-    audio: false,
-  };
+    if (!video) return; // Berhenti jika bukan di halaman photobooth
 
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia(constraints);
-    video.srcObject = stream;
+    try {
+        const constraints = {
+            video: {
+                facingMode: "user",
+                width: { ideal: 1280 },
+                height: { ideal: 720 }
+            },
+            audio: false,
+        };
 
-    // Memastikan video diputar setelah stream didapat
-    video.onloadedmetadata = () => {
-      video.play();
-    };
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        video.srcObject = stream;
 
-    console.log("Kamera berhasil terhubung!");
-  } catch (err) {
-    console.error("Gagal akses kamera: ", err);
-    // Jika gagal karena masalah teknis, beri tahu user
-    alert(
-      "Kamera tidak ditemukan. Pastikan izin sudah diberikan dan kamera tidak dipakai aplikasi lain.",
-    );
-  }
+        video.onloadedmetadata = () => {
+            video.play();
+        };
+
+        console.log("Kamera berhasil terhubung!");
+    } catch (err) {
+        console.error("Gagal akses kamera: ", err);
+        alert("Kamera tidak ditemukan atau izin ditolak.");
+    }
 }
 
-// Logika tombol Ready (tutup notif saja dulu)
-readyBtn.addEventListener("click", () => {
-  tipsModal.style.display = "none";
-  console.log("User siap, modal ditutup.");
-});
+// Logika menutup modal Tips
+if (readyBtn && tipsModal) {
+    readyBtn.addEventListener("click", () => {
+        tipsModal.style.display = "none";
+        console.log("User siap, modal ditutup.");
+        // Di sini nanti tempat trigger countdown
+    });
+}
 
-// Jalankan kamera otomatis saat halaman dibuka
-setupCamera();
-
-function saveFrame(frameName) {
-  // Menyimpan pilihan frame ke LocalStorage agar bisa dipanggil di photobooth.html
-  localStorage.setItem("selectedFrame", frameName);
-
-  // Berpindah ke halaman photobooth
-  window.location.href = "photobooth.html";
+// Inisialisasi kamera jika elemen video ada
+if (video) {
+    setupCamera();
 }
