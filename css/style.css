@@ -728,7 +728,7 @@ footer {
     font-family: 'Poppins', sans-serif;
     color: #333;
     font-weight: 800;
-    font-size: 5rem; /* Ukuran besar yang proporsional */
+    font-size: 3rem; /* Ukuran besar yang proporsional */
     line-height: 1.2;
     max-width: 800px; /* Agar teks tidak terlalu lebar ke samping */
 }
@@ -754,7 +754,7 @@ footer {
 @media (max-width: 768px) {
     /* Atur teks agar tidak terlalu besar di layar kecil */
     .loading-text {
-        font-size: 2.5rem; /* Ukuran lebih pas untuk HP */
+        font-size: 5rem; /* Ukuran lebih pas untuk HP */
         margin-top: 20px;
         padding: 0 15px; /* Tambah ruang di samping agar teks tidak nempel layar */
         max-width: 100%;
