@@ -48,14 +48,13 @@ async function setupCamera() {
     }
 }
 // Logika menutup modal Tips
-if (readyBtn && tipsModal) {
-    readyBtn.addEventListener("click", () => {
-        tipsModal.style.display = "none";
-        console.log("User siap, modal ditutup.");
-        // Di sini nanti tempat trigger countdown
+if (readyBtn) {
+    readyBtn.addEventListener('click', () => {
+        if (tipsModal) tipsModal.style.display = 'none';
+        console.log("Photobooth dimulai...");
+        startPhotoboothCycle(); 
     });
 }
-
 // Inisialisasi kamera jika elemen video ada
 if (video) {
     setupCamera();
@@ -66,15 +65,6 @@ let photoCount = 0;
 const maxPhotos = 4;
 const capturedPhotos = []; // Array untuk menampung hasil foto
 
-readyBtn.addEventListener("click", () => {
-    // Cek apakah kamera sudah aktif
-    // Jika srcObject null (kamera belum diizinkan), maka diem aja (nge-stuck)
-    if (!video.srcObject) return;
-
-    // Jika kamera aktif, baru jalankan ini
-    tipsModal.style.display = "none";
-    startPhotoboothCycle();
-});
 
 const captureTexts = [
     "Cheese!",              // Untuk foto ke-1
