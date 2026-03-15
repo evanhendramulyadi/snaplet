@@ -657,3 +657,36 @@ footer {
         white-space: nowrap;
     }
 }
+
+/* Angka Countdown */
+.countdown-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 120px;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
+    z-index: 50;
+    display: none; /* Muncul lewat JS */
+    pointer-events: none;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Efek Kilat */
+.flash-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    z-index: 9999;
+    animation: flashAnim 0.2s ease-out forwards;
+}
+
+@keyframes flashAnim {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
