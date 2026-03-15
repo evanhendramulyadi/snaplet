@@ -691,26 +691,51 @@ footer {
     to { opacity: 0; }
 }
 
-/* Spinner Loading Bulat */
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid rgba(0,0,0,0.1);
-    border-top: 5px solid #333;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 20px;
+/* Buat modal menutupi seluruh layar setelah kamera hilang */
+/* Gaya umum untuk semua overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+/* Khusus untuk Tips (Layar awal) agar kamera tetap kelihatan di belakangnya */
+#tipsModal {
+    background-color: rgba(0, 0, 0, 0.5); /* Hitam transparan */
 }
 
-/* Container preview agar photostrip tidak kegedean */
-#framePreview img {
-    max-height: 60vh;
-    width: auto;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+/* Khusus untuk Loading dan Result (Layar akhir) sesuai keinginanmu */
+#loadingModal, #resultModal {
+    background-color: #f4f4f4; /* Warna solid agar camera-container yang hilang tidak berbekas */
+}
+
+/* Styling Box Loading agar rapi di tengah layar */
+.processing-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.processing-box p {
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+/* Styling Result Box agar lebih besar karena tidak di dalam kotak kamera lagi */
+.result-box {
+    background-color: #FDF1D3;
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    max-width: 600px; /* Lebih lebar karena layar luas */
+    width: 90%;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
