@@ -74,7 +74,7 @@ const capturedPhotos = [];
 const captureTexts = [
     "Cheese!",
     "Smile!",
-    "Look At The Camera!",
+    "Look at the Camera!",
     "Pose!"
 ];
 
