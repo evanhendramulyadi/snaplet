@@ -692,12 +692,14 @@ footer {
     to { opacity: 0; }
 }
 
+/* Container utama hero, pastikan kontennya center */
 .hero {
-    position: relative; /* Penting agar modal nempel di sini */
-    min-height: 80vh;   /* Sesuaikan dengan layoutmu */
+    position: relative;
     display: flex;
+    flex-direction: column; /* Mengatur konten ke bawah (teks lalu kamera) */
     justify-content: center;
     align-items: center;
+    min-height: 80vh;
 }
 
 /* Container Utama Loading */
@@ -777,5 +779,27 @@ footer {
 @media (max-width: 480px) {
     .loading-text {
         font-size: 1.1rem;
+    }
+}
+
+
+
+/* GAYA TEKS INSTRUKSI (Di atas box) */
+.instruction-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem; /* Cukup besar tapi tidak menutupi kamera */
+    font-weight: 700;
+    color: #333;
+    margin-bottom: -10px; /* Jarak ke box kamera di bawahnya */
+    text-align: center;
+    z-index: 5;
+    text-transform: capitalize;
+}
+
+/* --- RESPONSIF MOBILE --- */
+@media (max-width: 768px) {
+    .instruction-text {
+        font-size: 1.6rem; /* Ukuran pas untuk HP */
+        margin-bottom: -5px;
     }
 }

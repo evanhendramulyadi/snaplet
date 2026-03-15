@@ -95,6 +95,12 @@ function startPhotoboothCycle() {
     }
 }
 
+const captureTexts = [
+    "Cheese!", // Teks untuk Foto 1
+    "Smile!", // Teks untuk Foto 2
+    "Look at the Camera!",    // Teks untuk Foto 3
+    "Pose!"         // Teks untuk Foto 4
+];
 
 function takePhoto() {
     // 1. Efek Flash
