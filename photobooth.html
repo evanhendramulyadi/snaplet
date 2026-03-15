@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photobooth - Snaplet</title>
+    <link rel="icon" type="image/png" href="img/logo-snaplet.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="photobooth-body">
+
+    <div class="main-wrapper">
+        <main class="hero">
+            <div class="camera-container">
+                <div class="video-wrapper">
+                    <video id="video" autoplay playsinline></video>
+                    <div id="countdown" class="countdown-overlay"></div>
+                </div>
+
+                <div id="tipsModal" class="modal-overlay">
+                    <div class="tips-box">
+                        <div class="tips-content">
+                            <h3>Tips!</h3>
+                            <p>Get ready! Your photos will be taken automatically 4 times, with a 3-second gap between each shot. Press Ready to start.</p>
+                            <div class="tips-actions">
+                                <button id="readyBtn" class="btn-ready">READY</button>
+                                <a href="index.html" class="btn-cancel-tips">CANCEL & RETURN TO HOME</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="selection-footer">
+            <div class="footer-line"></div>
+            <p class="copyright">&copy; 2026–Present Clario. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const tipsModal = document.getElementById('tipsModal');
+        const readyBtn = document.getElementById('readyBtn');
+
+        // Minta izin kamera saat halaman dimuat
+        async function setupCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { 
+                        facingMode: "user",
+                        aspectRatio: 3/4 // Sesuai bentuk frame photostrip
+                    }, 
+                    audio: false 
+                });
+                video.srcObject = stream;
+            } catch (err) {
+                console.error("Error akses kamera: ", err);
+                alert("Please allow camera access to use the photobooth.");
+            }
+        }
+
+        readyBtn.addEventListener('click', () => {
+            tipsModal.style.display = 'none';
+            // Logic countdown mulai di sini nanti
+        });
+
+        setupCamera();
+    </script>
+</body>
+</html>

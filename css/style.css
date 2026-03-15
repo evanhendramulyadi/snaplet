@@ -385,3 +385,106 @@ footer {
         width: 110px;
     }
 }
+
+/* --- Photobooth Page --- */
+.camera-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px; /* Tidak full layar, kotak di tengah */
+    aspect-ratio: 16 / 10; /* Proporsi container kamera sesuai screenshot */
+    background: #333; /* Background gelap di belakang video */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    margin: 20px auto;
+}
+
+.video-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+}
+
+#video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Biar video memenuhi kotak tanpa distorsi */
+    transform: scaleX(-1); /* Efek mirror kamera */
+}
+
+/* --- Tips Modal / Notification --- */
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay gelap transparan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.tips-box {
+    background-color: #FFF3D0; /* Warna krem sesuai desain */
+    width: 80%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.tips-content h3 {
+    margin-top: 0;
+    font-weight: 700;
+}
+
+.tips-actions {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-ready, .btn-cancel-tips {
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    text-decoration: none;
+    border: 1px solid #DCDCDC;
+}
+
+.btn-ready {
+    background-color: #fff;
+    color: #000;
+}
+
+.btn-cancel-tips {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* --- Responsif Mobile --- */
+@media (max-width: 768px) {
+    .camera-container {
+        width: 95%;
+        aspect-ratio: 3 / 4; /* Di HP kamera lebih tegak/potrait */
+    }
+
+    .tips-box {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .tips-actions {
+        flex-direction: column; /* Tombol tumpuk di HP */
+    }
+}
