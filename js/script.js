@@ -198,7 +198,7 @@ function processResult() {
         // --- Pengaturan Khusus Frame Windows XP Vertikal ---
 
 const photoW = 1030;   // Diperlebar agar mengisi kotak putih sepenuhnya
-const photoH = 670;   // Ditinggikan agar menutupi area hitam/putih yang kosong
+const photoH = 650;   // Ditinggikan agar menutupi area hitam/putih yang kosong
 const xPos = (canvas.width - photoW) / 2; 
 
 // Jarak dari atas frame ke lubang pertama
