@@ -173,58 +173,53 @@ if (cameraContainer) {
 function processResult() {
     const canvas = document.getElementById('resultCanvas');
     const ctx = canvas.getContext('2d');
-    const selectedFrame = localStorage.getItem("selectedFrame") || "frame1.png";
+    
+    // Ambil nama frame dari localStorage
+    // Pastikan saat simpan di choose_frame.html, namanya sesuai (misal: frame-overlay-1.png)
+    const selectedFrame = localStorage.getItem("selectedFrame") || "frame-overlay-1.png"; 
 
     const frameImg = new Image();
-    frameImg.src = `img/frames/${selectedFrame}`;
+    
+    // PERBAIKAN PATH: Langsung ke folder img/, tidak pakai /frames/
+    frameImg.src = `img/${selectedFrame}`; 
 
     frameImg.onload = () => {
-        // 1. Set ukuran canvas
         canvas.width = frameImg.width;
         canvas.height = frameImg.height;
-
-        // 2. Bersihkan canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Pengaturan Posisi
-        const photoW = 320; 
-        const photoH = 240; 
+        // Pengaturan posisi agar pas dengan frame-overlay kamu yang ramping
+        const photoW = 380;   // Sesuaikan lebar foto
+        const photoH = 280;   // Sesuaikan tinggi foto
         const xPos = (canvas.width - photoW) / 2; 
-        const startY = 50;  
-        const gap = 20;     
+        const startY = 65;    // Jarak dari atas frame
+        const gap = 25;       // Jarak antar foto vertikal
 
         let photosLoaded = 0;
 
-        // 3. Gambar semua foto dulu (Lapisan Bawah)
         capturedPhotos.forEach((photoData, index) => {
             const img = new Image();
             img.src = photoData;
             img.onload = () => {
                 const yPos = startY + (index * (photoH + gap));
+                
+                // Gambar foto dulu
                 ctx.drawImage(img, xPos, yPos, photoW, photoH);
                 
                 photosLoaded++;
 
-                // 4. Setelah SEMUA foto digambar, tumpuk dengan Frame
                 if (photosLoaded === capturedPhotos.length) {
-                    // Gunakan source-over (default) untuk menaruh frame di ATAS foto
+                    // Gambar frame di atasnya
                     ctx.globalCompositeOperation = 'source-over';
                     ctx.drawImage(frameImg, 0, 0);
-                    
-                    // SELESAI! Baru munculkan hasilnya
                     showFinalResult();
                 }
-            };
-            
-            img.onerror = () => {
-                console.error("Gagal memuat foto ke-" + index);
-                photosLoaded++; // Tetap hitung agar tidak stuck jika 1 foto gagal
             };
         });
     };
 
     frameImg.onerror = () => {
-        console.error("Gagal memuat file frame: " + frameImg.src);
-        alert("Frame not found! Check your img/frames/ folder.");
+        console.error("Gagal memuat file: " + frameImg.src);
+        alert("File tidak ketemu! Pastikan nama file di localStorage adalah '" + selectedFrame + "' dan ada di folder img/");
     };
 }
