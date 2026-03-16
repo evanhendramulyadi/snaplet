@@ -809,32 +809,36 @@ footer {
     display: none; 
     flex-direction: column;
     align-items: center;
-    /* GANTI INI: Pakai flex-start supaya konten nempel ke atas, bukan ngambang di tengah */
-    justify-content: flex-start; 
+    justify-content: flex-start !important; /* Paksa ke atas */
     text-align: center;
     
-    /* Paksa padding atas jadi 0 */
-    padding: 0px 0px; 
-    
-    /* Tambahkan margin-top negatif jika masih kurang naik (opsional) */
-    margin-top: 0px; 
+    padding-top: 5px !important;  /* Kasih jarak sangat tipis dari layar atas */
+    margin-top: 0 !important;
     
     width: 100%;
-    min-height: 100vh; /* Memastikan background penuh tapi konten tetap di atas */
-    animation: fadeIn 0.8s ease-in-out;
+    min-height: 100vh;
+    position: absolute; /* Paksa dia keluar dari aturan layout pembungkusnya */
+    top: 0;
+    left: 0;
+    background: inherit; /* Biar background tetap sama */
+    z-index: 99; /* Pastikan di paling depan */
 }
 
 /* Judul */
 .result-title {
     font-family: 'Poppins', sans-serif;
-    /* Paksa margin atas jadi sangat kecil atau 0 */
-    margin-top: 0px; 
-    margin-bottom: 0px; 
-    
+    margin: 5px 0 !important; /* Margin atas bawah sangat tipis */
+    padding: 0 !important;
     color: #333;
-    text-align: center;
-    width: 100%;
-    font-size: 1.8rem; /* Kecilkan dikit biar elegan */
+    line-height: 1.2;
+    font-size: 1.2rem; /* Jangan terlalu gede biar gak makan tempat */
+}
+
+/* Tombol agar tidak terlalu jauh dari foto */
+.result-actions {
+    margin-top: 15px !important; 
+    display: flex;
+    gap: 15px;
 }
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
@@ -859,13 +863,6 @@ footer {
 #resultCanvas {
     max-width: 100%;
     height: auto;
-}
-
-/* Container Tombol */
-.result-actions {
-    margin-top: 30px;
-    display: flex;
-    gap: 20px;
 }
 
 .btn-action {
