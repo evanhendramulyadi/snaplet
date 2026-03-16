@@ -806,15 +806,49 @@ footer {
 
 /* Container Utama Hasil */
 .result-container {
-    display: none; /* Diubah jadi flex lewat JS */
+    display: none; 
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* GANTI INI: flex-start memaksa semua konten mulai dari atas */
+    justify-content: flex-start; 
     text-align: center;
     padding: 0px 20px; 
     width: 100%;
-    /* Animasi muncul halus */
+    
+    /* Tambahkan ini untuk menarik seluruh blok ke atas */
+    margin-top: 20px; 
+    
     animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Judul */
+.result-title {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    text-align: center;
+    width: 100%;
+
+    /* PERUBAHAN DISINI */
+    font-size: 1.4rem;    /* Gedein dikit dari sebelumnya */
+    font-weight: 600;     /* Bikin lebih tebal biar tegas */
+    margin-top: -10px;    /* Angka negatif buat narik teks lebih ke atas lagi */
+    margin-bottom: 15px;  /* Jarak tipis ke foto */
+}
+
+/* Wrapper untuk Canvas */
+.canvas-wrapper {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    line-height: 0;
+    max-width: 140px; 
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+/* Container Tombol */
+.result-actions {
+    margin-top: 20px; /* Kurangi jarak dari foto ke tombol biar gak kepanjangan */
+    display: flex;
+    gap: 20px;
 }
 
 @keyframes fadeIn {
@@ -823,28 +857,6 @@ footer {
 }
 
 /* Judul */
-.result-title {
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 20px;
-    color: #333;
-    
-    /* Tambahkan ini */
-    text-align: center;
-    width: 100%; /* Memastikan teks mengambil ruang penuh untuk bisa ke tengah */
-}
-
-/* Wrapper untuk Canvas (Bingkai luar) */
-/* Wrapper untuk Canvas (Bingkai luar) */
-.canvas-wrapper {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    line-height: 0;
-    
-    /* GANTI INI: Dari persen jadi pixel agar lebih kecil */
-    max-width: 140px; /* Angka ini bisa kamu ubah sesuai selera (misal 250px - 320px) */
-    
-    background-color: #fff;
-    margin: 0 auto; /* Biar tetap di tengah */
-}
 
 /* Canvas itu sendiri */
 #resultCanvas {
@@ -853,11 +865,6 @@ footer {
 }
 
 /* Container Tombol */
-.result-actions {
-    margin-top: 30px;
-    display: flex;
-    gap: 20px;
-}
 
 .btn-action {
     /* ... properti lainnya ... */
