@@ -829,9 +829,9 @@ footer {
     width: 100%;
 
     /* PERUBAHAN DISINI */
-    font-size: 3rem;    /* Gedein dikit dari sebelumnya */
+    font-size: 2.5rem;    /* Gedein dikit dari sebelumnya */
     font-weight: 600;     /* Bikin lebih tebal biar tegas */
-    margin-top: -50px;    /* Angka negatif buat narik teks lebih ke atas lagi */
+    margin-top: -100px;    /* Angka negatif buat narik teks lebih ke atas lagi */
     margin-bottom: 15px;  /* Jarak tipis ke foto */
 }
 
