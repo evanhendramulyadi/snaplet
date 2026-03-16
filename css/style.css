@@ -830,11 +830,16 @@ footer {
 }
 
 /* Wrapper untuk Canvas (Bingkai luar) */
+/* Wrapper untuk Canvas (Bingkai luar) */
 .canvas-wrapper {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     line-height: 0;
-    max-width: 70%; /* Agar aman di HP */
+    
+    /* GANTI INI: Dari persen jadi pixel agar lebih kecil */
+    max-width: 280px; /* Angka ini bisa kamu ubah sesuai selera (misal 250px - 320px) */
+    
     background-color: #fff;
+    margin: 0 auto; /* Biar tetap di tengah */
 }
 
 /* Canvas itu sendiri */
