@@ -234,7 +234,7 @@ const xPos = (canvas.width - photoW) / 2;
 const startY = 115;    
 
 // Jarak antar lubang (gap yang pas untuk frame ini cukup besar)
-const gap = 68;     
+const gap = 70;     
 
         // 3. Proses menggambar 4 foto satu per satu
         const promises = capturedPhotos.map((photoData, index) => {
