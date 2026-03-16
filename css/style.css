@@ -830,7 +830,7 @@ footer {
     
     /* Tambahkan ini */
     text-align: center;
-    padding: 10px;
+    padding: 0px 0px;
     width: 100%; /* Memastikan teks mengambil ruang penuh untuk bisa ke tengah */
 }
 
