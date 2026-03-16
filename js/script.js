@@ -161,15 +161,15 @@ if (cameraContainer) {
 
         console.log("Loading aktif: Hanya spinner dan teks.");
 
-        // 5. PANGGIL PROSES GABUNG FOTO (Beri jeda 3 detik agar loading terlihat)
+        // 4. PANGGIL PROSES GABUNG FOTO
+        // Jangan panggil showFinalResult di sini! Biarkan processResult yang panggil nanti.
         setTimeout(() => {
             processResult(); 
         }, 3000);
     }
-}
+    }
 
-
-function showFinalResult() {
+    function showFinalResult() {
     console.log("Menutup loading dan menampilkan hasil...");
     
     // 1. Sembunyikan Loading
@@ -181,10 +181,9 @@ function showFinalResult() {
     // 2. Munculkan Area Hasil (Canvas & Download Button)
     const resultArea = document.getElementById('resultArea');
     if (resultArea) {
-        resultArea.style.display = 'flex'; // Pastikan pakai flex agar sesuai CSS kamu
+        resultArea.style.display = 'flex'; 
     }
 }
-
 
 function processResult() {
     console.log("Memulai proses penggabungan foto...");
