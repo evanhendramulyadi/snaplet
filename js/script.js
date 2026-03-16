@@ -116,40 +116,69 @@ function takePhoto() {
     document.body.appendChild(flash);
     setTimeout(() => flash.remove(), 100);
     
-    // 2. Ambil gambar dari video
+   // 2. Setup Canvas (Tetap 1024x768 / Rasio 4:3)
     const canvas = document.createElement("canvas");
     canvas.width = 1024;
     canvas.height = 768;
     const ctx = canvas.getContext("2d");
-    
+
+    // ==========================================
+    // TAMBAHKAN LOGIKA CROP DI SINI
+    // ==========================================
+    const videoW = video.videoWidth;
+    const videoH = video.videoHeight;
+    const targetRatio = 4 / 3;
+    const currentRatio = videoW / videoH;
+
+    let sw, sh, sx, sy;
+
+    if (currentRatio > targetRatio) {
+        // Video terlalu lebar (biasanya di laptop) -> Potong samping kiri-kanan
+        sh = videoH;
+        sw = videoH * targetRatio;
+        sx = (videoW - sw) / 2;
+        sy = 0;
+    } else {
+        // Video terlalu tinggi (biasanya di HP) -> Potong atas-bawah
+        sw = videoW;
+        sh = videoW / targetRatio;
+        sx = 0;
+        sy = (videoH - sh) / 2;
+    }
+    // ==========================================
+
+    // 3. Mirroring
     ctx.translate(canvas.width, 0);
     ctx.scale(-1, 1);
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    
+    // 4. Gambar dengan koordinat CROP (sx, sy, sw, sh)
+    // Ubah ctx.drawImage lama kamu jadi yang ini:
+    ctx.drawImage(video, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
 
-    // 3. Simpan ke array
+    // 5. Simpan ke array
     const dataUrl = canvas.toDataURL("image/png");
     capturedPhotos.push(dataUrl);
     photoCount++;
 
-    // 4. Logika Selesai
+    // 6. Logika Selesai
     if (photoCount < maxPhotos) {
         // Lanjut ke foto berikutnya
         setTimeout(startPhotoboothCycle, 2000);
     } else {
         // === SEMUA FOTO SELESAI ===
 
-// 1. Matikan aliran kamera
+// 7. Matikan aliran kamera
 if (video.srcObject) {
     video.srcObject.getTracks().forEach(track => track.stop());
 }
 
-// 2. SEMBUNYIKAN TEKS TAPI TETAP JAGA RUANGNYA (Penting!)
+// 8. SEMBUNYIKAN TEKS TAPI TETAP JAGA RUANGNYA (Penting!)
 if (instrTextElem) {
     instrTextElem.style.visibility = 'hidden'; 
     // Pakai visibility agar layout tidak "loncat" naik
 }
 
-// 3. HILANGKAN BOX FOTO & ISINYA
+// 9. HILANGKAN BOX FOTO & ISINYA
 const cameraContainer = document.querySelector('.camera-container');
 if (cameraContainer) {
     cameraContainer.style.display = 'none';
@@ -161,7 +190,7 @@ if (cameraContainer) {
 
         console.log("Loading aktif: Hanya spinner dan teks.");
 
-        // 4. PANGGIL PROSES GABUNG FOTO
+        // 10. PANGGIL PROSES GABUNG FOTO
         // Jangan panggil showFinalResult di sini! Biarkan processResult yang panggil nanti.
         setTimeout(() => {
             processResult(); 
