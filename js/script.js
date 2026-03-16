@@ -160,5 +160,72 @@ if (cameraContainer) {
         if (loadingModal) loadingModal.style.display = 'flex';
 
         console.log("Loading aktif: Hanya spinner dan teks.");
+
+        // 5. PANGGIL PROSES GABUNG FOTO (Beri jeda 3 detik agar loading terlihat)
+        setTimeout(() => {
+            processResult(); 
+        }, 3000);
     }
 }
+
+
+
+function processResult() {
+    const canvas = document.getElementById('resultCanvas');
+    const ctx = canvas.getContext('2d');
+    const selectedFrame = localStorage.getItem("selectedFrame") || "frame1.png"; // Ambil frame yang dipilih
+
+    const frameImg = new Image();
+    frameImg.src = `img/frames/${selectedFrame}`; // Pastikan path frame benar
+
+    frameImg.onload = () => {
+        // 1. Set ukuran canvas sesuai ukuran file frame asli
+        canvas.width = frameImg.width;
+        canvas.height = frameImg.height;
+
+        // 2. Gambar Frame sebagai background
+        ctx.drawImage(frameImg, 0, 0);
+
+        /**
+         * PENGATURAN LETAK FOTO (Sesuai gambar contoh strip vertikal)
+         * Kamu bisa ubah angka-angka di bawah ini untuk pas-in ke lubang frame
+         */
+        const photoW = 320; // Lebar foto di dalam frame
+        const photoH = 240; // Tinggi foto di dalam frame
+        const xPos = (canvas.width - photoW) / 2; // Tengah secara horizontal
+        const startY = 50;  // Jarak foto pertama dari atas frame
+        const gap = 20;     // Jarak antar foto
+
+        capturedPhotos.forEach((photoData, index) => {
+            const img = new Image();
+            img.src = photoData;
+            img.onload = () => {
+                const yPos = startY + (index * (photoH + gap));
+                
+                // Gambar foto ke canvas (di bawah frame)
+                // Kita gunakan globalCompositeOperation agar foto di bawah frame jika frame transparan
+                ctx.globalCompositeOperation = 'destination-over';
+                ctx.drawImage(img, xPos, yPos, photoW, photoH);
+                
+                // Jika sudah foto terakhir, munculkan area hasil
+                if (index === capturedPhotos.length - 1) {
+                    showFinalResult();
+                }
+            };
+        });
+    };
+}
+
+function showFinalResult() {
+    document.getElementById('loadingModal').style.display = 'none';
+    document.getElementById('resultArea').style.display = 'flex';
+}
+
+// Logika Download
+document.getElementById('downloadBtn').addEventListener('click', () => {
+    const canvas = document.getElementById('resultCanvas');
+    const link = document.createElement('a');
+    link.download = 'my-photobooth.png';
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+});
