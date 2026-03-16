@@ -173,59 +173,58 @@ if (cameraContainer) {
 function processResult() {
     const canvas = document.getElementById('resultCanvas');
     const ctx = canvas.getContext('2d');
-    const selectedFrame = localStorage.getItem("selectedFrame") || "frame1.png"; // Ambil frame yang dipilih
+    const selectedFrame = localStorage.getItem("selectedFrame") || "frame1.png";
 
     const frameImg = new Image();
-    frameImg.src = `img/frames/${selectedFrame}`; // Pastikan path frame benar
+    frameImg.src = `img/frames/${selectedFrame}`;
 
     frameImg.onload = () => {
-        // 1. Set ukuran canvas sesuai ukuran file frame asli
+        // 1. Set ukuran canvas
         canvas.width = frameImg.width;
         canvas.height = frameImg.height;
 
-        // 2. Gambar Frame sebagai background
-        ctx.drawImage(frameImg, 0, 0);
+        // 2. Bersihkan canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        /**
-         * PENGATURAN LETAK FOTO (Sesuai gambar contoh strip vertikal)
-         * Kamu bisa ubah angka-angka di bawah ini untuk pas-in ke lubang frame
-         */
-        const photoW = 320; // Lebar foto di dalam frame
-        const photoH = 240; // Tinggi foto di dalam frame
-        const xPos = (canvas.width - photoW) / 2; // Tengah secara horizontal
-        const startY = 50;  // Jarak foto pertama dari atas frame
-        const gap = 20;     // Jarak antar foto
+        // Pengaturan Posisi
+        const photoW = 320; 
+        const photoH = 240; 
+        const xPos = (canvas.width - photoW) / 2; 
+        const startY = 50;  
+        const gap = 20;     
 
+        let photosLoaded = 0;
+
+        // 3. Gambar semua foto dulu (Lapisan Bawah)
         capturedPhotos.forEach((photoData, index) => {
             const img = new Image();
             img.src = photoData;
             img.onload = () => {
                 const yPos = startY + (index * (photoH + gap));
-                
-                // Gambar foto ke canvas (di bawah frame)
-                // Kita gunakan globalCompositeOperation agar foto di bawah frame jika frame transparan
-                ctx.globalCompositeOperation = 'destination-over';
                 ctx.drawImage(img, xPos, yPos, photoW, photoH);
                 
-                // Jika sudah foto terakhir, munculkan area hasil
-                if (index === capturedPhotos.length - 1) {
+                photosLoaded++;
+
+                // 4. Setelah SEMUA foto digambar, tumpuk dengan Frame
+                if (photosLoaded === capturedPhotos.length) {
+                    // Gunakan source-over (default) untuk menaruh frame di ATAS foto
+                    ctx.globalCompositeOperation = 'source-over';
+                    ctx.drawImage(frameImg, 0, 0);
+                    
+                    // SELESAI! Baru munculkan hasilnya
                     showFinalResult();
                 }
             };
+            
+            img.onerror = () => {
+                console.error("Gagal memuat foto ke-" + index);
+                photosLoaded++; // Tetap hitung agar tidak stuck jika 1 foto gagal
+            };
         });
     };
-}
 
-function showFinalResult() {
-    document.getElementById('loadingModal').style.display = 'none';
-    document.getElementById('resultArea').style.display = 'flex';
+    frameImg.onerror = () => {
+        console.error("Gagal memuat file frame: " + frameImg.src);
+        alert("Frame not found! Check your img/frames/ folder.");
+    };
 }
-
-// Logika Download
-document.getElementById('downloadBtn').addEventListener('click', () => {
-    const canvas = document.getElementById('resultCanvas');
-    const link = document.createElement('a');
-    link.download = 'my-photobooth.png';
-    link.href = canvas.toDataURL("image/png");
-    link.click();
-});
