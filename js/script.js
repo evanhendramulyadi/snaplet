@@ -197,8 +197,8 @@ function processResult() {
         // Pengaturan posisi foto di dalam frame (sesuaikan koordinat ini jika perlu)
         // --- Pengaturan Khusus Frame Windows XP Vertikal ---
 
-const photoW = 880;   // Diperlebar agar mengisi kotak putih sepenuhnya
-const photoH = 540;   // Ditinggikan agar menutupi area hitam/putih yang kosong
+const photoW = 900;   // Diperlebar agar mengisi kotak putih sepenuhnya
+const photoH = 580;   // Ditinggikan agar menutupi area hitam/putih yang kosong
 const xPos = (canvas.width - photoW) / 2; 
 
 // Jarak dari atas frame ke lubang pertama
