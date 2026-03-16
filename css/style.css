@@ -836,7 +836,7 @@ footer {
     line-height: 0;
     
     /* GANTI INI: Dari persen jadi pixel agar lebih kecil */
-    max-width: 100px; /* Angka ini bisa kamu ubah sesuai selera (misal 250px - 320px) */
+    max-width: 50px; /* Angka ini bisa kamu ubah sesuai selera (misal 250px - 320px) */
     
     background-color: #fff;
     margin: 0 auto; /* Biar tetap di tengah */
@@ -855,21 +855,23 @@ footer {
     gap: 20px;
 }
 
-/* Styling Tombol Aksi */
 .btn-action {
-    padding: 12px 30px;
+    /* ... properti lainnya ... */
+    padding: 12px 0;         /* Padding samping diubah jadi 0 supaya width yang kontrol */
+    width: 160px;            /* Tentukan lebar tetap yang kamu mau */
+    text-align: center;      /* Pastikan teks tetap di tengah */
+    
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    background-color: #f1e7d0; /* Warna krem sesuai tema Snaplet */
+    background-color: #f1e7d0;
     color: #333;
     border: 1px solid #ccc;
     transition: all 0.3s ease;
 }
-
 .btn-action:hover {
     background-color: #ffe8a3;
     transform: scale(1.02);
