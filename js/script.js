@@ -197,15 +197,15 @@ function processResult() {
         // Pengaturan posisi foto di dalam frame (sesuaikan koordinat ini jika perlu)
         // --- Pengaturan Khusus Frame Windows XP Vertikal ---
 
-const photoW = 1000;   // Diperlebar agar mengisi kotak putih sepenuhnya
-const photoH = 700;   // Ditinggikan agar menutupi area hitam/putih yang kosong
+const photoW = 1030;   // Diperlebar agar mengisi kotak putih sepenuhnya
+const photoH = 690;   // Ditinggikan agar menutupi area hitam/putih yang kosong
 const xPos = (canvas.width - photoW) / 2; 
 
 // Jarak dari atas frame ke lubang pertama
 const startY = 115;    
 
 // Jarak antar lubang (gap yang pas untuk frame ini cukup besar)
-const gap = 85;     
+const gap = 50;     
 
         // 3. Proses menggambar 4 foto satu per satu
         const promises = capturedPhotos.map((photoData, index) => {
