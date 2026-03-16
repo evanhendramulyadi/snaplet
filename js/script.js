@@ -195,11 +195,16 @@ function processResult() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         // Pengaturan posisi foto di dalam frame (sesuaikan koordinat ini jika perlu)
-        const photoW = 380;   
-        const photoH = 280;   
-        const xPos = (canvas.width - photoW) / 2; 
-        const startY = 65;    
-        const gap = 25;       
+        // Pengaturan posisi foto agar pas di lubang frame bunga matahari
+const photoW = 750;   // Diperlebar agar mengisi area hitam
+const photoH = 500;   // Disesuaikan tingginya
+const xPos = (canvas.width - photoW) / 2; // Otomatis ke tengah
+
+// startY adalah jarak dari atas frame ke lubang pertama
+const startY = 100;   
+
+// gap adalah jarak antar lubang (jarak dari bawah foto 1 ke atas foto 2)
+const gap = 115;     
 
         // 3. Proses menggambar 4 foto satu per satu
         const promises = capturedPhotos.map((photoData, index) => {
