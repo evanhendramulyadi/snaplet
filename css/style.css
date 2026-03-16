@@ -831,7 +831,7 @@ footer {
     /* PERUBAHAN DISINI */
     font-size: 2rem;    /* Gedein dikit dari sebelumnya */
     font-weight: 600;     /* Bikin lebih tebal biar tegas */
-    margin-top: -100px;    /* Angka negatif buat narik teks lebih ke atas lagi */
+    margin-top: 15px;    /* Angka negatif buat narik teks lebih ke atas lagi */
     margin-bottom: 15px;  /* Jarak tipis ke foto */
 }
 
@@ -891,7 +891,6 @@ footer {
 @media (max-width: 768px) {
 
     .result-title {
-        font-size: 1.5rem;
-        margin-top: 0px;
+        font-size: 1rem;
     }
 }
