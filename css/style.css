@@ -833,7 +833,7 @@ footer {
 .canvas-wrapper {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     line-height: 0;
-    max-width: 90%; /* Agar aman di HP */
+    max-width: 70%; /* Agar aman di HP */
     background-color: #fff;
 }
 
@@ -866,7 +866,6 @@ footer {
 }
 
 .btn-action:hover {
-    background-color: #e2d5b8;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #ffe8a3;
+    transform: scale(1.02);
 }
