@@ -171,65 +171,64 @@ if (cameraContainer) {
 
 
 function processResult() {
+    console.log("Memulai proses penggabungan foto...");
     const canvas = document.getElementById('resultCanvas');
     const ctx = canvas.getContext('2d');
     
-    // 1. Ambil nama frame
     const selectedFrame = localStorage.getItem("selectedFrame") || "frame-overlay-1.png"; 
+    console.log("Frame yang digunakan:", selectedFrame);
 
     const frameImg = new Image();
     frameImg.src = `img/${selectedFrame}`; 
 
     frameImg.onload = () => {
+        console.log("Frame berhasil dimuat. Ukuran:", frameImg.width, "x", frameImg.height);
         canvas.width = frameImg.width;
         canvas.height = frameImg.height;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Pengaturan posisi
         const photoW = 380;   
         const photoH = 280;   
         const xPos = (canvas.width - photoW) / 2; 
         const startY = 65;    
         const gap = 25;       
 
-        let photosLoaded = 0;
+        console.log("Memproses", capturedPhotos.length, "foto...");
 
-        // 2. Gunakan Promise.all agar kita yakin semua foto sudah siap
         const promises = capturedPhotos.map((photoData, index) => {
             return new Promise((resolve, reject) => {
                 const img = new Image();
                 img.onload = () => {
                     const yPos = startY + (index * (photoH + gap));
-                    // Gambar foto di lapisan bawah
                     ctx.drawImage(img, xPos, yPos, photoW, photoH);
+                    console.log(`Foto ke-${index + 1} berhasil digambar.`);
                     resolve();
                 };
-                img.onerror = reject;
+                img.onerror = () => {
+                    console.error(`Gagal memuat data foto ke-${index + 1}`);
+                    reject();
+                };
                 img.src = photoData;
             });
         });
 
-        // 3. Eksekusi setelah semua foto SELESAI digambar
         Promise.all(promises)
             .then(() => {
-                // Gambar frame paling atas
+                console.log("Semua foto selesai digambar. Menimpa dengan frame...");
                 ctx.globalCompositeOperation = 'source-over';
                 ctx.drawImage(frameImg, 0, 0);
-                
-                // Matikan loading dan munculkan hasil
+                console.log("Proses selesai. Memanggil showFinalResult().");
                 showFinalResult();
             })
             .catch(err => {
-                console.error("Gagal memproses salah satu foto:", err);
-                // Tetap munculkan hasil meski ada satu foto yang gagal agar tidak stuck
+                console.error("Terjadi error saat menggambar foto:", err);
                 showFinalResult();
             });
     };
 
     frameImg.onerror = () => {
-        console.error("Gagal memuat file: " + frameImg.src);
-        alert("File frame tidak ditemukan di folder img!");
-        // Matikan loading agar user tidak bingung
+        console.error("GAGAL MEMUAT FRAME! Periksa path: img/" + selectedFrame);
+        alert("File frame tidak ditemukan: img/" + selectedFrame);
         document.getElementById('loadingModal').style.display = 'none';
     };
 }
