@@ -803,3 +803,63 @@ footer {
         margin-bottom: -5px;
     }
 }
+
+/* Container Utama Hasil */
+.result-container {
+    display: none; /* Diubah jadi flex lewat JS */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Judul */
+.result-title {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Wrapper untuk Canvas (Bingkai luar) */
+.canvas-wrapper {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    line-height: 0;
+    max-width: 90%; /* Agar aman di HP */
+    background-color: #fff;
+}
+
+/* Canvas itu sendiri */
+#resultCanvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Container Tombol */
+.result-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+/* Styling Tombol Aksi */
+.btn-action {
+    padding: 12px 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: #f1e7d0; /* Warna krem sesuai tema Snaplet */
+    color: #333;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+.btn-action:hover {
+    background-color: #e2d5b8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
