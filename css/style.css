@@ -806,33 +806,41 @@ footer {
 
 /* Container Utama Hasil */
 .result-container {
-    display: none; /* Diubah jadi flex lewat JS */
+    display: none; 
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* GANTI INI: Pakai flex-start supaya konten nempel ke atas, bukan ngambang di tengah */
+    justify-content: flex-start; 
     text-align: center;
+    
+    /* Paksa padding atas jadi 0 */
     padding: 0px 20px; 
+    
+    /* Tambahkan margin-top negatif jika masih kurang naik (opsional) */
+    margin-top: 20px; 
+    
     width: 100%;
-    /* Animasi muncul halus */
+    min-height: 100vh; /* Memastikan background penuh tapi konten tetap di atas */
     animation: fadeIn 0.8s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Judul */
 .result-title {
     font-family: 'Poppins', sans-serif;
-    margin-bottom: 20px;
-    color: #333;
+    /* Paksa margin atas jadi sangat kecil atau 0 */
+    margin-top: 10px; 
+    margin-bottom: 15px; 
     
-    /* Tambahkan ini */
+    color: #333;
     text-align: center;
-    padding: 0px 0px;
-    width: 100%; /* Memastikan teks mengambil ruang penuh untuk bisa ke tengah */
+    width: 100%;
+    font-size: 1.1rem; /* Kecilkan dikit biar elegan */
 }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 
 /* Wrapper untuk Canvas (Bingkai luar) */
 /* Wrapper untuk Canvas (Bingkai luar) */
