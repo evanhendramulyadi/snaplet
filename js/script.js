@@ -169,8 +169,6 @@ if (cameraContainer) {
     }
     }
 
-    
-
 function processResult() {
     console.log("Memulai proses penggabungan foto...");
     const canvas = document.getElementById('resultCanvas');
