@@ -195,17 +195,17 @@ function processResult() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         // Pengaturan posisi foto di dalam frame (sesuaikan koordinat ini jika perlu)
-        // Pengaturan posisi foto untuk Frame Windows XP (Strip Vertikal)
-const photoW = 780;   // Lebar diperbesar supaya kotak putih terisi penuh
-const photoH = 520;   // Tinggi diperbesar agar tidak terlihat gepeng
+        // --- Pengaturan Khusus Frame Windows XP Vertikal ---
+
+const photoW = 840;   // Diperlebar agar mengisi kotak putih sepenuhnya
+const photoH = 620;   // Ditinggikan agar menutupi area hitam/putih yang kosong
 const xPos = (canvas.width - photoW) / 2; 
 
-// startY: Jarak dari paling atas frame ke kotak pertama
-const startY = 60;    
+// Jarak dari atas frame ke lubang pertama
+const startY = 115;    
 
-// gap: Jarak antar kotak putih (jarak dari bawah foto 1 ke atas foto 2)
-// Di frame ini, gap-nya terlihat cukup lebar
-const gap = 145;     
+// Jarak antar lubang (gap yang pas untuk frame ini cukup besar)
+const gap = 85;     
 
         // 3. Proses menggambar 4 foto satu per satu
         const promises = capturedPhotos.map((photoData, index) => {
