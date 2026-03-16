@@ -806,45 +806,32 @@ footer {
 
 /* Container Utama Hasil */
 .result-container {
-    display: none; 
+    display: none; /* Diubah jadi flex lewat JS */
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start !important; /* Paksa ke atas */
+    justify-content: center;
     text-align: center;
-    
-    padding-top: 5px !important;  /* Kasih jarak sangat tipis dari layar atas */
-    margin-top: 0 !important;
-    
+    padding: 0px 20px; 
     width: 100%;
-    min-height: 100vh;
-    position: absolute; /* Paksa dia keluar dari aturan layout pembungkusnya */
-    top: 0;
-    left: 0;
-    background: inherit; /* Biar background tetap sama */
-    z-index: 99; /* Pastikan di paling depan */
+    /* Animasi muncul halus */
+    animation: fadeIn 0.8s ease-in-out;
 }
 
-/* Judul */
-.result-title {
-    font-family: 'Poppins', sans-serif;
-    margin: 5px 0 !important; /* Margin atas bawah sangat tipis */
-    padding: 0 !important;
-    color: #333;
-    line-height: 1.2;
-    font-size: 1.2rem; /* Jangan terlalu gede biar gak makan tempat */
-}
-
-/* Tombol agar tidak terlalu jauh dari foto */
-.result-actions {
-    margin-top: 15px !important; 
-    display: flex;
-    gap: 15px;
-}
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Judul */
+.result-title {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    color: #333;
+    
+    /* Tambahkan ini */
+    text-align: center;
+    width: 100%; /* Memastikan teks mengambil ruang penuh untuk bisa ke tengah */
+}
 
 /* Wrapper untuk Canvas (Bingkai luar) */
 /* Wrapper untuk Canvas (Bingkai luar) */
@@ -853,7 +840,7 @@ footer {
     line-height: 0;
     
     /* GANTI INI: Dari persen jadi pixel agar lebih kecil */
-    max-width: 150px; /* Angka ini bisa kamu ubah sesuai selera (misal 250px - 320px) */
+    max-width: 140px; /* Angka ini bisa kamu ubah sesuai selera (misal 250px - 320px) */
     
     background-color: #fff;
     margin: 0 auto; /* Biar tetap di tengah */
@@ -863,6 +850,13 @@ footer {
 #resultCanvas {
     max-width: 100%;
     height: auto;
+}
+
+/* Container Tombol */
+.result-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
 }
 
 .btn-action {
