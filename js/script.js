@@ -174,13 +174,10 @@ function processResult() {
     const canvas = document.getElementById('resultCanvas');
     const ctx = canvas.getContext('2d');
     
-    // Ambil nama frame dari localStorage
-    // Pastikan saat simpan di choose_frame.html, namanya sesuai (misal: frame-overlay-1.png)
+    // 1. Ambil nama frame
     const selectedFrame = localStorage.getItem("selectedFrame") || "frame-overlay-1.png"; 
 
     const frameImg = new Image();
-    
-    // PERBAIKAN PATH: Langsung ke folder img/, tidak pakai /frames/
     frameImg.src = `img/${selectedFrame}`; 
 
     frameImg.onload = () => {
@@ -188,38 +185,51 @@ function processResult() {
         canvas.height = frameImg.height;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Pengaturan posisi agar pas dengan frame-overlay kamu yang ramping
-        const photoW = 380;   // Sesuaikan lebar foto
-        const photoH = 280;   // Sesuaikan tinggi foto
+        // Pengaturan posisi
+        const photoW = 380;   
+        const photoH = 280;   
         const xPos = (canvas.width - photoW) / 2; 
-        const startY = 65;    // Jarak dari atas frame
-        const gap = 25;       // Jarak antar foto vertikal
+        const startY = 65;    
+        const gap = 25;       
 
         let photosLoaded = 0;
 
-        capturedPhotos.forEach((photoData, index) => {
-            const img = new Image();
-            img.src = photoData;
-            img.onload = () => {
-                const yPos = startY + (index * (photoH + gap));
-                
-                // Gambar foto dulu
-                ctx.drawImage(img, xPos, yPos, photoW, photoH);
-                
-                photosLoaded++;
-
-                if (photosLoaded === capturedPhotos.length) {
-                    // Gambar frame di atasnya
-                    ctx.globalCompositeOperation = 'source-over';
-                    ctx.drawImage(frameImg, 0, 0);
-                    showFinalResult();
-                }
-            };
+        // 2. Gunakan Promise.all agar kita yakin semua foto sudah siap
+        const promises = capturedPhotos.map((photoData, index) => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => {
+                    const yPos = startY + (index * (photoH + gap));
+                    // Gambar foto di lapisan bawah
+                    ctx.drawImage(img, xPos, yPos, photoW, photoH);
+                    resolve();
+                };
+                img.onerror = reject;
+                img.src = photoData;
+            });
         });
+
+        // 3. Eksekusi setelah semua foto SELESAI digambar
+        Promise.all(promises)
+            .then(() => {
+                // Gambar frame paling atas
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.drawImage(frameImg, 0, 0);
+                
+                // Matikan loading dan munculkan hasil
+                showFinalResult();
+            })
+            .catch(err => {
+                console.error("Gagal memproses salah satu foto:", err);
+                // Tetap munculkan hasil meski ada satu foto yang gagal agar tidak stuck
+                showFinalResult();
+            });
     };
 
     frameImg.onerror = () => {
         console.error("Gagal memuat file: " + frameImg.src);
-        alert("File tidak ketemu! Pastikan nama file di localStorage adalah '" + selectedFrame + "' dan ada di folder img/");
+        alert("File frame tidak ditemukan di folder img!");
+        // Matikan loading agar user tidak bingung
+        document.getElementById('loadingModal').style.display = 'none';
     };
 }
