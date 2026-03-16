@@ -243,31 +243,3 @@ function processResult() {
         if (loadingModal) loadingModal.style.display = 'none';
     };
 }
-
-// --- LOGIKA TOMBOL HASIL ---
-
-// 1. Fungsi Download
-const downloadBtn = document.getElementById("downloadBtn");
-if (downloadBtn) {
-    downloadBtn.addEventListener("click", () => {
-        const canvas = document.getElementById("resultCanvas");
-        if (canvas) {
-            const link = document.createElement("a");
-            link.download = "snaplet-photobooth.png"; // Nama file saat didownload
-            link.href = canvas.toDataURL("image/png");
-            link.click();
-            console.log("Foto berhasil didownload.");
-        }
-    });
-}
-
-// 2. Fungsi Close (Kembali ke Home)
-const closeBtn = document.getElementById("closeBtn");
-if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-        // Hapus data pilihan frame agar bersih saat mulai lagi
-        localStorage.removeItem("selectedFrame");
-        // Pindah ke halaman awal (sesuaikan namanya jika bukan index.html)
-        window.location.href = "index.html"; 
-    });
-}
