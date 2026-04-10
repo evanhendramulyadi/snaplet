@@ -449,51 +449,44 @@ footer {
 
 /* --- Tips Modal / Notification --- */
 .modal-overlay {
-    position: absolute;
+    position: fixed; /* ⬅️ penting */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+
     background: rgba(0, 0, 0, 0.4);
-    /* Overlay sedikit lebih terang agar fokus ke box */
+
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
+
+    z-index: 999; /* biar selalu di atas */
     backdrop-filter: blur(2px);
-    /* Memberikan efek blur halus di belakang modal */
 }
 
 .tips-box {
     background-color: #FDF1D3;
-    width: 85%;
-    max-width: 550px;
-    padding: 30px 30px 45px 30px;
-    /* Padding bawah agak besar buat ruang tombol */
-    border-radius: 30px;
-    text-align: left;
+    width: 90%;
+    max-width: 400px; /* biar ga kegedean di tablet/laptop */
+    padding: 25px;
+    border-radius: 25px;
+    text-align: center;
+    margin: auto;
+
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     border: 2px solid #ffffff;
-    
 
-    /* Penting agar kita bisa atur posisi tombol relatif terhadap box ini */
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .tips-actions {
-    position: absolute;
-    /* Kita cabut tombol dari alur teks biasa */
-    bottom: -25px;
-    /* Geser ke bawah sejauh setengah tinggi tombol */
-    left: 50%;
-    /* Geser ke tengah */
-    transform: translateX(-50%);
-    /* Geser balik ke kiri agar benar-benar center */
-
+    margin-top: 20px;
     display: flex;
-    gap: 15px;
+    gap: 10px;
     width: 100%;
-    /* Pastikan container tombol cukup lebar */
     justify-content: center;
 }
 
@@ -585,6 +578,27 @@ footer {
     .btn-cancel-tips {
         width: 100%;
         padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tips-box {
+        width: 92%;
+        padding: 20px;
+    }
+
+    .tips-content p {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+
+    .tips-actions {
+        flex-direction: column; /* tombol ke bawah biar ga sempit */
+    }
+
+    .btn-ready,
+    .btn-cancel-tips {
+        width: 100%;
     }
 }
 
