@@ -127,7 +127,7 @@ function takePhoto() {
     // ==========================================
     const videoW = video.videoWidth;
     const videoH = video.videoHeight;
-    const targetRatio = 4 / 3;
+    const targetRatio = 1030 / 650;
     const currentRatio = videoW / videoH;
 
     let sw, sh, sx, sy;
