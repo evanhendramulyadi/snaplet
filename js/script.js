@@ -116,10 +116,10 @@ function takePhoto() {
     document.body.appendChild(flash);
     setTimeout(() => flash.remove(), 100);
     
-   // 2. Setup Canvas (Tetap 1024x768 / Rasio 4:3)
+   // 2. Setup Canvas 
     const canvas = document.createElement("canvas");
-    canvas.width = 1024;
-    canvas.height = 768;
+    canvas.width = 1030;
+    canvas.height = 650;
     const ctx = canvas.getContext("2d");
 
     // ==========================================
