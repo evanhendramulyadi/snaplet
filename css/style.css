@@ -474,8 +474,6 @@ footer {
     text-align: left;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     border: 2px solid #ffffff;
-    
-
     /* Penting agar kita bisa atur posisi tombol relatif terhadap box ini */
     position: relative;
 }
@@ -856,18 +854,13 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Judul */
-
 /* Canvas itu sendiri */
 #resultCanvas {
     max-width: 100%;
     height: auto;
 }
 
-/* Container Tombol */
-
 .btn-action {
-    /* ... properti lainnya ... */
     padding: 12px 0;         /* Padding samping diubah jadi 0 supaya width yang kontrol */
     width: 160px;            /* Tentukan lebar tetap yang kamu mau */
     text-align: center;      /* Pastikan teks tetap di tengah */
@@ -875,12 +868,11 @@ footer {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 1rem;
-    border: none;
+    border: 1px solid #ccc;
     border-radius: 12px;
     cursor: pointer;
     background-color: #f1e7d0;
     color: #333;
-    border: 1px solid #ccc;
     transition: all 0.3s ease;
 }
 .btn-action:hover {
