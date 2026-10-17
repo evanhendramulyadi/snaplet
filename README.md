@@ -9,11 +9,15 @@
 </p>
 
 <p align="center">
+  <a href="https://snaplett.vercel.app/" target="_blank"><strong>🚀 Live Demo: snaplett.vercel.app</strong></a>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Language-HTML5%20%7C%20CSS3%20%7C%20JavaScript-blue?style=flat-square" alt="Tech Stack">
   <img src="https://img.shields.io/badge/API-HTML5%20Canvas%20%26%20MediaDevices-green?style=flat-square" alt="Web APIs">
   <img src="https://img.shields.io/badge/Dependencies-Zero-success?style=flat-square" alt="Zero Dependencies">
-  <img src="https://img.shields.io/badge/Deployment-Vercel%20Ready-black?style=flat-square&logo=vercel" alt="Vercel Ready">
-  <img src="https://img.shields.io/badge/Copyright-%C2%A9%202026%20Evan-red?style=flat-square" alt="Copyright Evan">
+  <img src="https://img.shields.io/badge/Deployment-Vercel-black?style=flat-square&logo=vercel" alt="Vercel Deployment">
+  <img src="https://img.shields.io/badge/Copyright-%C2%A9%202026%E2%80%93Present%20Clario-red?style=flat-square" alt="Copyright Clario">
 </p>
 
 ---
@@ -23,6 +27,15 @@
 **Snaplet** is a lightweight, responsive, and privacy-focused client-side photobooth website. Designed with a clean aesthetic and intuitive user interface, Snaplet enables users to take four sequential webcam snapshots guided by real-time countdowns and pose cues, automatically composite the photos into an artistic photobooth film strip, and download the finished high-resolution image in one click.
 
 The application runs entirely within the client browser. Photos are processed and merged directly in-memory using the HTML5 Canvas 2D context, meaning user camera feeds and images never leave the local device.
+
+---
+
+## 🌐 Live Deployment
+
+Snaplet is deployed and publicly accessible on Vercel:
+- **Live URL**: [https://snaplett.vercel.app/](https://snaplett.vercel.app/)
+- **Platform**: Vercel (Edge Network)
+- **Build Configuration**: Zero build step required (Pure Static HTML/CSS/JS)
 
 ---
 
@@ -123,7 +136,7 @@ Then open `http://localhost:8000` in your web browser.
 
 ---
 
-## 🌐 Deployment to Vercel
+## 🌐 Deploying Your Own Instance to Vercel
 
 Snaplet is fully static and ready for instant deployment to [Vercel](https://vercel.com):
 
@@ -141,7 +154,7 @@ Snaplet is fully static and ready for instant deployment to [Vercel](https://ver
 
 ## 👥 Credits
 
-Snaplet was developed collaboratively under **Clario**, a creative group exploring design and technology:
+Snaplet was created and developed by **Clario**, a collaborative team of friends exploring creative digital design and technology:
 
 - **Evan Hendra Mulyadi** – Team Leader & Web Developer ([@evanhendraa](https://www.instagram.com/evanhendraa))
 - **Ivander Nathanael Thio** – Designer ([@ivandernathanaelthio](https://www.instagram.com/ivandernathanaelthio))
@@ -151,11 +164,10 @@ Snaplet was developed collaboratively under **Clario**, a creative group explori
 
 ## ⚖️ Copyright & Intellectual Property
 
-**© 2026 Evan. All Rights Reserved.**
+**© 2026–Present Clario. All Rights Reserved.**
 
-This project is an original creation by **Evan**. 
+This project is an original creation by **Clario** (led and developed by Evan Hendra Mulyadi with design by Ivander Nathanael Thio and Alden Kestian Pramono).
 
 This repository is made publicly available for the sole purpose of viewing, inspecting, and learning from the source code. Public access to this repository does not grant permission to copy, duplicate, redistribute, rename, rebrand, or publish this work or any part thereof under another name or claim it as one's own original creation. 
 
 Any reuse, quotation, or study must strictly respect applicable copyright laws and the author's intellectual property rights. No open-source license is granted.
-
