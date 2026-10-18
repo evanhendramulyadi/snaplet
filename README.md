@@ -2,7 +2,7 @@
   <img src="img/logo-snaplet.png" alt="Snaplet Logo" width="100">
 </p>
 
-# Snaplet
+<h1 align="center">Snaplet</h1>
 
 Snaplet is a modern, lightweight, and privacy-focused client-side photobooth web application. It transforms your browser into an automated photobooth that captures four sequential camera snapshots, crops and aligns them, composites them into custom aesthetic frames, and generates high-resolution photo strips ready for instant download.
 
