@@ -1,5 +1,5 @@
 <p align="center">
-  &nbsp;&nbsp;&nbsp;<img src="img/logo-snaplet.png" alt="Snaplet Logo" width="100">
+  &nbsp;&nbsp;<img src="img/logo-snaplet.png" alt="Snaplet Logo" width="100">
 </p>
 
 <h1 align="center">Snaplet</h1>
