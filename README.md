@@ -2,7 +2,7 @@
   &nbsp;<img src="img/logo-snaplet.png" alt="Snaplet Logo" width="100">
 </p>
 
-<h1 align="center">Snaplet</h1>
+<h1 align="left">Snaplet</h1>
 
 Snaplet is a sleek, browser-based photobooth web application designed to let users capture sequential photos and generate custom-framed photobooth strips directly in their browser.
 
