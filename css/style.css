@@ -840,6 +840,9 @@ footer {
     max-width: 140px; 
     background-color: #fff;
     margin: 0 auto;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 /* Container Tombol */
@@ -858,6 +861,10 @@ footer {
 #resultCanvas {
     max-width: 100%;
     height: auto;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    pointer-events: none;
 }
 
 .btn-action {

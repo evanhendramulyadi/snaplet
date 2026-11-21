@@ -455,6 +455,21 @@ function showFinalResult() {
 
 
 /* =========================================================
+   PROTEKSI HASIL FOTO (ANTI KLIK KANAN / SAVE AS)
+   ========================================================= */
+
+const resultCanvasElem = document.getElementById("resultCanvas");
+if (resultCanvasElem) {
+    resultCanvasElem.addEventListener("contextmenu", (e) => e.preventDefault());
+}
+
+const combinedResultContainer = document.getElementById("combinedResultContainer");
+if (combinedResultContainer) {
+    combinedResultContainer.addEventListener("contextmenu", (e) => e.preventDefault());
+}
+
+
+/* =========================================================
    TOMBOL DOWNLOAD
    ========================================================= */
 
