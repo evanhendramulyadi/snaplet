@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="img/logo-snaplet.png" alt="Snaplet Logo" width="100">
+  <img src="img/snaplet-logo.png" alt="Snaplet Logo" width="100">
 </p>
 
 <h1 align="left">Snaplet</h1>
@@ -57,7 +57,7 @@ No build tools or external dependencies are required.
 ## 👥 Credits
 
 <p align="center">
-  <img src="img/logo-clario.png" alt="Clario Logo" width="80">
+  <img src="img/clario-logo.png" alt="Clario Logo" width="80">
 </p>
 
 Snaplet was created and developed by **Clario**:
