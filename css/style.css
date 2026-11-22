@@ -6,6 +6,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html {
+    scrollbar-gutter: stable;
+}
+
 body {
     background-image: url('../img/background.png');
     background-size: cover;
@@ -898,22 +902,6 @@ footer {
    HALAMAN 404 (PAGE NOT FOUND)
    ========================================================= */
 
-.logo-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.not-found-hero {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 30px 20px;
-}
-
 .not-found-container {
     max-width: 650px;
     width: 100%;
@@ -986,10 +974,6 @@ footer {
 
 /* Responsif Mobile untuk Halaman 404 */
 @media (max-width: 600px) {
-    .not-found-hero {
-        padding: 20px 15px;
-    }
-
     .not-found-desc {
         font-size: 0.95rem;
         margin-bottom: 25px;

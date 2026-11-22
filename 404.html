@@ -7,23 +7,11 @@
     <title>404 — Snaplet</title>
     <meta name="description" content="The page you are looking for does not exist on Snaplet.">
     
-    <script>
-        // Ensure relative assets and links resolve correctly regardless of URL depth
-        if (window.location.protocol !== 'file:') {
-            const path = window.location.pathname;
-            if (path.startsWith('/snaplet/')) {
-                document.write('<base href="/snaplet/">');
-            } else {
-                document.write('<base href="/">');
-            }
-        }
-    </script>
-
     <link rel="icon" type="image/png" href="img/snaplet-logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -31,7 +19,7 @@
     <div class="main-wrapper">
         <header>
             <div class="navbar-container">
-                <a href="index.html" class="logo-link"><img src="img/snaplet-logo.png" alt="Snaplet Logo" class="logo"></a>
+                <img src="img/snaplet-logo.png" alt="Snaplet Logo" class="logo">
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
@@ -43,7 +31,7 @@
             </div>
         </header>
 
-        <main class="not-found-hero">
+        <main class="hero">
             <div class="not-found-container">
                 <h1 class="not-found-code">404</h1>
                 <h2 class="not-found-title">Page Not Found</h2>
