@@ -6,17 +6,6 @@
     <meta name="robots" content="index, follow">
     <title>How to Use — Snaplet</title>
     
-    <script>
-        // Redirect to 404 if accessed with an invalid path (e.g. typos, trailing slash/dot)
-        if (window.location.protocol !== 'file:') {
-            const p = window.location.pathname;
-            const u = window.location.href.split('?')[0].split('#')[0];
-            if ((p !== '/how_to_use' && p !== '/how_to_use.html' && p !== '/snaplet/how_to_use' && p !== '/snaplet/how_to_use.html') || u.endsWith('.') || u.endsWith('/.')) {
-                window.location.replace('404.html');
-            }
-        }
-    </script>
-
     <link rel="icon" type="image/png" href="img/snaplet-logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

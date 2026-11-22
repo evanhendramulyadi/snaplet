@@ -1,16 +1,3 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/(.*)/\\.",
-      "destination": "/404.html",
-      "permanent": false
-    },
-    {
-      "source": "/(.*)/\\.\\.",
-      "destination": "/404.html",
-      "permanent": false
-    }
-  ]
+  "cleanUrls": true
 }
