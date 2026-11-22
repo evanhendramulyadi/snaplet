@@ -924,21 +924,6 @@ footer {
     text-align: center;
 }
 
-.not-found-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #FFF3D0;
-    border: 1px solid #DCDCDC;
-    padding: 6px 18px;
-    border-radius: 50px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
 .not-found-code {
     font-size: clamp(5.5rem, 16vw, 9rem);
     font-weight: 800;
@@ -958,19 +943,16 @@ footer {
 
 .not-found-desc {
     font-size: clamp(1rem, 2.5vw, 1.15rem);
-    color: #555;
+    color: #000;
     line-height: 1.6;
     max-width: 500px;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .not-found-actions {
     display: flex;
-    gap: 15px;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 25px;
 }
 
 /* Tombol Back to Home */
@@ -1006,11 +988,6 @@ footer {
 @media (max-width: 600px) {
     .not-found-hero {
         padding: 20px 15px;
-    }
-
-    .not-found-badge {
-        font-size: 0.85rem;
-        padding: 5px 14px;
     }
 
     .not-found-desc {
