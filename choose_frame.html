@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <title>Choose Frame - Snaplet</title>
+
+    <script>
+        // Redirect to 404 if accessed with an invalid path (e.g. typos, trailing slash/dot)
+        if (window.location.protocol !== 'file:') {
+            const p = window.location.pathname;
+            const u = window.location.href.split('?')[0].split('#')[0];
+            if ((p !== '/choose_frame' && p !== '/choose_frame.html' && p !== '/snaplet/choose_frame' && p !== '/snaplet/choose_frame.html') || u.endsWith('.') || u.endsWith('/.')) {
+                window.location.replace('404.html');
+            }
+        }
+    </script>
+
     <link rel="icon" type="image/png" href="img/snaplet-logo.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">

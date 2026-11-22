@@ -7,10 +7,11 @@
     <meta name="description" content="Snaplet is a photobooth website that lets you create photobooth-style photo strips directly from your browser using your camera.">
     
     <script>
-        // Redirect to 404 if accessed with an invalid path (e.g. typos, trailing dot)
+        // Redirect to 404 if accessed with an invalid path (e.g. typos, trailing slash/dot)
         if (window.location.protocol !== 'file:') {
             const p = window.location.pathname;
-            if (p !== '/' && p !== '/index.html' && p !== '/snaplet/' && p !== '/snaplet/index.html') {
+            const u = window.location.href.split('?')[0].split('#')[0];
+            if ((p !== '/' && p !== '/index' && p !== '/index.html' && p !== '/snaplet/' && p !== '/snaplet/index.html') || u.endsWith('.') || u.endsWith('/.')) {
                 window.location.replace('404.html');
             }
         }
