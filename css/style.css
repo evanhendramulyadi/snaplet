@@ -893,3 +893,136 @@ footer {
         font-size: 1.7rem;
     }
 }
+
+/* =========================================================
+   HALAMAN 404 (PAGE NOT FOUND)
+   ========================================================= */
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.not-found-hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.not-found-container {
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.not-found-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #FFF3D0;
+    border: 1px solid #DCDCDC;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.not-found-code {
+    font-size: clamp(5.5rem, 16vw, 9rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -3px;
+    color: #111;
+    margin: 0 0 10px 0;
+    text-shadow: 2px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+.not-found-title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 15px;
+}
+
+.not-found-desc {
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    color: #555;
+    line-height: 1.6;
+    max-width: 500px;
+    margin-bottom: 35px;
+}
+
+.not-found-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+/* Tombol Back to Home */
+.btn-not-found {
+    background-color: #FFF3D0;
+    border: 1px solid #DCDCDC;
+    padding: 18px 50px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.btn-not-found:hover {
+    background-color: #ffe8a3;
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-not-found:active {
+    transform: scale(0.98);
+}
+
+/* Responsif Mobile untuk Halaman 404 */
+@media (max-width: 600px) {
+    .not-found-hero {
+        padding: 20px 15px;
+    }
+
+    .not-found-badge {
+        font-size: 0.85rem;
+        padding: 5px 14px;
+    }
+
+    .not-found-desc {
+        font-size: 0.95rem;
+        margin-bottom: 25px;
+    }
+
+    .btn-not-found {
+        padding: 15px 40px;
+        font-size: 1.05rem;
+        width: 100%;
+        max-width: 280px;
+    }
+}
+

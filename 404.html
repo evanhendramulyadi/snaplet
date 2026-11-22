@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <title>404 Page Not Found — Snaplet</title>
+    <meta name="description" content="The page you are looking for does not exist on Snaplet.">
+    
+    <script>
+        // Ensure relative assets and links resolve correctly regardless of URL depth
+        if (window.location.protocol !== 'file:') {
+            const path = window.location.pathname;
+            if (path.startsWith('/snaplet/')) {
+                document.write('<base href="/snaplet/">');
+            } else {
+                document.write('<base href="/">');
+            }
+        }
+    </script>
+
+    <link rel="icon" type="image/png" href="img/snaplet-logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <header>
+            <div class="navbar-container">
+                <a href="index.html" class="logo-link"><img src="img/snaplet-logo.png" alt="Snaplet Logo" class="logo"></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="how_to_use.html">How to Use</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </nav>
+                <img src="img/clario-logo.png" alt="Clario Logo" class="logo">
+            </div>
+        </header>
+
+        <main class="not-found-hero">
+            <div class="not-found-container">
+                <div class="not-found-badge">
+                    <span>⚠️ Error 404</span>
+                </div>
+                <h1 class="not-found-code">404</h1>
+                <h2 class="not-found-title">Page Not Found</h2>
+                <p class="not-found-desc">
+                    Oops! The page you're looking for doesn't exist, has been removed, or has a typo in the URL.
+                </p>
+                <div class="not-found-actions">
+                    <a href="index.html" class="btn-not-found">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <span>Back to Home</span>
+                    </a>
+                </div>
+                <p class="help-text">Want to take photos instead? <a href="choose_frame.html">Choose a frame here.</a></p>
+            </div>
+        </main>
+
+        <footer>
+            <p class="made-by">Made by Clario.</p>
+            <div class="footer-line"></div>
+            <p class="copyright">&copy; 2026–Present Clario. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
