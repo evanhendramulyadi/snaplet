@@ -1,8 +1,8 @@
 /* =========================================================
-   FUNGSI GLOBAL & NAVIGASI
+   GLOBAL FUNCTIONS & NAVIGATION
    ========================================================= */
 
-// Pindah dari Landing Page ke Pilih Frame
+// Navigate from Landing Page to Choose Frame
 const startBtn = document.getElementById("startBtn");
 
 if (startBtn) {
@@ -11,8 +11,8 @@ if (startBtn) {
     });
 }
 
-// Fungsi untuk memilih frame
-// Dipanggil dari onclick di HTML
+// Function to select a frame
+// Called from onclick in HTML
 function saveFrame(frameName) {
     localStorage.setItem("selectedFrame", frameName);
     window.location.href = "photobooth.html";
@@ -20,8 +20,8 @@ function saveFrame(frameName) {
 
 
 /* =========================================================
-   LOGIKA PHOTOBOOTH
-   Hanya berjalan jika elemen photobooth tersedia
+   PHOTOBOOTH LOGIC
+   Only runs if photobooth elements exist
    ========================================================= */
 
 const video = document.getElementById("video");
@@ -43,7 +43,7 @@ const captureTexts = [
 
 
 /* =========================================================
-   ELEMEN UI
+   UI ELEMENTS
    ========================================================= */
 
 const instrTextElem = document.getElementById("captureInstructionText");
@@ -51,7 +51,7 @@ const countdownEl = document.getElementById("countdown");
 
 
 /* =========================================================
-   SETUP KAMERA
+   CAMERA SETUP
    ========================================================= */
 
 async function setupCamera() {
@@ -74,34 +74,34 @@ async function setupCamera() {
             try {
                 await video.play();
             } catch (err) {
-                console.error("Gagal menjalankan video:", err);
+                console.error("Failed to play video:", err);
             }
         };
 
     } catch (err) {
         cameraStream = null;
-        console.error("Kamera tidak dapat diakses:", err);
-        // Kamera gagal tidak langsung memunculkan error ke user.
-        // Modal tetap bisa ditutup oleh tombol Ready.
+        console.error("Camera access failed:", err);
+        // Camera failure does not immediately show an error to user.
+        // Modal can still be dismissed by the Ready button.
     }
 }
 
 
 /* =========================================================
-   TOMBOL READY
+   READY BUTTON
    ========================================================= */
 
 if (readyBtn) {
     readyBtn.addEventListener("click", () => {
-        // Modal langsung hilang
+        // Hide modal immediately
         if (tipsModal) {
             tipsModal.style.display = "none";
         }
 
-        // Cegah tombol ditekan berkali-kali
+        // Prevent button from being clicked multiple times
         readyBtn.disabled = true;
 
-        // Hanya mulai photobooth jika kamera aktif
+        // Only start photobooth if camera is active
         if (cameraStream && cameraStream.active) {
             startPhotoboothCycle();
         }
@@ -110,7 +110,7 @@ if (readyBtn) {
 
 
 /* =========================================================
-   INISIALISASI KAMERA
+   CAMERA INITIALIZATION
    ========================================================= */
 
 if (video) {
@@ -119,7 +119,7 @@ if (video) {
 
 
 /* =========================================================
-   MEMULAI SIKLUS FOTO
+   START PHOTO CYCLE
    ========================================================= */
 
 function startPhotoboothCycle() {
@@ -127,20 +127,20 @@ function startPhotoboothCycle() {
         return;
     }
 
-    // Pastikan elemen countdown tersedia
+    // Ensure countdown element exists
     if (!countdownEl) {
-        console.error("Elemen #countdown tidak ditemukan.");
+        console.error("#countdown element not found.");
         return;
     }
 
-    // Update teks instruksi
+    // Update instruction text
     if (instrTextElem) {
         instrTextElem.innerText = captureTexts[photoCount];
         instrTextElem.style.display = "block";
         instrTextElem.style.visibility = "visible";
     }
 
-    // Countdown
+    // Countdown timer
     let timer = 3;
     countdownEl.innerText = timer;
     countdownEl.style.display = "flex";
@@ -154,7 +154,7 @@ function startPhotoboothCycle() {
             clearInterval(countdownInterval);
             countdownEl.style.display = "none";
 
-            // Ambil foto
+            // Capture photo
             takePhoto();
         }
     }, 1000);
@@ -162,17 +162,17 @@ function startPhotoboothCycle() {
 
 
 /* =========================================================
-   MENGAMBIL FOTO
+   CAPTURE PHOTO
    ========================================================= */
 
 function takePhoto() {
     if (!video) return;
 
-    // Pastikan kamera memiliki ukuran video
+    // Ensure camera video dimensions are available
     if (!video.videoWidth || !video.videoHeight) {
-        console.error("Ukuran video belum tersedia.");
+        console.error("Video dimensions not yet available.");
 
-        // Coba lagi setelah sebentar
+        // Retry after a short delay
         setTimeout(() => {
             takePhoto();
         }, 500);
@@ -181,7 +181,7 @@ function takePhoto() {
     }
 
     /* -----------------------------------------------------
-       1. EFEK FLASH
+       1. FLASH EFFECT
        ----------------------------------------------------- */
     const flash = document.createElement("div");
     flash.className = "flash-effect";
@@ -192,7 +192,7 @@ function takePhoto() {
     }, 100);
 
     /* -----------------------------------------------------
-       2. SETUP CANVAS
+       2. CANVAS SETUP
        ----------------------------------------------------- */
     const canvas = document.createElement("canvas");
     canvas.width = 1030;
@@ -200,12 +200,12 @@ function takePhoto() {
 
     const ctx = canvas.getContext("2d");
     if (!ctx) {
-        console.error("Canvas context tidak tersedia.");
+        console.error("Canvas context not available.");
         return;
     }
 
     /* -----------------------------------------------------
-       3. LOGIKA CROP
+       3. CROP LOGIC
        ----------------------------------------------------- */
     const videoW = video.videoWidth;
     const videoH = video.videoHeight;
@@ -216,13 +216,13 @@ function takePhoto() {
     let sw, sh, sx, sy;
 
     if (currentRatio > targetRatio) {
-        // Video terlalu lebar: potong bagian kiri dan kanan
+        // Video is too wide: crop left and right
         sh = videoH;
         sw = videoH * targetRatio;
         sx = (videoW - sw) / 2;
         sy = 0;
     } else {
-        // Video terlalu tinggi: potong bagian atas dan bawah
+        // Video is too tall: crop top and bottom
         sw = videoW;
         sh = videoW / targetRatio;
         sx = 0;
@@ -236,7 +236,7 @@ function takePhoto() {
     ctx.scale(-1, 1);
 
     /* -----------------------------------------------------
-       5. GAMBAR FOTO HASIL CROP
+       5. DRAW CROPPED PHOTO
        ----------------------------------------------------- */
     ctx.drawImage(
         video,
@@ -251,27 +251,27 @@ function takePhoto() {
     );
 
     /* -----------------------------------------------------
-       6. SIMPAN FOTO
+       6. SAVE PHOTO
        ----------------------------------------------------- */
     const dataUrl = canvas.toDataURL("image/png");
     capturedPhotos.push(dataUrl);
     photoCount++;
 
     /* -----------------------------------------------------
-       7. CEK APAKAH SUDAH 4 FOTO
+       7. CHECK IF 4 PHOTOS REACHED
        ----------------------------------------------------- */
     if (photoCount < maxPhotos) {
-        // Lanjut foto berikutnya
+        // Proceed to next photo
         setTimeout(() => {
             startPhotoboothCycle();
         }, 2000);
     } else {
         /* =================================================
-           SEMUA FOTO SELESAI
+           ALL PHOTOS COMPLETED
            ================================================= */
 
         /* -------------------------------------------------
-           8. MATIKAN KAMERA
+           8. STOP CAMERA
            ------------------------------------------------- */
         if (cameraStream) {
             cameraStream.getTracks().forEach((track) => {
@@ -285,15 +285,15 @@ function takePhoto() {
         }
 
         /* -------------------------------------------------
-           9. SEMBUNYIKAN TEKS INSTRUKSI
+           9. HIDE INSTRUCTION TEXT
            ------------------------------------------------- */
         if (instrTextElem) {
-            // visibility agar layout tidak meloncat
+            // Use visibility to prevent layout shifts
             instrTextElem.style.visibility = "hidden";
         }
 
         /* -------------------------------------------------
-           10. HILANGKAN CAMERA CONTAINER
+           10. HIDE CAMERA CONTAINER
            ------------------------------------------------- */
         const cameraContainer = document.querySelector(".camera-container");
         if (cameraContainer) {
@@ -301,17 +301,17 @@ function takePhoto() {
         }
 
         /* -------------------------------------------------
-           11. TAMPILKAN LOADING
+           11. DISPLAY LOADING OVERLAY
            ------------------------------------------------- */
         const loadingModal = document.getElementById("loadingModal");
         if (loadingModal) {
             loadingModal.style.display = "flex";
         }
 
-        console.log("Loading aktif: proses penggabungan foto dimulai.");
+        console.log("Loading active: compositing process started.");
 
         /* -------------------------------------------------
-           12. PROSES HASIL
+           12. PROCESS RESULT
            ------------------------------------------------- */
         setTimeout(() => {
             processResult();
@@ -321,39 +321,39 @@ function takePhoto() {
 
 
 /* =========================================================
-   PROSES PENGGABUNGAN FOTO + FRAME
+   PHOTO + FRAME COMPOSITING PROCESS
    ========================================================= */
 
 function processResult() {
-    console.log("Memulai proses penggabungan foto...");
+    console.log("Starting photo compositing process...");
 
     const canvas = document.getElementById("resultCanvas");
     if (!canvas) {
-        console.error("Elemen #resultCanvas tidak ditemukan.");
+        console.error("#resultCanvas element not found.");
         showFinalResult();
         return;
     }
 
     const ctx = canvas.getContext("2d");
     if (!ctx) {
-        console.error("Canvas context tidak tersedia.");
+        console.error("Canvas context not available.");
         showFinalResult();
         return;
     }
 
     /* -----------------------------------------------------
-       1. AMBIL FRAME DARI LOCAL STORAGE
+       1. RETRIEVE FRAME FROM LOCAL STORAGE
        ----------------------------------------------------- */
     let selectedFrame = localStorage.getItem("selectedFrame") || "frame-overlay-1";
 
     /* -----------------------------------------------------
-       2. PASTIKAN ADA EKSTENSI PNG
+       2. ENSURE PNG EXTENSION
        ----------------------------------------------------- */
     if (!selectedFrame.endsWith(".png")) {
         selectedFrame += ".png";
     }
 
-    console.log("Mencari file frame:", selectedFrame);
+    console.log("Looking for frame file:", selectedFrame);
 
     /* -----------------------------------------------------
        3. LOAD FRAME
@@ -362,10 +362,10 @@ function processResult() {
     frameImg.src = `img/${selectedFrame}`;
 
     frameImg.onload = () => {
-        console.log("Frame berhasil dimuat!");
+        console.log("Frame loaded successfully!");
 
         /* -------------------------------------------------
-           4. SET UKURAN CANVAS SESUAI FRAME
+           4. SET CANVAS SIZE TO MATCH FRAME
            ------------------------------------------------- */
         canvas.width = frameImg.width;
         canvas.height = frameImg.height;
@@ -373,20 +373,20 @@ function processResult() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         /* -------------------------------------------------
-           5. POSISI FOTO DALAM FRAME
+           5. PHOTO POSITIONS WITHIN FRAME
            ------------------------------------------------- */
         const photoW = 1030;
         const photoH = 650;
         const xPos = (canvas.width - photoW) / 2;
 
-        // Jarak dari atas frame ke foto pertama
+        // Distance from top of frame to first photo
         const startY = 115;
 
-        // Jarak antar foto
+        // Distance between photos
         const gap = 67;
 
         /* -------------------------------------------------
-           6. GAMBAR 4 FOTO
+           6. DRAW 4 PHOTOS
            ------------------------------------------------- */
         const promises = capturedPhotos.map((photoData, index) => {
             return new Promise((resolve, reject) => {
@@ -402,30 +402,30 @@ function processResult() {
         });
 
         /* -------------------------------------------------
-           7. SETELAH SEMUA FOTO SELESAI
+           7. AFTER ALL PHOTOS ARE DRAWN
            ------------------------------------------------- */
         Promise.all(promises)
             .then(() => {
-                // Frame berada di atas foto
+                // Frame sits on top of photos
                 ctx.globalCompositeOperation = "source-over";
                 ctx.drawImage(frameImg, 0, 0);
 
-                console.log("Penggabungan selesai.");
+                console.log("Compositing completed.");
                 showFinalResult();
             })
             .catch((err) => {
-                console.error("Gagal menggambar foto:", err);
-                // Tetap tampilkan hasil agar user tidak stuck
+                console.error("Failed to draw photo:", err);
+                // Still show results so user is not stuck
                 showFinalResult();
             });
     };
 
     /* -----------------------------------------------------
-       8. JIKA FRAME TIDAK DITEMUKAN
+       8. IF FRAME IS NOT FOUND
        ----------------------------------------------------- */
     frameImg.onerror = () => {
-        console.error("FILE FRAME TIDAK DITEMUKAN:", frameImg.src);
-        alert("Error: File " + selectedFrame + " tidak ditemukan!");
+        console.error("FRAME FILE NOT FOUND:", frameImg.src);
+        alert("Error: File " + selectedFrame + " was not found!");
 
         const loadingModal = document.getElementById("loadingModal");
         if (loadingModal) {
@@ -436,7 +436,7 @@ function processResult() {
 
 
 /* =========================================================
-   TAMPILKAN LAYAR HASIL
+   DISPLAY RESULT SCREEN
    ========================================================= */
 
 function showFinalResult() {
@@ -450,12 +450,12 @@ function showFinalResult() {
         resultArea.style.display = "flex";
     }
 
-    console.log("Hasil ditampilkan!");
+    console.log("Results displayed!");
 }
 
 
 /* =========================================================
-   PROTEKSI HASIL FOTO (ANTI KLIK KANAN / SAVE AS)
+   PHOTO RESULT PROTECTION (DISABLE RIGHT-CLICK / SAVE AS)
    ========================================================= */
 
 const resultCanvasElem = document.getElementById("resultCanvas");
@@ -470,7 +470,7 @@ if (combinedResultContainer) {
 
 
 /* =========================================================
-   TOMBOL DOWNLOAD
+   DOWNLOAD BUTTON
    ========================================================= */
 
 const downloadBtn = document.getElementById("downloadBtn");
@@ -479,7 +479,7 @@ if (downloadBtn) {
     downloadBtn.addEventListener("click", () => {
         const canvas = document.getElementById("resultCanvas");
         if (!canvas) {
-            console.error("resultCanvas tidak ditemukan.");
+            console.error("resultCanvas not found.");
             return;
         }
 
@@ -488,23 +488,23 @@ if (downloadBtn) {
         link.href = canvas.toDataURL("image/png");
         link.click();
 
-        console.log("Foto berhasil didownload.");
+        console.log("Photo downloaded successfully.");
     });
 }
 
 
 /* =========================================================
-   TOMBOL CLOSE / KEMBALI KE HOME
+   CLOSE BUTTON / RETURN TO HOME
    ========================================================= */
 
 const closeBtn = document.getElementById("closeBtn");
 
 if (closeBtn) {
     closeBtn.addEventListener("click", () => {
-        // Hapus frame yang dipilih
+        // Remove selected frame
         localStorage.removeItem("selectedFrame");
 
-        // Kembali ke halaman awal
+        // Return to home page
         window.location.href = "index.html";
     });
 }

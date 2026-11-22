@@ -16,7 +16,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /* Kunci background agar tidak gerak */
+    /* Lock background to prevent shifting */
     min-height: 100vh;
     color: #000;
 }
@@ -55,9 +55,9 @@ nav {
     display: flex;
     align-items: center;
     padding: 0 80px;
-    /* Navbar Panjang */
+    /* Extended navbar width */
     border-radius: 20px;
-    /* Radius 20px sesuai permintaan */
+    /* 20px border radius */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
@@ -70,7 +70,7 @@ nav ul {
 nav ul li a {
     text-decoration: none;
     color: #555;
-    /* Warna teks default agak pudar */
+    /* Muted default text color */
     font-size: 1.1rem;
     font-weight: 500;
     white-space: nowrap;
@@ -79,10 +79,10 @@ nav ul li a {
     border-radius: 10px;
 }
 
-/* --- Indikator Page Aktif (Bercahaya & Berwarna) --- */
+/* --- Active Page Indicator --- */
 nav ul li a.active {
     color: #000;
-    /* Teks jadi hitam pekat */
+    /* Bold dark text */
     font-weight: 700;
 }
 
@@ -115,12 +115,12 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
-/* --- Tombol Start Simetris Sempurna --- */
+/* --- Symmetrical Start Button --- */
 .btn-start {
     background-color: #FFF3D0;
     border: 1px solid #DCDCDC;
     padding: 20px 60px;
-    /* Padding atas-bawah & kiri-kanan seimbang */
+    /* Balanced vertical and horizontal padding */
     font-size: 1.2rem;
     font-weight: 600;
     border-radius: 12px;
@@ -131,7 +131,7 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     line-height: 1;
-    /* Reset line-height agar teks tidak miring */
+    /* Reset line-height to center text */
 }
 
 .btn-start:hover {
@@ -139,16 +139,16 @@ nav ul li a:hover {
     transform: scale(1.02);
 }
 
-/* --- Link Click Here --- */
+/* --- Click Here Link --- */
 .help-text {
     margin-top: 25px;
-    /* Jangan taruh underline di sini */
+    /* Do not place underline here */
 }
 
 .help-text a {
     color: #000;
     text-decoration: underline;
-    /* TARUH DI SINI */
+    /* Underline placed on anchor */
     font-weight: 700;
 }
 
@@ -167,7 +167,7 @@ footer {
     margin: 10px auto;
 }
 
-/* --- Responsive HP --- */
+/* --- Mobile Responsiveness --- */
 @media (max-width: 600px) {
     body {
         background-attachment: scroll;
@@ -175,28 +175,28 @@ footer {
 
     .logo {
         height: 55px;
-        /* Logo dikecilkan sedikit agar tidak memakan tempat vertikal */
+        /* Scale down logo slightly to conserve vertical space */
         flex-shrink: 0;
-        /* Mencegah logo dipaksa gepeng oleh browser */
+        /* Prevent logo from being squished */
     }
 
     nav {
         height: 55px;
-        /* Tinggi navbar disamakan dengan logo */
+        /* Match navbar height with logo */
         padding: 0 15px;
-        /* DIKECILKAN: padding kiri-kanan dikurangi supaya tidak lebar */
+        /* Reduce horizontal padding on mobile */
         border-radius: 12px;
         gap: 10px;
     }
 
     nav ul {
         gap: 12px;
-        /* Jarak antar teks menu dipersempit */
+        /* Narrow gap between navigation links */
     }
 
     nav ul li a {
         font-size: 0.95rem;
-        /* Ukuran teks diperkecil sedikit */
+        /* Slightly smaller font size */
         padding: 0 5px;
     }
 
@@ -206,7 +206,7 @@ footer {
     }
 }
 
-/* --- Khusus Halaman Content (How to Use) --- */
+/* --- Content Page Styling (How to Use) --- */
 .content-page {
     flex: 1;
     display: flex;
@@ -218,7 +218,7 @@ footer {
 .how-to-container {
     max-width: 800px;
     text-align: left;
-    /* Teks langkah-langkah rata kiri */
+    /* Left-aligned instruction steps */
 }
 
 .how-to-container h2 {
@@ -238,7 +238,7 @@ footer {
     margin-bottom: 15px;
 }
 
-/* Penyesuaian Mobile untuk Content */
+/* Mobile Adjustments for Content */
 @media (max-width: 600px) {
     .how-to-container h2 {
         font-size: 1.8rem;
@@ -249,16 +249,16 @@ footer {
     }
 }
 
-/* --- Khusus Halaman About --- */
-/* Gunakan container ini agar teks tidak mentok pinggir tapi tetap sejajar */
+/* --- About Page Styling --- */
+/* Container to align content properly without touching screen edges */
 .about-container {
     max-width: 900px;
     width: 100%;
     text-align: left;
     padding: 0 20px;
-    /* Jaga padding tetap sama dengan hero di home */
+    /* Match padding with hero on home page */
     margin: 0 auto;
-    /* Menjaga konten tetap di tengah */
+    /* Keep content centered */
 }
 
 .about-container h2 {
@@ -273,7 +273,7 @@ footer {
     margin-bottom: 20px;
 }
 
-/* Ganti .team-list menjadi class yang kamu pakai di HTML */
+/* Team list styling */
 .team-list {
     list-style-type: disc;
     margin-left: 20px;
@@ -284,7 +284,7 @@ footer {
     margin-bottom: 10px;
 }
 
-/* Style Link Instagram agar bisa dipencet dan terlihat jelas */
+/* Instagram link styling */
 .team-list a {
     color: #000;
     text-decoration: underline;
@@ -296,7 +296,7 @@ footer {
     color: #555;
 }
 
-/* Penyesuaian Mobile */
+/* Mobile Adjustments */
 @media (max-width: 600px) {
 
     .about-text p,
@@ -306,16 +306,16 @@ footer {
 
     .about-container {
         padding: 0 15px;
-        /* Sesuaikan dengan padding mobile di home */
+        /* Match mobile padding with home page */
     }
 }
 
-/* --- Style Khusus Choose Frame --- */
+/* --- Choose Frame Page Styling --- */
 .selection-title {
     font-size: 2rem !important;
     font-weight: 700 !important;
     margin-top: 10px !important;
-    /* Tambah sedikit biar gak nempel atas browser */
+    /* Spacing from top of viewport */
     margin-bottom: 20px !important;
     color: #000;
     text-align: center;
@@ -325,21 +325,21 @@ footer {
 .frame-grid {
     display: flex;
     justify-content: center;
-    /* Mengecilkan jarak antar frame (sebelumnya 30px) */
+    /* Reduced gap between frames */
     gap: 20px;
     flex-wrap: wrap;
     margin-bottom: 30px;
 }
 
 .frame-item {
-    /* Lebar kotak frame di laptop */
+    /* Frame item width on desktop */
     width: 140px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
 .frame-item img {
-    /* Pastikan gambar memenuhi lebar kotak frame-item */
+    /* Ensure preview image fills frame item */
     width: 100%;
     height: auto;
     border-radius: 4px;
@@ -350,7 +350,7 @@ footer {
     transform: scale(1.05);
 }
 
-/* --- Style Tombol Cancel/Return --- */
+/* --- Cancel/Return Button Styling --- */
 .btn-cancel-return {
     background-color: #FFF3D0;
     border: 1px solid #DCDCDC;
@@ -376,12 +376,12 @@ footer {
 .selection-footer {
     width: 100%;
     margin-top: 5px;
-    /* Jarak dari tombol cancel ke footer */
+    /* Margin between cancel button and footer */
     padding: 20px 0;
     text-align: center;
 }
 
-/* --- Responsif Mobile (Anti Kebesaran) --- */
+/* --- Mobile Responsiveness (Frame Selection) --- */
 @media (max-width: 768px) {
     .selection-title {
         font-size: 1.7rem !important;
@@ -389,29 +389,29 @@ footer {
         margin-top: 20px !important;
     }
 
-    /* Di HP, kita buat frame lebih kecil (mirip look di laptop) */
+    /* Scale frames smaller on mobile */
     .frame-item {
         width: 130px;
-        /* Ukuran lebih kecil agar tidak menuhin layar */
+        /* Smaller dimensions to fit screen */
     }
 
     .frame-grid {
         gap: 20px;
-        /* Jarak antar frame lebih rapat di HP */
+        /* Closer frame spacing on mobile */
     }
 
     .btn-cancel-return {
         padding: 15px 40px;
         font-size: 1rem;
         width: auto;
-        /* Jangan paksa full width agar mirip laptop */
+        /* Avoid full width to maintain desktop proportion */
         min-width: 200px;
     }
 }
 
 @media (max-width: 400px) {
 
-    /* Untuk HP kecil, kita pastikan tetap muat 2 kolom */
+    /* Ensure 2-column layout on small phones */
     .frame-item {
         width: 110px;
     }
@@ -422,11 +422,11 @@ footer {
     position: relative;
     width: 90%;
     max-width: 800px;
-    /* Tidak full layar, kotak di tengah */
+    /* Centered container box */
     aspect-ratio: 16 / 10;
-    /* Proporsi container kamera sesuai screenshot */
+    /* Camera container proportions */
     background: #333;
-    /* Background gelap di belakang video */
+    /* Dark background behind video */
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -446,9 +446,9 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Biar video memenuhi kotak tanpa distorsi */
+    /* Fit video within box without distortion */
     transform: scaleX(-1);
-    /* Efek mirror kamera */
+    /* Camera mirroring effect */
 }
 
 /* --- Tips Modal / Notification --- */
@@ -459,13 +459,13 @@ footer {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
-    /* Overlay sedikit lebih terang agar fokus ke box */
+    /* Semi-transparent overlay to focus on modal */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 100;
     backdrop-filter: blur(2px);
-    /* Memberikan efek blur halus di belakang modal */
+    /* Subtle backdrop blur behind modal */
 }
 
 .tips-box {
@@ -473,29 +473,29 @@ footer {
     width: 85%;
     max-width: 550px;
     padding: 30px 30px 45px 30px;
-    /* Padding bawah agak besar buat ruang tombol */
+    /* Bottom padding to allocate space for buttons */
     border-radius: 30px;
     text-align: left;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     border: 2px solid #ffffff;
-    /* Penting agar kita bisa atur posisi tombol relatif terhadap box ini */
+    /* Relative positioning for button placement */
     position: relative;
 }
 
 .tips-actions {
     position: absolute;
-    /* Kita cabut tombol dari alur teks biasa */
+    /* Absolute positioning out of normal flow */
     bottom: -25px;
-    /* Geser ke bawah sejauh setengah tinggi tombol */
+    /* Shift down by half button height */
     left: 50%;
-    /* Geser ke tengah */
+    /* Align to horizontal center */
     transform: translateX(-50%);
-    /* Geser balik ke kiri agar benar-benar center */
+    /* Translate back to center perfectly */
 
     display: flex;
     gap: 15px;
     width: 100%;
-    /* Pastikan container tombol cukup lebar */
+    /* Ensure button container width */
     justify-content: center;
 }
 
@@ -515,12 +515,12 @@ footer {
 }
 
 
-/* Base Style untuk kedua tombol */
+/* Base styling for modal buttons */
 .btn-ready,
 .btn-cancel-tips {
     padding: 15px 30px;
     border-radius: 50px;
-    /* Tombol lonjong sesuai desain */
+    /* Pill-shaped button design */
     font-weight: 600;
     cursor: pointer;
     font-size: 0.95rem;
@@ -532,45 +532,45 @@ footer {
     border: none;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     white-space: nowrap;
-    /* Mencegah teks tombol turun ke bawah */
+    /* Prevent button text from wrapping */
     text-transform: uppercase;
-    /* Membuat teks jadi kapital */
+    /* Uppercase button text */
     letter-spacing: 0.5px;
 }
 
-/* Tombol Ready (Putih) */
+/* Ready Button (White) */
 .btn-ready {
     background-color: #FDF1D3;
     color: #000;
     outline: 1px solid #ffffff;
-    /* Garis putih tipis untuk efek kontras */
+    /* Thin white outline for contrast */
 }
 
-/* Tombol Cancel (Krem Kecokelatan) */
+/* Cancel Button (Warm Cream) */
 .btn-cancel-tips {
     background-color: #FDF1D3;
     color: #333;
     outline: 1px solid #ffffff;
-    /* Garis putih tipis untuk efek kontras */
+    /* Thin white outline for contrast */
 }
 
-/* --- Efek Hover (Sesuai Permintaan) --- */
+/* --- Hover Effects --- */
 .btn-ready:hover,
 .btn-cancel-tips:hover {
     background-color: #ffe8a3;
-    /* Warna kuning muda saat hover */
+    /* Light yellow hover color */
     transform: scale(1.05);
-    /* Sedikit membesar */
+    /* Subtle scale up */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .btn-ready:active,
 .btn-cancel-tips:active {
     transform: scale(0.98);
-    /* Efek membal saat diklik */
+    /* Spring active effect on click */
 }
 
-/* Responsif Mobile */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .tips-box {
         padding: 25px;
@@ -579,7 +579,7 @@ footer {
 
     .tips-actions {
         flex-direction: column;
-        /* Tombol tumpuk di HP agar muat */
+        /* Stack buttons vertically on mobile */
         gap: 12px;
     }
 
@@ -590,19 +590,19 @@ footer {
     }
 }
 
-/* --- Responsif Mobile (Tetap Landscape) --- */
+/* --- Mobile Responsiveness (Fixed Landscape) --- */
 @media (max-width: 768px) {
-    /* Container Utama Kamera */
+    /* Main Camera Container */
 .camera-container {
     position: relative;
     width: 90%;
-    max-width: 600px; /* Batas lebar maksimal */
+    max-width: 600px; /* Maximum container width */
     margin: 20px auto;
     
-    /* PAKSA LANDSCAPE 4:3 */
+    /* Enforce 4:3 landscape ratio */
     aspect-ratio: 4 / 3 !important; 
     
-    /* PENTING: Agar rounded corner tidak rusak saat video nyala */
+    /* Prevent rounded corners from clipping video overflow */
     border-radius: 30px; 
     overflow: hidden; 
     
@@ -610,24 +610,24 @@ footer {
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
-/* Elemen Video di Dalamnya */
+/* Inner Video Element */
 #video {
     width: 100%;
     height: 100%;
     
-    /* PAKSA VIDEO MENGIKUTI KOTAK 4:3 TANPA GEPENG */
+    /* Fit video to 4:3 box without distortion */
     object-fit: cover; 
     
     /* Mirroring */
     transform: scaleX(-1);
 }
 
-    /* Penyesuaian Box Tips agar muat di area landscape yang sempit */
+    /* Adjust tips box to fit compact landscape area */
     .tips-box {
         width: 85%;
         padding: 20px 20px 35px 20px;
         margin-bottom: 8px; 
-        /* Biar box tidak terlalu tinggi kalau layar HP sangat pendek */
+        /* Prevent box from overflowing short mobile screens */
         max-height: 80vh; 
         overflow-y: visible; 
     }
@@ -642,11 +642,11 @@ footer {
         line-height: 1.2;
     }
 
-    /* Tombol tetap nempel setengah keluar */
+    /* Position buttons overlapping bottom edge */
     .tips-actions {
         bottom: -18px;
         flex-direction: row;
-        /* Di landscape, tombol kiri-kanan lebih hemat tempat daripada tumpuk */
+        /* Side-by-side buttons in landscape to save vertical space */
         gap: 10px;
         width: 95%;
     }
@@ -654,14 +654,14 @@ footer {
     .btn-ready,
     .btn-cancel-tips {
         flex: 1;
-        /* Bagi rata lebar tombol */
+        /* Distribute button width evenly */
         padding: 10px 5px;
         font-size: 0.75rem;
         white-space: nowrap;
     }
 }
 
-/* Angka Countdown */
+/* Countdown Number */
 .countdown-overlay {
     position: absolute;
     top: 50%;
@@ -672,12 +672,12 @@ footer {
     color: #fff;
     text-shadow: 0 0 20px rgba(0,0,0,0.5);
     z-index: 50;
-    display: none; /* Muncul lewat JS */
+    display: none; /* Toggled via JavaScript */
     pointer-events: none;
     font-family: 'Arial', sans-serif;
 }
 
-/* Efek Kilat */
+/* Flash Effect */
 .flash-effect {
     position: fixed;
     top: 0;
@@ -694,19 +694,19 @@ footer {
     to { opacity: 0; }
 }
 
-/* Container utama hero, pastikan kontennya center */
+/* Main hero container, centered content */
 .hero {
     position: relative;
     display: flex;
-    flex-direction: column; /* Mengatur konten ke bawah (teks lalu kamera) */
+    flex-direction: column; /* Arrange content vertically (text then camera) */
     justify-content: center;
     align-items: center;
     min-height: 80vh;
 }
 
-/* Container Utama Loading */
+/* Main Loading Container */
 .modal-overlay-loading {
-    display: none; /* Diatur jadi 'flex' lewat JavaScript */
+    display: none; /* Set to 'flex' via JavaScript */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -720,24 +720,24 @@ footer {
     z-index: 100;
 }
 
-/* Konten di dalamnya */
+/* Modal content */
 .loading-content-clean {
     text-align: center;
     padding: 20px;
 }
 
-/* Teks Loading - Gede dan Bold */
+/* Loading Text - Large and Bold */
 .loading-text {
     margin-top: 30px;
     font-family: 'Poppins', sans-serif;
     color: #333;
     font-weight: 800;
-    font-size: 1.5rem; /* Ukuran besar yang proporsional */
+    font-size: 1.5rem; /* Proportionate large font size */
     line-height: 1.2;
-    max-width: 800px; /* Agar teks tidak terlalu lebar ke samping */
+    max-width: 800px; /* Constrain text width */
 }
 
-/* Spinner Animasi */
+/* Animated Spinner */
 .spinner {
     width: 80px;
     height: 80px;
@@ -748,7 +748,7 @@ footer {
     animation: spin 1s linear infinite;
 }
 
-/* Gerakan Muter */
+/* Rotation Animation */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -756,28 +756,28 @@ footer {
 
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
-    /* Atur teks agar tidak terlalu besar di layar kecil */
+    /* Adjust text size on smaller screens */
     .loading-text {
-        font-size: 1.5rem; /* Ukuran lebih pas untuk HP */
+        font-size: 1.5rem; /* Better sizing for mobile */
         margin-top: 20px;
-        padding: 0 15px; /* Tambah ruang di samping agar teks tidak nempel layar */
+        padding: 0 15px; /* Side padding to prevent edge clipping */
         max-width: 100%;
     }
 
-    /* Kecilkan spinner sedikit agar proporsional */
+    /* Scale spinner proportionately */
     .spinner {
         width: 60px;
         height: 60px;
         border-width: 6px;
     }
 
-    /* Pastikan container hero punya tinggi yang cukup di mobile */
+    /* Ensure adequate hero container height on mobile */
     .hero {
         min-height: 60vh;
     }
 }
 
-/* --- OPTIONAL: HP SANGAT KECIL (iPhone SE dll) --- */
+/* --- Extra Small Mobile Devices (e.g., iPhone SE) --- */
 @media (max-width: 480px) {
     .loading-text {
         font-size: 1.1rem;
@@ -786,58 +786,58 @@ footer {
 
 
 
-/* GAYA TEKS INSTRUKSI (Di atas box) */
+/* Instruction Text Style (Above Box) */
 .instruction-text {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.2rem; /* Cukup besar tapi tidak menutupi kamera */
+    font-size: 2.2rem; /* Prominent without obscuring camera */
     font-weight: 700;
     color: #333;
-    margin-bottom: -10px; /* Jarak ke box kamera di bawahnya */
+    margin-bottom: -10px; /* Margin to camera box below */
     text-align: center;
     z-index: 5;
-    text-transform: none !important; /* Tambahkan ini agar mengikuti teks asli di JS */
+    text-transform: none !important; /* Maintain text case as defined in JS */
 }
 
 /* --- RESPONSIF MOBILE --- */
 @media (max-width: 768px) {
     .instruction-text {
-        font-size: 1.6rem; /* Ukuran pas untuk HP */
+        font-size: 1.6rem; /* Sizing for mobile */
         margin-bottom: -5px;
     }
 }
 
-/* Container Utama Hasil */
+/* Main Result Container */
 .result-container {
     display: none; 
     flex-direction: column;
     align-items: center;
-    /* GANTI INI: flex-start memaksa semua konten mulai dari atas */
+    /* Align content from top */
     justify-content: flex-start; 
     text-align: center;
     padding: 0px 20px; 
     width: 100%;
     
-    /* Tambahkan ini untuk menarik seluruh blok ke atas */
+    /* Pull entire block upward */
     margin-top: 20px; 
     
     animation: fadeIn 0.8s ease-in-out;
 }
 
-/* Judul */
+/* Title */
 .result-title {
     font-family: 'Poppins', sans-serif;
     color: #333;
     text-align: center;
     width: 100%;
 
-    /* PERUBAHAN DISINI */
-    font-size: 2rem;    /* Gedein dikit dari sebelumnya */
-    font-weight: 600;     /* Bikin lebih tebal biar tegas */
-    margin-top: -50px;    /* Angka negatif buat narik teks lebih ke atas lagi */
-    margin-bottom: 15px;  /* Jarak tipis ke foto */
+    /* Typography Adjustments */
+    font-size: 2rem;    /* Slightly larger font size */
+    font-weight: 600;     /* Bold weight for prominence */
+    margin-top: -50px;    /* Negative margin to pull text upward */
+    margin-bottom: 15px;  /* Subtle margin to photo */
 }
 
-/* Wrapper untuk Canvas */
+/* Canvas Wrapper */
 .canvas-wrapper {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     line-height: 0;
@@ -849,9 +849,9 @@ footer {
     -webkit-touch-callout: none;
 }
 
-/* Container Tombol */
+/* Action Buttons Container */
 .result-actions {
-    margin-top: 20px; /* Kurangi jarak dari foto ke tombol biar gak kepanjangan */
+    margin-top: 20px; /* Spacing from photo to buttons */
     display: flex;
     gap: 20px;
 }
@@ -861,7 +861,7 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Canvas itu sendiri */
+/* Result Canvas */
 #resultCanvas {
     max-width: 100%;
     height: auto;
@@ -872,9 +872,9 @@ footer {
 }
 
 .btn-action {
-    padding: 12px 0;         /* Padding samping diubah jadi 0 supaya width yang kontrol */
-    width: 160px;            /* Tentukan lebar tetap yang kamu mau */
-    text-align: center;      /* Pastikan teks tetap di tengah */
+    padding: 12px 0;         /* Horizontal padding reset to let width control */
+    width: 160px;            /* Fixed button width */
+    text-align: center;      /* Center text inside button */
     
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -899,7 +899,7 @@ footer {
 }
 
 /* =========================================================
-   HALAMAN 404 (PAGE NOT FOUND)
+   404 PAGE (PAGE NOT FOUND)
    ========================================================= */
 
 .not-found-container {
@@ -943,7 +943,7 @@ footer {
     align-items: center;
 }
 
-/* Tombol Back to Home */
+/* Back to Home Button */
 .btn-not-found {
     background-color: #FFF3D0;
     border: 1px solid #DCDCDC;
@@ -972,7 +972,7 @@ footer {
     transform: scale(0.98);
 }
 
-/* Responsif Mobile untuk Halaman 404 */
+/* Mobile Responsiveness for 404 Page */
 @media (max-width: 600px) {
     .not-found-desc {
         font-size: 0.95rem;
