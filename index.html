@@ -11,7 +11,9 @@
         if (window.location.protocol !== 'file:') {
             const p = window.location.pathname;
             const u = window.location.href.split('?')[0].split('#')[0];
-            if ((p !== '/' && p !== '/index' && p !== '/index.html' && p !== '/snaplet/' && p !== '/snaplet/index.html') || u.endsWith('.') || u.endsWith('/.')) {
+            const s = window.location.search;
+            const h = window.location.hash;
+            if ((p !== '/' && p !== '/index' && p !== '/index.html' && p !== '/snaplet/' && p !== '/snaplet/index.html') || u.endsWith('.') || u.endsWith('/.') || s.includes('.') || h.includes('.')) {
                 window.location.replace('404.html');
             }
         }

@@ -1,4 +1,29 @@
 /* =========================================================
+   PROTEKSI LINK & TYPO TITIK (404 REDIRECT)
+   ========================================================= */
+
+// Cek query string atau hash jika ada typo titik (misal: /?. atau /#.)
+if (window.location.search.includes('.') || window.location.hash.includes('.')) {
+    window.location.replace("404.html");
+}
+
+// Cegah navigasi jika ada elemen link dengan typo titik (misal: href="/." atau "...")
+document.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+    const href = link.getAttribute("href") || "";
+    if (
+        href.endsWith("/.") ||
+        href.endsWith("/..") ||
+        (href.endsWith(".") && !href.endsWith(".html") && !href.endsWith(".png") && !href.endsWith(".jpg") && !href.endsWith(".css") && !href.endsWith(".js"))
+    ) {
+        e.preventDefault();
+        window.location.href = "404.html";
+    }
+});
+
+
+/* =========================================================
    FUNGSI GLOBAL & NAVIGASI
    ========================================================= */
 
